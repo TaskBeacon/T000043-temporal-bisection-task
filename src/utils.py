@@ -1,15 +1,11 @@
 from __future__ import annotations
 
+import json
 import math
 import re
 from typing import Any
 
-DEFAULT_CONDITIONS = ("fr5", "fr10", "fr20")
-DEFAULT_RATIO_REQUIREMENTS = {
-    "fr5": 5,
-    "fr10": 10,
-    "fr20": 20,
-}
+DEFAULT_CONDITIONS = ("tsst",)
 
 
 def _normalize_token(value: Any) -> str:
@@ -34,6 +30,17 @@ def _as_float(value: Any) -> float | None:
     return parsed if math.isfinite(parsed) else None
 
 
+def _json_loads(value: Any) -> Any:
+    if isinstance(value, (dict, list)):
+        return value
+    if value is None:
+        return None
+    try:
+        return json.loads(str(value))
+    except Exception:
+        return None
+
+
 def parse_condition(condition: Any) -> str:
     if isinstance(condition, dict):
         raw = condition.get("condition") or condition.get("condition_id") or condition.get("label")
@@ -45,79 +52,70 @@ def parse_condition(condition: Any) -> str:
     return token
 
 
-def ratio_requirement_for_condition(condition: Any, settings: Any = None) -> int:
-    token = parse_condition(condition)
-    mapping = dict(getattr(settings, "ratio_requirements", {}) or {})
-    for key, value in mapping.items():
-        if _normalize_token(key) == token:
-            try:
-                return int(value)
-            except Exception:
-                break
-    if token in DEFAULT_RATIO_REQUIREMENTS:
-        return int(DEFAULT_RATIO_REQUIREMENTS[token])
-    match = re.search(r"(\d+)", token)
-    if match:
-        return int(match.group(1))
-    raise ValueError(f"Unable to infer ratio requirement from condition {condition!r}")
+def _phase_elapsed_values(row: dict[str, Any]) -> list[float]:
+    payload = _json_loads(row.get("phase_elapsed_json"))
+    if not isinstance(payload, dict):
+        return []
+
+    values: list[float] = []
+    for value in payload.values():
+        parsed = _as_float(value)
+        if parsed is not None:
+            values.append(parsed)
+    return values
 
 
-def reward_tokens_per_completion(settings: Any = None) -> int:
-    try:
-        return int(getattr(settings, "reward_tokens_per_completion", 1) or 1)
-    except Exception:
-        return 1
+def _phase_count(row: dict[str, Any]) -> int:
+    phase_count = _as_float(row.get("phase_count"))
+    if phase_count is not None:
+        return int(phase_count)
+
+    seq = _json_loads(row.get("phase_sequence_json"))
+    if isinstance(seq, list):
+        return len(seq)
+
+    values = _phase_elapsed_values(row)
+    return len(values)
 
 
-def satiety_fraction(total_tokens: int, limit: int) -> float:
-    if limit <= 0:
-        return 0.0
-    return max(0.0, min(float(total_tokens) / float(limit), 1.0))
+def _total_elapsed_s(row: dict[str, Any]) -> float:
+    for key in ("total_elapsed_s", "elapsed_s", "trial_elapsed_s"):
+        parsed = _as_float(row.get(key))
+        if parsed is not None:
+            return parsed
 
-
-def _trial_completion_s(row: dict[str, Any]) -> float | None:
-    for key in ("work_completion_s", "completion_s", "trial_completion_s"):
-        value = _as_float(row.get(key))
-        if value is not None:
-            return value
-    return None
+    values = _phase_elapsed_values(row)
+    if values:
+        return float(sum(values))
+    return 0.0
 
 
 def _summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     if not rows:
         return {
-            "completion_rate": 0.0,
-            "mean_completion_ms": 0.0,
-            "timeout_count": 0,
-            "total_tokens": 0,
-            "total_trials": 0,
+            "trial_count": 0,
+            "phase_count": 0,
+            "total_elapsed_s": 0.0,
+            "total_elapsed_min": 0.0,
+            "mean_phase_elapsed_s": 0.0,
         }
 
-    timeout_count = 0
-    completion_count = 0
-    total_tokens = 0
-    completion_time_sum = 0.0
-    completion_time_count = 0
+    total_elapsed_s = 0.0
+    phase_count = 0
+    trial_count = 0
 
     for row in rows:
-        if _as_bool(row.get("work_timeout", row.get("timed_out", False))):
-            timeout_count += 1
-        if _as_bool(row.get("reward_delivered", False)):
-            completion_count += 1
-            completion_s = _trial_completion_s(row)
-            if completion_s is not None:
-                completion_time_sum += completion_s
-                completion_time_count += 1
-        total_tokens = max(total_tokens, int(row.get("total_tokens_after", row.get("score_total", total_tokens)) or total_tokens))
+        trial_count += 1
+        total_elapsed_s = max(total_elapsed_s, _total_elapsed_s(row))
+        phase_count = max(phase_count, _phase_count(row))
 
-    completion_rate = completion_count / len(rows)
-    mean_completion_ms = (completion_time_sum / completion_time_count) * 1000.0 if completion_time_count else 0.0
+    mean_phase_elapsed_s = total_elapsed_s / phase_count if phase_count else 0.0
     return {
-        "completion_rate": completion_rate,
-        "mean_completion_ms": mean_completion_ms,
-        "timeout_count": timeout_count,
-        "total_tokens": total_tokens,
-        "total_trials": len(rows),
+        "trial_count": trial_count,
+        "phase_count": phase_count,
+        "total_elapsed_s": total_elapsed_s,
+        "total_elapsed_min": total_elapsed_s / 60.0,
+        "mean_phase_elapsed_s": mean_phase_elapsed_s,
     }
 
 
@@ -132,11 +130,7 @@ def summarizeOverall(reducedRows: list[dict[str, Any]]) -> dict[str, Any]:
 
 __all__ = [
     "DEFAULT_CONDITIONS",
-    "DEFAULT_RATIO_REQUIREMENTS",
     "parse_condition",
-    "ratio_requirement_for_condition",
-    "reward_tokens_per_completion",
-    "satiety_fraction",
     "summarizeBlock",
     "summarizeOverall",
 ]

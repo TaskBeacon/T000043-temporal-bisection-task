@@ -1,13 +1,13 @@
-# Fixed-ratio Satiation Schedule
+# Trier Social Stress Test
 
 ![Maturity: draft](https://img.shields.io/badge/Maturity-draft-64748b?style=flat-square&labelColor=111827)
 
 | Field | Value |
 |---|---|
-| Name | Fixed-ratio Satiation Schedule |
+| Name | Trier Social Stress Test |
 | Version | v0.1.0-dev |
-| URL / Repository | E:/Taskbeacon/T000041-fixed-ratio-satiation-schedule |
-| Short Description | Chinese fixed-ratio pressing task with three effort requirements (FR5, FR10, FR20) and an accumulating satiety meter. |
+| URL / Repository | E:/Taskbeacon/T000042-trier-social-stress-test |
+| Short Description | Chinese TSST implementation with neutral judges, a public speech challenge, serial subtraction, and recovery. |
 | Created By | TaskBeacon |
 | Date Updated | 2026-04-05 |
 | PsyFlow Version | 0.1.12 |
@@ -18,11 +18,9 @@
 
 ## 1. Task Overview
 
-This task measures effort-based responding under a fixed-ratio operant schedule. On each trial, participants press the space bar repeatedly until they satisfy the condition-specific ratio requirement. The three trial conditions are `fr5`, `fr10`, and `fr20`, which require 5, 10, and 20 presses respectively.
+This task implements the classic Trier Social Stress Test as a Chinese-localized PsyFlow protocol. The participant first reads the instructions, then completes a quiet baseline, a speech-preparation period, a 5-minute public speech challenge, a 5-minute serial subtraction challenge, and a recovery period. The core stressor is social evaluation: two neutral judges remain visible while the participant speaks and counts backward.
 
-Each successful completion delivers one token and increases the running satiety signal. Satiety is displayed as a percentage of a 12-token limit, so the participant sees the reward accumulation curve grow across the session. The human schedule contains 3 blocks of 18 trials each for a total of 54 trials.
-
-The task is designed to capture motivation, persistence, and reward accumulation as the effort requirement increases. The implementation uses Chinese participant-facing text and PsychoPy primitive stimuli only.
+The task uses built-in PsychoPy primitives to render the judges, camera indicator, and fixation screens. No external media or response scoring is required, because the target construct is acute psychosocial stress induction rather than accuracy or learning.
 
 ## 2. Task Flow
 
@@ -34,41 +32,41 @@ The task is designed to capture motivation, persistence, and reward accumulation
 |---|---|
 | 1. Load mode and config | `main.py` loads `human`, `qa`, or `sim` mode and resolves the matching YAML config. |
 | 2. Initialize runtime | Subject info, window, triggers, and the stimulus bank are initialized. |
-| 3. Show instructions | The participant reads the Chinese instruction screen and starts with the space key. |
-| 4. Run blocks | Human mode runs 3 blocks with 18 trials per block; QA and simulation modes use shorter smoke-test schedules. |
-| 5. Show block break | A summary screen appears between blocks and reports completion rate, mean completion time, and total tokens. |
-| 6. Finish | The goodbye screen appears and all trial data are saved. |
+| 3. Show instructions | The participant reads the Chinese TSST instructions and presses space to begin. |
+| 4. Run the canonical TSST trial | One block contains one TSST trial with the fixed phase order. |
+| 5. Finish | The recovery screen ends, the goodbye screen appears, and the data are saved. |
 
 ### Trial-Level Flow
 
 | Step | Description |
 |---|---|
-| Work preview | A brief preview screen shows the required press count, current counter, satiety, and fixation before responding starts. |
-| Work press window | Repeated press windows show the prompt, press counter, satiety, and fixation. Each valid space press advances the counter by one. |
-| Reward delivery | After the required number of presses is completed, a reward screen shows the token, reward text, and updated satiety. |
-| Satiation pause | A short pause screen keeps satiety visible before the next trial begins. |
-| Timeout feedback | If a press window expires before the ratio is met, a timeout screen appears instead of reward delivery. |
-| Inter-trial interval | Every trial ends with a fixation-only ITI screen before the next condition begins. |
+| Instruction | Explain the stress-test sequence and start with the space key. |
+| Baseline acclimation | A brief quiet fixation period prepares the participant. |
+| Speech preparation | The participant prepares a 10-minute speech about why they are fit for the job. |
+| Speech delivery | The participant delivers the speech for 5 minutes while two neutral judges and a recording light remain visible. |
+| Mental arithmetic | The participant counts backward from 2043 in steps of 17, again under observation. |
+| Recovery | The participant rests quietly with a fixation cross. |
+| Goodbye | The final screen reports the total elapsed time and exits on space. |
 
 ### Controller Logic
 
 | Component | Description |
 |---|---|
-| Condition generation | `BlockUnit.generate_conditions()` produces `fr5`, `fr10`, and `fr20` with equal weights. |
-| Ratio mapping | The ratio requirements are 5, 10, and 20 presses for `fr5`, `fr10`, and `fr20`. |
-| Reward accounting | Each successful completion gives 1 token and increments `token_total`. |
-| Satiety model | Satiety is computed as `total_tokens / 12` and clamped to the range `[0, 1]`. |
-| Block seeds | The three human blocks use deterministic seeds `41041`, `41042`, and `41043`. |
-| Summary outputs | Block and overall summaries report completion rate, mean completion time, timeout count, total tokens, and trial count. |
+| Condition generation | `BlockUnit.generate_conditions()` produces a single `tsst` condition. |
+| Phase order | `instruction -> baseline_acclimation -> speech_preparation -> speech_delivery -> mental_arithmetic -> recovery -> good_bye`. |
+| Response handling | `space` starts the instruction screen and dismisses the goodbye screen; no response is required during the timed stress phases. |
+| Timing control | Human mode uses the canonical long TSST durations; QA and sim configs shorten the same sequence for smoke testing. |
+| Summary metrics | The trial reports phase count, per-phase elapsed time, and total elapsed time. |
+| Triggering | Each phase emits a dedicated onset trigger so the stress sequence is auditable. |
 
 ### Other Logic
 
 | Component | Description |
 |---|---|
-| Response key | The only task response key is the space bar. |
-| Human pacing | Human mode uses a 3-second countdown before each block. |
-| QA/sim scope | QA and simulation modes reuse the same state machine with shortened schedules so the same logic can be validated quickly. |
-| Data capture | Trial records include press traces, response RTs, reward flags, token totals, and satiety before/after each trial. |
+| Social-evaluative panel | The judges and camera indicator are rendered with PsychoPy shapes and text primitives. |
+| No reward logic | There are no points, tokens, or rewards; this is a stress induction task. |
+| No adaptive staircase | The TSST is a fixed-script protocol, so there is no adaptive controller. |
+| QA/sim coverage | QA and both simulation profiles cover the same full phase sequence with short durations. |
 
 ## 3. Configuration Summary
 
@@ -96,29 +94,31 @@ All human settings are defined in `config/config.yaml`. QA and smoke-test overri
 
 | Name | Type | Description |
 |---|---|---|
-| `instruction_text` | text | Chinese instructions that explain the fixed-ratio pressing rule and the space-key response. |
-| `block_ready` | text | Block-start text kept in config; human mode currently uses a 3-second countdown helper before each block. |
-| `work_prompt` | text | Shows the required number of presses for the current trial. |
-| `work_counter` | text | Shows the current press count out of the requirement. |
-| `satiety_text` | text | Shows the current satiety percentage. |
-| `fixation` | text | Centered plus sign used during work, feedback, and ITI screens. |
-| `reward_token` | circle | Gold token drawn on the reward screen. |
-| `reward_text` | text | Reward confirmation that indicates a token has been delivered. |
-| `timeout_text` | text | Timeout feedback shown when a press window closes before completion. |
-| `block_break` | text | Block summary with completion rate, mean completion time, and total tokens. |
-| `good_bye` | text | Session-end summary and exit prompt. |
+| `instruction_text` | text | Chinese instructions describing the TSST sequence and the space key to start. |
+| `baseline_text` | text | Quiet fixation prompt for the acclimation period. |
+| `prep_text` | text | Speech preparation prompt. |
+| `speech_text` | text | Public speech challenge prompt. |
+| `math_text` | text | Serial subtraction prompt starting at 2043 and stepping by 17. |
+| `recovery_text` | text | Recovery prompt with a quiet rest instruction. |
+| `fixation` | text | Centered plus sign used during baseline and recovery. |
+| `panel_backdrop` | rect | Dark panel backdrop behind the judges. |
+| `judge_left_head` / `judge_left_body` | circle / rect | Left judge silhouette built from primitives. |
+| `judge_right_head` / `judge_right_body` | circle / rect | Right judge silhouette built from primitives. |
+| `camera_light` | circle | Red recording light shown during evaluative phases. |
+| `camera_label` | text | Small `REC` label above the recording light. |
+| `good_bye` | text | End-of-task summary and exit screen. |
 
 ### d. Timing
 
-| Phase | Duration |
-|---|---|
-| Instruction pause | `0.0 s` |
-| Ready / countdown | `3.0 s` |
-| Press timeout | `1.2 s` |
-| Reward display | `0.9 s` |
-| Satiation pause | `1.2 s` |
-| Inter-trial interval | `0.8 s` |
-| Block break | `3.0 s` |
+| Phase | Human | QA / Sim |
+|---|---|---|
+| Instruction pause | `0.1 s` | `0.1 s` |
+| Baseline acclimation | `300 s` | `2 s` |
+| Speech preparation | `600 s` | `3 s` |
+| Speech delivery | `300 s` | `2 s` |
+| Mental arithmetic | `300 s` | `2 s` |
+| Recovery | `900 s` | `3 s` |
+| Goodbye hold | `0.1 s` | `0.1 s` |
 
 ### e. Triggers
 
@@ -129,34 +129,36 @@ All human settings are defined in `config/config.yaml`. QA and smoke-test overri
 | Block onset | `10` |
 | Block end | `11` |
 | Trial onset | `20` |
-| Press onset | `21` |
-| Press response | `22` |
-| Press timeout | `23` |
-| Reward onset | `30` |
-| Satiation onset | `31` |
-| ITI onset | `40` |
+| Instruction onset | `21` |
+| Baseline onset | `22` |
+| Preparation onset | `23` |
+| Speech onset | `24` |
+| Mental arithmetic onset | `25` |
+| Recovery onset | `26` |
+| Goodbye onset | `30` |
 
 ### f. Adaptive Controller
 
 | Parameter | Value |
 |---|---|
-| `phase_order` | `instruction -> work -> reward -> satiation -> iti` |
-| `conditions` | `fr5`, `fr10`, `fr20` |
-| `condition_weights` | `1, 1, 1` |
-| `ratio_requirements` | `fr5=5`, `fr10=10`, `fr20=20` |
-| `total_blocks` | `3` in human mode, `1` in QA and simulation modes |
-| `trial_per_block` | `18` in human mode, `3` in QA and simulation modes |
-| `total_trials` | `54` in human mode, `3` in QA and simulation modes |
-| `satiation_limit` | `12` tokens |
-| `reward_tokens_per_completion` | `1` |
+| `phase_order` | `instruction -> baseline_acclimation -> speech_preparation -> speech_delivery -> mental_arithmetic -> recovery -> good_bye` |
+| `conditions` | `tsst` |
+| `condition_weights` | `tsst: 1` |
+| `total_blocks` | `1` |
+| `trial_per_block` | `1` |
+| `total_trials` | `1` |
+| `speech_preparation_minutes` | `10` |
+| `speech_minutes` | `5` |
+| `arithmetic_start_number` | `2043` |
+| `arithmetic_step` | `17` |
+| `recovery_minutes` | `15` |
 | `response_key` | `space` |
 | `seed_mode` | `same_across_sub` |
-| `block_seed` | `41041`, `41042`, `41043` |
-| `delta` | `1` token per successful completion |
-| `QA acceptance` | `condition`, `ratio_requirement`, and `presses_completed` must be present in the QA trace |
+| `overall_seed` | `42042` |
+| `block_seed` | `42042` |
 
 ## 4. Methods (for academic publication)
 
-Fixed-ratio satiation schedules are used to study effort allocation, persistence, and reward accumulation under increasing response requirements. In this implementation, each trial requires repeated space-bar presses to satisfy one of three fixed-ratio contingencies: FR5, FR10, or FR20. Successful completion delivers one token, and the cumulative token count is converted into a satiety signal that grows across the session.
+The Trier Social Stress Test is a widely used acute psychosocial stress induction paradigm that combines social-evaluative threat, uncontrollability, public speaking, and mental arithmetic. In the canonical protocol, the participant prepares and delivers a speech in front of a neutral panel, then performs serial subtraction under observation, followed by a recovery period.
 
-The task is organized into three balanced blocks in human mode, with shortened QA and simulation profiles that preserve the same state machine for validation. The trial sequence is a work preview, repeated work windows, reward delivery or timeout feedback, satiation pause, and ITI. Performance is summarized using completion rate, completion time, timeout count, and total token accumulation, making the paradigm suitable for behavioral studies of motivation and effort-based responding.
+This implementation preserves that structure in Chinese with PsychoPy primitives. The judges and recording cue remain on-screen during the evaluative phases, the speech prompt requires continuous public speaking, and the arithmetic prompt begins at 2043 and decrements by 17. The task is therefore suited for behavioral or psychophysiological studies that need a reproducible TSST sequence without relying on external media assets.

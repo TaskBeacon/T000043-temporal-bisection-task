@@ -1,13 +1,13 @@
-id: T000041
-slug: fixed-ratio-satiation-schedule
-title: Fixed-ratio Satiation Schedule
+id: T000042
+slug: trier-social-stress-test
+title: Trier Social Stress Test
 acquisition: behavior
 variant: baseline
 cognitive_domain:
-  - motivation
-  - reward-processing
-  - operant-conditioning
-  - effort-based-decision-making
+  - stress-reactivity
+  - social-evaluation
+  - public-speaking
+  - mental-arithmetic
 maturity: draft
 version:
   release_tag: v0.1.0-dev

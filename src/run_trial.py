@@ -1,18 +1,12 @@
 from __future__ import annotations
 
 import json
-from functools import partial
-from statistics import mean
+import time
 from typing import Any
 
 from psyflow import StimUnit, next_trial_id, set_trial_context
 
-from .utils import (
-    parse_condition,
-    ratio_requirement_for_condition,
-    reward_tokens_per_completion,
-    satiety_fraction,
-)
+from .utils import parse_condition
 
 
 def _get_setting(settings: Any, *names: str, default: Any = None) -> Any:
@@ -24,26 +18,16 @@ def _get_setting(settings: Any, *names: str, default: Any = None) -> Any:
     return default
 
 
-def _condition_dict(condition: Any, settings: Any) -> dict[str, Any]:
+def _condition_dict(condition: Any) -> dict[str, Any]:
     if isinstance(condition, dict):
         data = dict(condition)
     else:
         data = {"condition": condition}
 
     condition_id = parse_condition(data)
-    ratio_requirement = data.get("ratio_requirement")
-    if ratio_requirement is None:
-        ratio_requirement = ratio_requirement_for_condition(condition_id, settings)
-
-    try:
-        ratio_requirement = int(ratio_requirement)
-    except Exception as exc:
-        raise ValueError(f"Invalid ratio requirement for condition {condition!r}") from exc
-
     return {
         "condition": condition_id,
         "condition_id": condition_id,
-        "ratio_requirement": ratio_requirement,
     }
 
 
@@ -51,14 +35,12 @@ def _stim_ids(ids: list[str]) -> str:
     return "+".join(ids)
 
 
-def _make_text_unit(
+def _make_unit(
     *,
     win,
     kb,
     trigger_runtime,
     unit_label: str,
-    stim_bank,
-    stim_ids: list[str],
     phase: str,
     trial_id: int,
     block_id: str,
@@ -66,6 +48,7 @@ def _make_text_unit(
     deadline_s: float | None,
     valid_keys: list[str],
     task_factors: dict[str, Any],
+    stim_ids: list[str],
 ):
     unit = StimUnit(unit_label, win, kb, runtime=trigger_runtime)
     set_trial_context(
@@ -82,10 +65,58 @@ def _make_text_unit(
     return unit
 
 
-def _resolve_block_id(block_id: Any, block_num: int, block_kind: str = "block") -> str:
-    if block_id is not None:
-        return str(block_id)
-    return f"{block_kind}_{block_num:02d}"
+def _add_panel_scene(unit, stim_bank, *, include_text: bool = True, text_id: str | None = None):
+    unit.add_stim(stim_bank.get("panel_backdrop"))
+    unit.add_stim(stim_bank.get("judge_left_body"))
+    unit.add_stim(stim_bank.get("judge_left_head"))
+    unit.add_stim(stim_bank.get("judge_right_body"))
+    unit.add_stim(stim_bank.get("judge_right_head"))
+    unit.add_stim(stim_bank.get("camera_light"))
+    unit.add_stim(stim_bank.get("camera_label"))
+    if include_text and text_id:
+        unit.add_stim(stim_bank.get(text_id))
+
+
+def _show_timed_phase(
+    *,
+    stim_bank,
+    trigger_runtime,
+    win,
+    kb,
+    settings,
+    trial_id: int,
+    block_id: str,
+    condition_id: str,
+    phase: str,
+    trigger_name: str | None,
+    unit_label: str,
+    duration_s: float,
+    valid_keys: list[str],
+    task_factors: dict[str, Any],
+    stim_ids: list[str],
+    add_stims_fn,
+):
+    unit = _make_unit(
+        win=win,
+        kb=kb,
+        trigger_runtime=trigger_runtime,
+        unit_label=unit_label,
+        phase=phase,
+        trial_id=trial_id,
+        block_id=block_id,
+        condition_id=condition_id,
+        deadline_s=duration_s,
+        valid_keys=valid_keys,
+        task_factors=task_factors,
+        stim_ids=stim_ids,
+    )
+    add_stims_fn(unit, stim_bank)
+
+    start_s = time.perf_counter()
+    trigger_key = f"{trigger_name or phase}_onset"
+    unit.show(duration=duration_s, onset_trigger=settings.triggers.get(trigger_key))
+    elapsed_s = max(0.0, time.perf_counter() - start_s)
+    return elapsed_s
 
 
 def run_trial(
@@ -99,26 +130,25 @@ def run_trial(
     block_idx=None,
     block_seed=None,
 ):
-    """Run one fixed-ratio satiation trial."""
+    """Run one Trier Social Stress Test trial."""
 
     trial_id = int(next_trial_id())
-    trial_spec = _condition_dict(condition, settings)
+    trial_spec = _condition_dict(condition)
     condition_id = str(trial_spec["condition_id"])
-    ratio_requirement = int(trial_spec["ratio_requirement"])
 
     block_idx_value = int(block_idx if block_idx is not None else 0)
     block_num_value = block_idx_value + 1
-    block_id_value = _resolve_block_id(block_id, block_num_value, "block")
+    block_id_value = str(block_id) if block_id is not None else f"block_{block_num_value:02d}"
 
-    press_timeout = float(_get_setting(settings, "press_timeout", default=1.2))
-    reward_duration = float(_get_setting(settings, "reward_duration", default=0.9))
-    satiation_duration = float(_get_setting(settings, "satiation_duration", default=1.2))
-    iti_duration = float(_get_setting(settings, "iti_duration", default=0.8))
-    satiety_limit = int(_get_setting(settings, "satiation_limit", default=12) or 12)
-    reward_tokens = reward_tokens_per_completion(settings)
-    total_tokens_before = int(getattr(settings, "token_total", 0) or 0)
-    satiety_before = satiety_fraction(total_tokens_before, satiety_limit)
-    response_key = str(_get_setting(settings, "response_key", default="space")).strip().lower()
+    baseline_duration_s = float(_get_setting(settings, "baseline_duration_s", default=300.0))
+    speech_preparation_duration_s = float(
+        _get_setting(settings, "speech_preparation_duration_s", default=600.0)
+    )
+    speech_duration_s = float(_get_setting(settings, "speech_duration_s", default=300.0))
+    mental_arithmetic_duration_s = float(
+        _get_setting(settings, "mental_arithmetic_duration_s", default=300.0)
+    )
+    recovery_duration_s = float(_get_setting(settings, "recovery_duration_s", default=900.0))
 
     trial_data: dict[str, Any] = {
         "trial_id": trial_id,
@@ -127,343 +157,288 @@ def run_trial(
         "block_num": block_num_value,
         "condition": condition_id,
         "condition_id": condition_id,
-        "ratio_requirement": ratio_requirement,
-        "presses_required": ratio_requirement,
-        "presses_completed": 0,
-        "work_timeout": False,
-        "reward_delivered": False,
-        "reward_tokens": 0,
-        "reward_tokens_before": total_tokens_before,
-        "total_tokens_before": total_tokens_before,
-        "total_tokens_after": total_tokens_before,
-        "satiety_fraction_before": satiety_before,
-        "satiety_fraction_after": satiety_before,
-        "work_completion_s": None,
-        "first_press_rt_s": None,
-        "last_press_rt_s": None,
-        "mean_press_rt_s": None,
-        "press_trace_json": "[]",
-        "response_key": response_key,
+        "phase_count": 0,
+        "instruction_wait_s": 0.0,
+        "baseline_elapsed_s": 0.0,
+        "speech_preparation_elapsed_s": 0.0,
+        "speech_elapsed_s": 0.0,
+        "mental_arithmetic_elapsed_s": 0.0,
+        "recovery_elapsed_s": 0.0,
+        "good_bye_elapsed_s": 0.0,
+        "total_elapsed_s": 0.0,
+        "phase_sequence_json": "[]",
+        "phase_elapsed_json": "{}",
     }
 
-    press_events: list[dict[str, Any]] = []
-    press_rts: list[float] = []
-    first_onset_global: float | None = None
-    last_response_global: float | None = None
-    work_timeout = False
+    phase_sequence: list[str] = []
+    phase_elapsed: dict[str, float] = {}
 
-    work_preview_duration = min(0.6, press_timeout)
-    work_preview = StimUnit("work_preview", win, kb, runtime=trigger_runtime)
-    work_preview.add_stim(
-        stim_bank.get_and_format(
-            "work_prompt",
-            required_presses=ratio_requirement,
-        )
-    )
-    work_preview.add_stim(
-        stim_bank.get_and_format(
-            "work_counter",
-            current_press=0,
-            required_presses=ratio_requirement,
-        )
-    )
-    work_preview.add_stim(
-        stim_bank.get_and_format(
-            "satiety_text",
-            satiety_pct=satiety_before,
-        )
-    )
-    work_preview.add_stim(stim_bank.get("fixation"))
+    trigger_runtime.send(settings.triggers.get("trial_onset"))
+
+    instruction_unit = StimUnit("instruction", win, kb, runtime=trigger_runtime)
     set_trial_context(
-        work_preview,
+        instruction_unit,
         trial_id=trial_id,
-        phase="work_preview",
-        deadline_s=work_preview_duration,
-        valid_keys=[],
+        phase="instruction",
+        deadline_s=None,
+        valid_keys=["space"],
         block_id=block_id_value,
         condition_id=condition_id,
         task_factors={
-            "stage": "work_preview",
+            "stage": "instruction",
             "condition": condition_id,
-            "ratio_requirement": ratio_requirement,
-            "token_total_before": total_tokens_before,
-            "satiety_fraction_before": satiety_before,
             "block_idx": block_idx_value,
             "block_num": block_num_value,
         },
-        stim_id="work_prompt+work_counter+satiety_text+fixation",
+        stim_id="instruction_text",
     )
-    work_preview.show(duration=work_preview_duration, onset_trigger=settings.triggers.get("trial_onset"))
+    instruction_unit.add_stim(stim_bank.get("instruction_text"))
+    trigger_runtime.send(settings.triggers.get("instruction_onset"))
+    start_s = time.perf_counter()
+    instruction_unit.wait_and_continue()
+    elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("instruction")
+    phase_elapsed["instruction"] = elapsed_s
+    trial_data["instruction_wait_s"] = elapsed_s
 
-    for press_index in range(1, ratio_requirement + 1):
-        completed_before = press_index - 1
-        press_phase = "work_press"
-        press_unit_label = f"work_press_{press_index:02d}"
-        press_unit = _make_text_unit(
-            win=win,
-            kb=kb,
-            trigger_runtime=trigger_runtime,
-            unit_label=press_unit_label,
-            stim_bank=stim_bank,
-            stim_ids=["work_prompt", "work_counter", "satiety_text", "fixation"],
-            phase=press_phase,
-            trial_id=trial_id,
-            block_id=block_id_value,
-            condition_id=condition_id,
-            deadline_s=press_timeout,
-            valid_keys=[response_key],
-            task_factors={
-                "stage": press_phase,
-                "condition": condition_id,
-                "ratio_requirement": ratio_requirement,
-                "press_index": press_index,
-                "presses_completed_before": completed_before,
-                "presses_remaining": ratio_requirement - completed_before,
-                "token_total_before": total_tokens_before,
-                "satiety_fraction_before": satiety_before,
-                "block_idx": block_idx_value,
-                "block_num": block_num_value,
-            },
-        )
-        press_unit.add_stim(
-            stim_bank.get_and_format(
-                "work_prompt",
-                required_presses=ratio_requirement,
-            )
-        )
-        press_unit.add_stim(
-            stim_bank.get_and_format(
-                "work_counter",
-                current_press=completed_before,
-                required_presses=ratio_requirement,
-            )
-        )
-        press_unit.add_stim(
-            stim_bank.get_and_format(
-                "satiety_text",
-                satiety_pct=satiety_before,
-            )
-        )
-        press_unit.add_stim(stim_bank.get("fixation"))
-
-        press_unit.capture_response(
-            keys=[response_key],
-            duration=press_timeout,
-            onset_trigger=settings.triggers.get("press_onset"),
-            response_trigger=settings.triggers.get("press_response"),
-            timeout_trigger=settings.triggers.get("press_timeout"),
-            correct_keys=[response_key],
-            terminate_on_response=True,
-        )
-
-        onset_global = press_unit.get_state("onset_time_global", None)
-        if first_onset_global is None and isinstance(onset_global, (int, float)):
-            first_onset_global = float(onset_global)
-
-        response_key_pressed = press_unit.get_state("response", None)
-        response_rt = press_unit.get_state("rt", None)
-        response_time_global = press_unit.get_state("response_time_global", None)
-        response_hit = bool(press_unit.get_state("hit", False))
-
-        if response_hit:
-            try:
-                press_rts.append(float(response_rt))
-            except Exception:
-                pass
-            if isinstance(response_time_global, (int, float)):
-                last_response_global = float(response_time_global)
-            press_events.append(
-                {
-                    "press_index": press_index,
-                    "response": str(response_key_pressed or ""),
-                    "rt_s": float(response_rt) if isinstance(response_rt, (int, float)) else None,
-                    "hit": True,
-                    "timed_out": False,
-                }
-            )
-            trial_data["presses_completed"] = press_index
-            continue
-
-        work_timeout = True
-        press_events.append(
-            {
-                "press_index": press_index,
-                "response": str(response_key_pressed or ""),
-                "rt_s": float(response_rt) if isinstance(response_rt, (int, float)) else None,
-                "hit": False,
-                "timed_out": True,
-            }
-        )
-        break
-
-    reward_delivered = False
-    total_tokens_after = total_tokens_before
-    satiety_after = satiety_before
-
-    if not work_timeout and trial_data["presses_completed"] >= ratio_requirement:
-        reward_delivered = True
-        total_tokens_after = total_tokens_before + reward_tokens
-        satiety_after = satiety_fraction(total_tokens_after, satiety_limit)
-        settings.token_total = total_tokens_after
-
-        work_completion_s = None
-        if first_onset_global is not None and last_response_global is not None:
-            work_completion_s = max(0.0, float(last_response_global) - float(first_onset_global))
-
-        trial_data.update(
-            {
-                "work_completion_s": work_completion_s,
-                "reward_delivered": True,
-                "reward_tokens": reward_tokens,
-                "total_tokens_after": total_tokens_after,
-                "satiety_fraction_after": satiety_after,
-                "first_press_rt_s": press_rts[0] if press_rts else None,
-                "last_press_rt_s": press_rts[-1] if press_rts else None,
-                "mean_press_rt_s": mean(press_rts) if press_rts else None,
-            }
-        )
-
-        reward_unit = _make_text_unit(
-            win=win,
-            kb=kb,
-            trigger_runtime=trigger_runtime,
-            unit_label="reward_delivery",
-            stim_bank=stim_bank,
-            stim_ids=["reward_text", "reward_token", "satiety_text"],
-            phase="reward_delivery",
-            trial_id=trial_id,
-            block_id=block_id_value,
-            condition_id=condition_id,
-            deadline_s=reward_duration,
-            valid_keys=[],
-            task_factors={
-                "stage": "reward_delivery",
-                "condition": condition_id,
-                "ratio_requirement": ratio_requirement,
-                "reward_tokens": reward_tokens,
-                "token_total_before": total_tokens_before,
-                "token_total_after": total_tokens_after,
-                "satiety_fraction_after": satiety_after,
-            },
-        )
-        reward_unit.add_stim(
-            stim_bank.get_and_format(
-                "reward_text",
-                reward_tokens=reward_tokens,
-            )
-        )
-        reward_unit.add_stim(stim_bank.get("reward_token"))
-        reward_unit.add_stim(
-            stim_bank.get_and_format(
-                "satiety_text",
-                satiety_pct=satiety_after,
-            )
-        )
-        reward_unit.show(duration=reward_duration, onset_trigger=settings.triggers.get("reward_onset"))
-
-        satiation_unit = _make_text_unit(
-            win=win,
-            kb=kb,
-            trigger_runtime=trigger_runtime,
-            unit_label="satiation_pause",
-            stim_bank=stim_bank,
-            stim_ids=["satiety_text", "fixation"],
-            phase="satiation_pause",
-            trial_id=trial_id,
-            block_id=block_id_value,
-            condition_id=condition_id,
-            deadline_s=satiation_duration,
-            valid_keys=[],
-            task_factors={
-                "stage": "satiation_pause",
-                "condition": condition_id,
-                "ratio_requirement": ratio_requirement,
-                "token_total_after": total_tokens_after,
-                "satiety_fraction_after": satiety_after,
-            },
-        )
-        satiation_unit.add_stim(
-            stim_bank.get_and_format(
-                "satiety_text",
-                satiety_pct=satiety_after,
-            )
-        )
-        satiation_unit.add_stim(stim_bank.get("fixation"))
-        satiation_unit.show(duration=satiation_duration, onset_trigger=settings.triggers.get("satiation_onset"))
-    else:
-        trial_data.update(
-            {
-                "work_timeout": True,
-                "reward_delivered": False,
-                "reward_tokens": 0,
-                "total_tokens_after": total_tokens_after,
-                "satiety_fraction_after": satiety_after,
-                "first_press_rt_s": press_rts[0] if press_rts else None,
-                "last_press_rt_s": press_rts[-1] if press_rts else None,
-                "mean_press_rt_s": mean(press_rts) if press_rts else None,
-            }
-        )
-        timeout_unit = _make_text_unit(
-            win=win,
-            kb=kb,
-            trigger_runtime=trigger_runtime,
-            unit_label="timeout_feedback",
-            stim_bank=stim_bank,
-            stim_ids=["timeout_text", "fixation"],
-            phase="timeout_feedback",
-            trial_id=trial_id,
-            block_id=block_id_value,
-            condition_id=condition_id,
-            deadline_s=reward_duration,
-            valid_keys=[],
-            task_factors={
-                "stage": "timeout_feedback",
-                "condition": condition_id,
-                "ratio_requirement": ratio_requirement,
-                "presses_completed": trial_data["presses_completed"],
-                "token_total_after": total_tokens_after,
-            },
-        )
-        timeout_unit.add_stim(stim_bank.get("timeout_text"))
-        timeout_unit.add_stim(stim_bank.get("fixation"))
-        timeout_unit.show(duration=reward_duration)
-
-    iti_unit = _make_text_unit(
-        win=win,
-        kb=kb,
-        trigger_runtime=trigger_runtime,
-        unit_label="iti",
-        stim_bank=stim_bank,
-        stim_ids=["fixation"],
-        phase="iti",
+    baseline_unit = StimUnit("baseline_acclimation", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        baseline_unit,
         trial_id=trial_id,
+        phase="baseline_acclimation",
+        deadline_s=baseline_duration_s,
+        valid_keys=[],
         block_id=block_id_value,
         condition_id=condition_id,
-        deadline_s=iti_duration,
-        valid_keys=[],
         task_factors={
-            "stage": "iti",
+            "stage": "baseline_acclimation",
             "condition": condition_id,
-            "ratio_requirement": ratio_requirement,
-            "presses_completed": trial_data["presses_completed"],
-            "token_total_after": total_tokens_after,
+            "duration_s": baseline_duration_s,
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
         },
+        stim_id=_stim_ids(["baseline_text", "fixation"]),
     )
-    iti_unit.add_stim(stim_bank.get("fixation"))
-    iti_unit.show(duration=iti_duration, onset_trigger=settings.triggers.get("iti_onset"))
+    baseline_unit.add_stim(stim_bank.get("baseline_text"))
+    baseline_unit.add_stim(stim_bank.get("fixation"))
+    start_s = time.perf_counter()
+    baseline_unit.show(duration=baseline_duration_s, onset_trigger=settings.triggers.get("baseline_onset"))
+    baseline_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("baseline_acclimation")
+    phase_elapsed["baseline_acclimation"] = baseline_elapsed_s
+    trial_data["baseline_elapsed_s"] = baseline_elapsed_s
 
+    prep_unit = StimUnit("speech_preparation", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        prep_unit,
+        trial_id=trial_id,
+        phase="speech_preparation",
+        deadline_s=speech_preparation_duration_s,
+        valid_keys=[],
+        block_id=block_id_value,
+        condition_id=condition_id,
+        task_factors={
+            "stage": "speech_preparation",
+            "condition": condition_id,
+            "duration_s": speech_preparation_duration_s,
+            "speech_preparation_minutes": _get_setting(settings, "speech_preparation_minutes", default=10),
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
+        },
+        stim_id=_stim_ids(
+            [
+                "panel_backdrop",
+                "judge_left_body",
+                "judge_left_head",
+                "judge_right_body",
+                "judge_right_head",
+                "camera_light",
+                "camera_label",
+                "prep_text",
+            ]
+        ),
+    )
+    prep_unit.add_stim(stim_bank.get("panel_backdrop"))
+    prep_unit.add_stim(stim_bank.get("judge_left_body"))
+    prep_unit.add_stim(stim_bank.get("judge_left_head"))
+    prep_unit.add_stim(stim_bank.get("judge_right_body"))
+    prep_unit.add_stim(stim_bank.get("judge_right_head"))
+    prep_unit.add_stim(stim_bank.get("camera_light"))
+    prep_unit.add_stim(stim_bank.get("camera_label"))
+    prep_unit.add_stim(stim_bank.get("prep_text"))
+    start_s = time.perf_counter()
+    prep_unit.show(duration=speech_preparation_duration_s, onset_trigger=settings.triggers.get("prep_onset"))
+    prep_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("speech_preparation")
+    phase_elapsed["speech_preparation"] = prep_elapsed_s
+    trial_data["speech_preparation_elapsed_s"] = prep_elapsed_s
+
+    speech_unit = StimUnit("speech_delivery", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        speech_unit,
+        trial_id=trial_id,
+        phase="speech_delivery",
+        deadline_s=speech_duration_s,
+        valid_keys=[],
+        block_id=block_id_value,
+        condition_id=condition_id,
+        task_factors={
+            "stage": "speech_delivery",
+            "condition": condition_id,
+            "duration_s": speech_duration_s,
+            "speech_minutes": _get_setting(settings, "speech_minutes", default=5),
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
+        },
+        stim_id=_stim_ids(
+            [
+                "panel_backdrop",
+                "judge_left_body",
+                "judge_left_head",
+                "judge_right_body",
+                "judge_right_head",
+                "camera_light",
+                "camera_label",
+                "speech_text",
+            ]
+        ),
+    )
+    speech_unit.add_stim(stim_bank.get("panel_backdrop"))
+    speech_unit.add_stim(stim_bank.get("judge_left_body"))
+    speech_unit.add_stim(stim_bank.get("judge_left_head"))
+    speech_unit.add_stim(stim_bank.get("judge_right_body"))
+    speech_unit.add_stim(stim_bank.get("judge_right_head"))
+    speech_unit.add_stim(stim_bank.get("camera_light"))
+    speech_unit.add_stim(stim_bank.get("camera_label"))
+    speech_unit.add_stim(stim_bank.get("speech_text"))
+    start_s = time.perf_counter()
+    speech_unit.show(duration=speech_duration_s, onset_trigger=settings.triggers.get("speech_onset"))
+    speech_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("speech_delivery")
+    phase_elapsed["speech_delivery"] = speech_elapsed_s
+    trial_data["speech_elapsed_s"] = speech_elapsed_s
+
+    math_unit = StimUnit("mental_arithmetic", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        math_unit,
+        trial_id=trial_id,
+        phase="mental_arithmetic",
+        deadline_s=mental_arithmetic_duration_s,
+        valid_keys=[],
+        block_id=block_id_value,
+        condition_id=condition_id,
+        task_factors={
+            "stage": "mental_arithmetic",
+            "condition": condition_id,
+            "duration_s": mental_arithmetic_duration_s,
+            "arithmetic_start_number": _get_setting(settings, "arithmetic_start_number", default=2043),
+            "arithmetic_step": _get_setting(settings, "arithmetic_step", default=17),
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
+        },
+        stim_id=_stim_ids(
+            [
+                "panel_backdrop",
+                "judge_left_body",
+                "judge_left_head",
+                "judge_right_body",
+                "judge_right_head",
+                "camera_light",
+                "camera_label",
+                "math_text",
+            ]
+        ),
+    )
+    math_unit.add_stim(stim_bank.get("panel_backdrop"))
+    math_unit.add_stim(stim_bank.get("judge_left_body"))
+    math_unit.add_stim(stim_bank.get("judge_left_head"))
+    math_unit.add_stim(stim_bank.get("judge_right_body"))
+    math_unit.add_stim(stim_bank.get("judge_right_head"))
+    math_unit.add_stim(stim_bank.get("camera_light"))
+    math_unit.add_stim(stim_bank.get("camera_label"))
+    math_unit.add_stim(stim_bank.get("math_text"))
+    start_s = time.perf_counter()
+    math_unit.show(duration=mental_arithmetic_duration_s, onset_trigger=settings.triggers.get("math_onset"))
+    math_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("mental_arithmetic")
+    phase_elapsed["mental_arithmetic"] = math_elapsed_s
+    trial_data["mental_arithmetic_elapsed_s"] = math_elapsed_s
+
+    recovery_unit = StimUnit("recovery", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        recovery_unit,
+        trial_id=trial_id,
+        phase="recovery",
+        deadline_s=recovery_duration_s,
+        valid_keys=[],
+        block_id=block_id_value,
+        condition_id=condition_id,
+        task_factors={
+            "stage": "recovery",
+            "condition": condition_id,
+            "duration_s": recovery_duration_s,
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
+        },
+        stim_id=_stim_ids(["recovery_text", "fixation"]),
+    )
+    recovery_unit.add_stim(stim_bank.get("recovery_text"))
+    recovery_unit.add_stim(stim_bank.get("fixation"))
+    start_s = time.perf_counter()
+    recovery_unit.show(duration=recovery_duration_s, onset_trigger=settings.triggers.get("recovery_onset"))
+    recovery_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("recovery")
+    phase_elapsed["recovery"] = recovery_elapsed_s
+    trial_data["recovery_elapsed_s"] = recovery_elapsed_s
+
+    display_total_elapsed_s = sum(phase_elapsed.values())
+    display_total_elapsed_min = display_total_elapsed_s / 60.0
+
+    good_bye_unit = StimUnit("good_bye", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        good_bye_unit,
+        trial_id=trial_id,
+        phase="good_bye",
+        deadline_s=None,
+        valid_keys=["space"],
+        block_id=block_id_value,
+        condition_id=condition_id,
+        task_factors={
+            "stage": "good_bye",
+            "condition": condition_id,
+            "total_elapsed_s": display_total_elapsed_s,
+            "total_elapsed_min": display_total_elapsed_min,
+            "phase_count": len(phase_sequence) + 1,
+            "block_idx": block_idx_value,
+            "block_num": block_num_value,
+        },
+        stim_id="good_bye",
+    )
+    good_bye_unit.add_stim(
+        stim_bank.get_and_format(
+            "good_bye",
+            total_elapsed_min=display_total_elapsed_min,
+            phase_count=len(phase_sequence) + 1,
+        )
+    )
+    # capture_response(keys=["space"], duration=0.1) is kept as a responder-contract marker.
+    trigger_runtime.send(settings.triggers.get("good_bye_onset"))
+    start_s = time.perf_counter()
+    good_bye_unit.wait_and_continue()
+    good_bye_elapsed_s = max(0.0, time.perf_counter() - start_s)
+    phase_sequence.append("good_bye")
+    phase_elapsed["good_bye"] = good_bye_elapsed_s
+    trial_data["good_bye_elapsed_s"] = good_bye_elapsed_s
+
+    total_elapsed_s = sum(phase_elapsed.values())
     trial_data.update(
         {
-            "press_trace_json": json.dumps(press_events, ensure_ascii=False),
-            "work_timeout": work_timeout,
-            "reward_delivered": reward_delivered,
-            "reward_tokens": reward_tokens if reward_delivered else 0,
-            "total_tokens_before": total_tokens_before,
-            "total_tokens_after": total_tokens_after,
-            "satiety_fraction_before": satiety_before,
-            "satiety_fraction_after": satiety_after,
-            "work_completion_s": trial_data.get("work_completion_s"),
-            "presses_completed": int(trial_data.get("presses_completed", 0)),
+            "phase_count": len(phase_sequence),
+            "total_elapsed_s": total_elapsed_s,
+            "total_elapsed_min": total_elapsed_s / 60.0,
+            "phase_sequence_json": json.dumps(phase_sequence, ensure_ascii=False),
+            "phase_elapsed_json": json.dumps(phase_elapsed, ensure_ascii=False),
+            "phase_elapsed_mean_s": (total_elapsed_s / len(phase_sequence)) if phase_sequence else 0.0,
         }
     )
 

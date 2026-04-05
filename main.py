@@ -15,7 +15,6 @@ from psyflow import (
     TaskRunOptions,
     TaskSettings,
     context_from_config,
-    count_down,
     initialize_exp,
     initialize_triggers,
     load_config,
@@ -25,7 +24,7 @@ from psyflow import (
     set_trial_context,
 )
 
-from src import run_trial, summarizeBlock, summarizeOverall
+from src import run_trial, summarizeOverall
 
 
 MODES = ("human", "qa", "sim")
@@ -39,7 +38,7 @@ DEFAULT_CONFIG_BY_MODE = {
 def _parse_args(task_root: Path) -> TaskRunOptions:
     return parse_task_run_options(
         task_root=task_root,
-        description="Run Fixed-ratio Satiation Schedule in human/qa/sim mode.",
+        description="Run Trier Social Stress Test in human/qa/sim mode.",
         default_config_by_mode=DEFAULT_CONFIG_BY_MODE,
         modes=MODES,
     )
@@ -55,71 +54,24 @@ def _resolve_block_seed(settings: TaskSettings, block_index: int) -> int:
             except Exception:
                 pass
     try:
-        return int(getattr(settings, "overall_seed", 41041))
+        return int(getattr(settings, "overall_seed", 42042))
     except Exception:
         return block_index + 1
 
 
-def _make_instruction_unit(win, kb, stim_bank, settings, trigger_runtime):
-    unit = StimUnit("instruction_text", win, kb, runtime=trigger_runtime).add_stim(
-        stim_bank.get("instruction_text")
-    )
-    set_trial_context(
-        unit,
-        trial_id="instructions",
-        phase="instruction",
-        deadline_s=None,
-        valid_keys=["space"],
-        block_id="instructions",
-        condition_id="instructions",
-        task_factors={
-            "stage": "instruction",
-            "task_name": getattr(settings, "task_name", "fixed_ratio_satiation_schedule"),
-        },
-        stim_id="instruction_text",
-    )
-    return unit
-
-
-def _make_block_break_unit(win, kb, stim_bank, trigger_runtime, *, block_num, total_blocks, summary):
-    unit = StimUnit("block_break", win, kb, runtime=trigger_runtime).add_stim(
-        stim_bank.get_and_format(
-            "block_break",
-            block_num=block_num,
-            total_blocks=total_blocks,
-            block_completion_rate=summary["completion_rate"],
-            mean_completion_ms=summary["mean_completion_ms"],
-            total_tokens=summary["total_tokens"],
-        )
-    )
-    set_trial_context(
-        unit,
-        trial_id=f"block_break_{block_num:02d}",
-        phase="block_break",
-        deadline_s=None,
-        valid_keys=["space"],
-        block_id=f"block_{block_num:02d}",
-        condition_id="block_break",
-        task_factors={
-            "stage": "block_break",
-            "block_num": block_num,
-            "total_blocks": total_blocks,
-            "block_completion_rate": summary["completion_rate"],
-            "mean_completion_ms": summary["mean_completion_ms"],
-            "total_tokens": summary["total_tokens"],
-        },
-        stim_id="block_break",
-    )
-    return unit
-
-
-def _make_goodbye_unit(win, kb, stim_bank, trigger_runtime, *, summary):
+def _make_goodbye_unit(
+    win,
+    kb,
+    stim_bank,
+    trigger_runtime,
+    *,
+    summary: dict[str, Any],
+):
     unit = StimUnit("good_bye", win, kb, runtime=trigger_runtime).add_stim(
         stim_bank.get_and_format(
             "good_bye",
-            total_completion_rate=summary["completion_rate"],
-            total_tokens=summary["total_tokens"],
-            mean_completion_ms=summary["mean_completion_ms"],
+            total_elapsed_min=summary["total_elapsed_min"],
+            phase_count=summary["phase_count"],
         )
     )
     set_trial_context(
@@ -132,10 +84,9 @@ def _make_goodbye_unit(win, kb, stim_bank, trigger_runtime, *, summary):
         condition_id="good_bye",
         task_factors={
             "stage": "good_bye",
-            "total_completion_rate": summary["completion_rate"],
-            "mean_completion_ms": summary["mean_completion_ms"],
-            "total_tokens": summary["total_tokens"],
-            "total_trials": summary["total_trials"],
+            "total_elapsed_min": summary["total_elapsed_min"],
+            "phase_count": summary["phase_count"],
+            "trial_count": summary["trial_count"],
         },
         stim_id="good_bye",
     )
@@ -187,7 +138,6 @@ def _run_impl(*, mode: str, output_dir: Path | None, cfg: dict, participant_id: 
 
     settings.add_subinfo(subject_data)
     settings.triggers = cfg["trigger_config"]
-    settings.token_total = int(getattr(settings, "token_total", 0) or 0)
 
     if mode == "qa" and output_dir is not None:
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -209,17 +159,11 @@ def _run_impl(*, mode: str, output_dir: Path | None, cfg: dict, participant_id: 
 
     trigger_runtime.send(settings.triggers.get("exp_onset"))
 
-    instruction = _make_instruction_unit(win, kb, stim_bank, settings, trigger_runtime)
-    instruction.wait_and_continue()
-
     all_rows: list[dict[str, Any]] = []
     total_blocks = int(getattr(settings, "total_blocks", 1) or 1)
 
     for block_idx in range(total_blocks):
         block_seed = _resolve_block_seed(settings, block_idx)
-        if mode == "human":
-            count_down(win, 3, color="black")
-
         block = (
             BlockUnit(
                 block_id=f"block_{block_idx:02d}",
@@ -243,19 +187,7 @@ def _run_impl(*, mode: str, output_dir: Path | None, cfg: dict, participant_id: 
             )
             .to_dict(all_rows)
         )
-
-        block_rows = block.get_all_data()
-        block_metrics = summarizeBlock(block_rows, block.block_id)
-        if block_idx < (total_blocks - 1):
-            _make_block_break_unit(
-                win,
-                kb,
-                stim_bank,
-                trigger_runtime,
-                block_num=block_idx + 1,
-                total_blocks=total_blocks,
-                summary=block_metrics,
-            ).wait_and_continue()
+        _ = block.get_all_data()
 
     overall_metrics = summarizeOverall(all_rows)
     _make_goodbye_unit(win, kb, stim_bank, trigger_runtime, summary=overall_metrics).wait_and_continue(

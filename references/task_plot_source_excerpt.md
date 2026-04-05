@@ -1,12 +1,12 @@
-# Source Excerpt (Fixed-ratio Satiation Schedule)
+# Source Excerpt (Trier Social Stress Test)
 
 ## Input Files
-- README: E:\Taskbeacon\T000041-fixed-ratio-satiation-schedule\README.md
-- Config: E:\Taskbeacon\T000041-fixed-ratio-satiation-schedule\config\config.yaml
-- run_trial: E:\Taskbeacon\T000041-fixed-ratio-satiation-schedule\src\run_trial.py
+- README: E:\Taskbeacon\T000042-trier-social-stress-test\README.md
+- Config: E:\Taskbeacon\T000042-trier-social-stress-test\config\config.yaml
+- run_trial: E:\Taskbeacon\T000042-trier-social-stress-test\src\run_trial.py
 
 ## Selected Conditions
-- fr5
+- tsst
 
 ## Note
 - Timelines were inferred from run_trial phase/context calls with condition-branch filtering.

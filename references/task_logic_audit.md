@@ -2,194 +2,257 @@
 
 ## 1. Paradigm Intent
 
-- Task: Fixed-ratio Satiation Schedule
-- Primary construct: effort allocation under a fixed-ratio reinforcement schedule while cumulative reward value is indexed by satiation
+- Task: Trier Social Stress Test
+- Primary construct: acute psychosocial stress induction under social-evaluative threat
 - Manipulated factors:
-  - fixed-ratio requirement per trial (`fr5`, `fr10`, `fr20`)
-  - cumulative satiety state across the session
+  - fixed phase order
+  - public speaking under observation
+  - mental arithmetic under evaluation
+  - recovery/rest period after the stressor
 - Dependent measures:
-  - press completion rate
-  - completion latency per ratio trial
-  - timeout rate
-  - reward-token accumulation
-  - satiety fraction at reward delivery
+  - phase completion
+  - elapsed time per phase
+  - instruction-start latency
+  - adherence to the scripted phase sequence
+  - optional self-report or physiological follow-up outside this task repo
 - Key citations:
-  - `W1964652787` Fixed-ratio pausing: joint effects of past reinforcer magnitude and stimuli correlated with upcoming magnitude
-  - `W2037578646` Response rate viewed as engagement bouts: effects of relative reinforcement and schedule type
-  - `W2167077741` Establishing operations and reinforcement effects
-  - `W2029549266` Hippocampal GLP-1 Receptors Influence Food Intake, Meal Size, and Effort-Based Responding for Food through Volume Transmission
-  - `W2168128112` The Novel Cannabinoid CB1 Receptor Neutral Antagonist AM4113 Suppresses Food Intake and Food-Reinforced Behavior but Does not Induce Signs of Nausea in Rats
-  - `W2077496630` The Glucagon-Like Peptide 1 (GLP-1) Analogue, Exendin-4, Decreases the Rewarding Value of Food: A New Role for Mesolimbic GLP-1 Receptors
-  - `W2164961539` Dopamine Modulates Reward-Related Vigor
-  - `W1980196077` Dopamine Antagonism Decreases Willingness to Expend Physical, But Not Cognitive, Effort: A Comparison of Two Rodent Cost/Benefit Decision-Making Tasks
+  - `W2059005389` - protocol paper for TSST procedure and timing
+  - `W2023477927` - friendly TSST variant showing the standard social-evaluative structure can be softened or removed
+  - `W2080858141` - age/gender TSST paper supporting recovery/reactivity framing
+  - `W1969430973` - comparison of psychosocial stress paradigms
+  - `W2151454086` and `W2181244039` - high-impact acute-stress validation papers supporting the construct validity of psychosocial stress induction
 
 ## 2. Block/Trial Workflow
 
 ### Block Structure
 
-- Total blocks: 3 in the human config; QA/sim configs use shortened one-block probes
-- Trials per block: 18 in the human config; 3 in QA/sim
+- Total blocks: 1
+- Trials per block: 1
 - Randomization/counterbalancing:
-  - `BlockUnit.generate_conditions(...)` is used
-  - trial labels are balanced across the three fixed-ratio conditions
+  - none required for the canonical TSST sequence
+  - all participants receive the same phase order
 - Condition weight policy:
-  - No custom weighting is required
-  - `task.condition_weights` is defined as an even mapping in config
-  - runtime can rely on `TaskSettings.resolve_condition_weights()` if needed
+  - `task.condition_weights` is defined explicitly in `config/config.yaml`
+  - runtime resolution is delegated to `TaskSettings.resolve_condition_weights()` via `BlockUnit.generate_conditions()`
+  - weights are effectively even because there is only one condition token
 - Condition generation method:
   - built-in `BlockUnit.generate_conditions(...)`
-  - the label passed into `run_trial.py` is a simple condition token (`fr5`, `fr10`, `fr20`)
+  - no custom generator is needed because the TSST is represented as a single scripted condition rather than a precompiled stimulus sequence
+  - generated condition shape passed to `run_trial.py`: a single condition label (`tsst_standard`)
 - Runtime-generated trial values:
-  - `run_trial.py` resolves `ratio_requirement` from the condition token
-  - `run_trial.py` accumulates per-press reaction times and satiety fraction
-  - generation is deterministic because values are derived from the condition label and the running satiety counter, not from hidden state
+  - phase durations come from config, not from per-trial stochastic sampling
+  - the code only resolves the current condition label and reads deterministic duration fields
+  - reproducibility is controlled by the normal PsyFlow task seed flow; no extra randomization is introduced
 
 ### Trial State Machine
 
-1. `work_press`
-   - Onset trigger: `trial_onset` on the first press window of the trial; `press_onset` on each press window
-   - Stimuli shown: work prompt, press counter, satiety text, and a neutral center fixation
+List each state in order with entry/exit conditions:
+
+1. State name: `instruction`
+   - Onset trigger: `instruction_onset`
+   - Stimuli shown: Chinese instruction text explaining the TSST, neutral judges, speech, arithmetic, and recovery
    - Valid keys: `space`
-   - Timeout behavior: if any press window times out before the required count is met, the trial ends without reward
-   - Next state: `reward_delivery` when the required count is reached, otherwise `timeout_feedback` or direct ITI
+   - Timeout behavior: waits for operator/participant start; no auto-advance
+   - Next state: `baseline_acclimation`
 
-2. `reward_delivery`
-   - Onset trigger: `reward_onset`
-   - Stimuli shown: gold reward token and reward text
+2. State name: `baseline_acclimation`
+   - Onset trigger: `baseline_onset`
+   - Stimuli shown: fixation plus a brief neutral wait instruction
    - Valid keys: none
-   - Timeout behavior: fixed-duration display
-   - Next state: `satiation_pause`
+   - Timeout behavior: timer-driven; continues automatically when duration ends
+   - Next state: `speech_preparation`
 
-3. `satiation_pause`
-   - Onset trigger: `satiation_onset`
-   - Stimuli shown: satiety text only
+3. State name: `speech_preparation`
+   - Onset trigger: `prep_onset`
+   - Stimuli shown: speech preparation prompt, neutral panel/camera iconography, and a reminder that the upcoming speech is evaluative
    - Valid keys: none
-   - Timeout behavior: fixed-duration display
-   - Next state: `iti`
+   - Timeout behavior: timer-driven; continues automatically when duration ends
+   - Next state: `speech_delivery`
 
-4. `iti`
-   - Onset trigger: `iti_onset`
-   - Stimuli shown: fixation only
+4. State name: `speech_delivery`
+   - Onset trigger: `speech_onset`
+   - Stimuli shown: spoken speech prompt, neutral judges, recording indicator, and the speech task prompt
    - Valid keys: none
-   - Timeout behavior: fixed-duration display
-   - Next state: next trial
+   - Timeout behavior: timer-driven; continues automatically when duration ends
+   - Next state: `mental_arithmetic`
+
+5. State name: `mental_arithmetic`
+   - Onset trigger: `math_onset`
+   - Stimuli shown: serial-subtraction prompt, neutral judges, and recording indicator
+   - Valid keys: none
+   - Timeout behavior: timer-driven; continues automatically when duration ends
+   - Next state: `recovery`
+
+6. State name: `recovery`
+   - Onset trigger: `recovery_onset`
+   - Stimuli shown: fixation and a neutral recovery prompt
+   - Valid keys: none
+   - Timeout behavior: timer-driven; continues automatically when duration ends
+   - Next state: `good_bye`
+
+7. State name: `good_bye`
+   - Onset trigger: `good_bye_onset`
+   - Stimuli shown: end-of-task debrief/exit screen
+   - Valid keys: `space`
+   - Timeout behavior: waits for operator/participant confirmation or terminate flag
+   - Next state: experiment end
 
 ## 3. Condition Semantics
 
 For each condition token in `task.conditions`:
 
-- Condition ID: `fr5`
-  - Participant-facing meaning: press the space bar 5 times to earn the token
-  - Concrete stimulus realization (visual/audio): text prompt with `5` in the requirement line; cumulative satiety text updates after reward delivery
-  - Outcome rules: reward is delivered only when 5 space presses are completed before the per-press timeout expires
-
-- Condition ID: `fr10`
-  - Participant-facing meaning: press the space bar 10 times to earn the token
-  - Concrete stimulus realization (visual/audio): text prompt with `10` in the requirement line; cumulative satiety text updates after reward delivery
-  - Outcome rules: reward is delivered only when 10 space presses are completed before timeout
-
-- Condition ID: `fr20`
-  - Participant-facing meaning: press the space bar 20 times to earn the token
-  - Concrete stimulus realization (visual/audio): text prompt with `20` in the requirement line; cumulative satiety text updates after reward delivery
-  - Outcome rules: reward is delivered only when 20 space presses are completed before timeout
+- Condition ID: `tsst_standard`
+- Participant-facing meaning: the canonical Trier Social Stress Test stress induction sequence
+- Concrete stimulus realization (visual/audio):
+  - Chinese instructions explain the stress-test structure
+  - a neutral social-evaluation panel is rendered using built-in PsychoPy primitives
+  - a recording light/icon is shown during the speech and arithmetic phases
+  - the speech phase asks the participant to deliver a job-related speech aloud
+  - the arithmetic phase asks the participant to count backward from `2043` in steps of `17`
+  - the recovery phase returns to a neutral fixation screen
+- Outcome rules:
+  - no reward, penalty, or performance score is computed
+  - the session advances on elapsed time, not response correctness
+  - the only response requirement is `space` to start/exit instruction/debrief screens
 
 Also document where participant-facing condition text/stimuli are defined:
 
-- Participant-facing text source (config stimuli / code formatting / generated assets): `config/config.yaml` `stimuli.*` entries, formatted at runtime with `StimBank.get_and_format(...)`
-- Why this source is appropriate for auditability: all participant wording and condition-specific counts remain in config, so localization or wording edits do not require code changes
-- Localization strategy (how language variants are swapped via config without code edits): swap `config/*.yaml` files and keep `run_trial.py` text-agnostic except for key/value formatting placeholders
+- Participant-facing text source (config stimuli / code formatting / generated assets):
+  - all participant-facing wording lives in `config/*.yaml`
+  - `src/run_trial.py` only formats those config strings and does not hardcode participant text
+  - the panel/camera visuals are built from PsychoPy primitives defined in config
+- Why this source is appropriate for auditability:
+  - the literal wording is centralized and can be translated without code changes
+  - the same config drives human, QA, and simulation modes
+- Localization strategy (how language variants are swapped via config without code edits):
+  - participant text is stored in Chinese in the YAML stimulus bank
+  - any future language version can replace the YAML strings and fonts while leaving `run_trial.py` unchanged
 
 ## 4. Response and Scoring Rules
 
-- Response mapping: `space` is the only work-phase response key
-- Response key source (config field vs code constant): config-defined via `task.key_list` / `task.response_key`
-- If code-defined, why config-driven mapping is not sufficient: not applicable
-- Missing-response policy: if a press window times out before quota completion, the trial ends without reward
+- Response mapping:
+  - `space` starts the task from instructions
+  - `space` may also be used to dismiss the goodbye screen
+  - no participant response is required during the timed TSST phases
+- Response key source (config field vs code constant):
+  - config-driven via `task.response_key` / `task.key_list`
+- If code-defined, why config-driven mapping is not sufficient:
+  - not applicable; the task remains config-driven
+- Missing-response policy:
+  - missing responses during the timed phases are not treated as errors because those phases are timer-driven stress induction screens
+  - if the participant does not press `space` on the instruction screen, the task remains there until the operator starts it
 - Correctness logic:
-  - a trial is successful when the required number of space presses is completed within the allowed press windows
-  - individual press windows are counted as hits when `space` is pressed before timeout
+  - no accuracy scoring is computed
 - Reward/penalty updates:
-  - successful trials add `reward_tokens_per_completion` to the cumulative total
-  - failed trials add no reward
-  - no negative penalty is used
+  - none
 - Running metrics:
-  - cumulative tokens
-  - completion rate
-  - mean completion latency
-  - timeout count
-  - satiety fraction
+  - phase elapsed time
+  - total induction duration
+  - number of completed phases
+  - optional summary duration at goodbye
 
 ## 5. Stimulus Layout Plan
 
 For every screen with multiple simultaneous options/stimuli:
 
-- Screen name: instruction screen
+- Screen name: `instruction`
   - Stimulus IDs shown together: `instruction_text`
-  - Layout anchors (`pos`): centered
-  - Size/spacing (`height`, width, wrap): 28 px, wrap width 1000 px
-  - Readability/overlap checks: single text block, no overlap risk
-  - Rationale: a centered instruction block is easiest to read before the timing task starts
+  - Layout anchors (`pos`): centered at `[0, 0]`
+  - Size/spacing (`height`, width, wrap): large centered text, wide wrap width for multi-line instructions
+  - Readability/overlap checks: one text block only
+  - Rationale: keeps the task introduction readable and avoids any conflicting stimulus positions
 
-- Screen name: work screen
-  - Stimulus IDs shown together: `work_prompt`, `work_counter`, `satiety_text`, `fixation`
-  - Layout anchors (`pos`): prompt near `y=120`, counter near `y=18`, satiety text near `y=-84`, fixation near center/lower center
-  - Size/spacing (`height`, width, wrap): prompt 30 px, counter 32 px, satiety 26 px, wrap width 800 to 1000 px
-  - Readability/overlap checks: text blocks are vertically separated; no debug labels are shown to participants
-  - Rationale: the participant needs a stable count of presses plus a visible satiety indicator
+- Screen name: `baseline_acclimation`
+  - Stimulus IDs shown together: `baseline_text`, `fixation`
+  - Layout anchors (`pos`): `baseline_text` near top or center, `fixation` centered
+  - Size/spacing (`height`, width, wrap): short text plus a large fixation cross
+  - Readability/overlap checks: text and fixation are vertically separated
+  - Rationale: neutral wait screen with a clear gaze anchor
 
-- Screen name: reward screen
-  - Stimulus IDs shown together: `reward_token`, `reward_text`, `satiety_text`
-  - Layout anchors (`pos`): reward token centered at `y≈22`, reward text below at `y≈-118`, satiety text below that
-  - Size/spacing (`height`, width, wrap): token radius 42 px, text 30 px, wrap width 900 px
-  - Readability/overlap checks: token is visually distinct from the text block; text lines are stacked
-  - Rationale: reinforce the moment of reward delivery and show cumulative satiety
+- Screen name: `speech_preparation`
+  - Stimulus IDs shown together: `prep_text`, `judge_left_head`, `judge_left_body`, `judge_right_head`, `judge_right_body`, `camera_light`
+  - Layout anchors (`pos`): judge silhouettes in the upper half, camera indicator at top center, preparation text in the lower half
+  - Size/spacing (`height`, width, wrap): moderate-sized text below the panel shapes, explicit spacing between left and right judges
+  - Readability/overlap checks: judge shapes must not overlap the prompt text
+  - Rationale: preserves the social-evaluative panel while leaving the prompt readable
 
-- Screen name: block break / goodbye
-  - Stimulus IDs shown together: `block_break`, `good_bye`
-  - Layout anchors (`pos`): centered
-  - Size/spacing (`height`, width, wrap): 26 to 28 px, wrap width 980 px
-  - Readability/overlap checks: one block of text per screen
-  - Rationale: summary screens are informational and should remain uncluttered
+- Screen name: `speech_delivery`
+  - Stimulus IDs shown together: `speech_text`, `judge_left_head`, `judge_left_body`, `judge_right_head`, `judge_right_body`, `camera_light`
+  - Layout anchors (`pos`): judge silhouettes upper half, speech prompt lower half
+  - Size/spacing (`height`, width, wrap): prompt width wide enough for the job-speech instruction
+  - Readability/overlap checks: the prompt must remain readable even with the panel visible
+  - Rationale: keeps the evaluative audience visually present during the speech
+
+- Screen name: `mental_arithmetic`
+  - Stimulus IDs shown together: `math_text`, `judge_left_head`, `judge_left_body`, `judge_right_head`, `judge_right_body`, `camera_light`
+  - Layout anchors (`pos`): judges/camera in the upper half, arithmetic prompt in the lower half
+  - Size/spacing (`height`, width, wrap): prompt text large enough to read at a glance
+  - Readability/overlap checks: the arithmetic rule must not overlap the judge shapes
+  - Rationale: preserves evaluation pressure while presenting the serial-subtraction rule
+
+- Screen name: `recovery`
+  - Stimulus IDs shown together: `recovery_text`, `fixation`
+  - Layout anchors (`pos`): recovery text above fixation, both centered
+  - Size/spacing (`height`, width, wrap): short neutral prompt plus a large fixation cross
+  - Readability/overlap checks: no overlap between the text and fixation cross
+  - Rationale: shifts from social threat to quiet recovery cleanly
 
 ## 6. Trigger Plan
 
+Map each phase/state to trigger code and semantics.
+
 - `exp_onset`: experiment start
+- `instruction_onset`: instruction screen onset
+- `block_onset`: start of the single TSST block
+- `trial_onset`: start of the canonical TSST sequence
+- `baseline_onset`: onset of acclimation / pre-stress waiting
+- `prep_onset`: onset of speech preparation
+- `speech_onset`: onset of speech delivery
+- `math_onset`: onset of serial subtraction
+- `recovery_onset`: onset of recovery
+- `good_bye_onset`: onset of debrief/exit screen
+- `block_end`: end of the single TSST block
 - `exp_end`: experiment end
-- `block_onset`: each block start
-- `block_end`: each block end
-- `trial_onset`: first work-window onset in each trial
-- `press_onset`: each press window onset
-- `press_response`: every successful space press
-- `press_timeout`: press-window timeout
-- `reward_onset`: reward token screen onset
-- `satiation_onset`: satiety screen onset
-- `iti_onset`: ITI onset
 
 ## 7. Architecture Decisions (Auditability)
 
-- `main.py` runtime flow style (simple single flow / helper-heavy / why): simple block loop with a single task-specific helper for the repeated press windows
-- `utils.py` used? yes
-- If yes, exact purpose (adaptive controller / sequence generation / asset pool / other): fixed-ratio parsing, satiety math, and block summary helpers
-- Custom controller used? no
-- If yes, why PsyFlow-native path is insufficient: not applicable
-- Legacy/backward-compatibility fallback logic required? no
-- If yes, scope and removal plan: not applicable
+- `main.py` runtime flow style (simple single flow / helper-heavy / why):
+  - simple single flow
+  - one instruction phase, one block, one trial, then goodbye
+  - this keeps the stress-induction sequence auditable and easy to validate
+- `utils.py` used? (yes/no)
+  - yes
+- If yes, exact purpose (adaptive controller / sequence generation / asset pool / other):
+  - light summary utilities only, mainly for block/overall timing summaries
+  - no adaptive controller or sequence engine is needed
+- Custom controller used? (yes/no)
+  - no
+- If yes, why PsyFlow-native path is insufficient:
+  - not applicable
+- Legacy/backward-compatibility fallback logic required? (yes/no)
+  - no
+- If yes, scope and removal plan:
+  - not applicable
 
 ## 8. Inference Log
 
 List any inferred decisions not directly specified by references:
 
-- Decision: map the task into three fixed-ratio conditions (`fr5`, `fr10`, `fr20`)
-  - Why inference was required: the queue title does not specify exact ratio values
-  - Citation-supported rationale: fixed-ratio pausing and reinforcement-schedule papers support the general structure, while effort-based food-reward papers support the satiety/motivation framing
+- Decision: use a 10-minute speech preparation phase
+  - Why inference was required: the protocol literature shows minor variation across TSST variants, and the reference implementation needs one concrete duration
+  - Citation-supported rationale: protocol papers and variants consistently include a substantial anticipatory preparation window before the speech
 
-- Decision: use cumulative token accumulation as the satiety index
-  - Why inference was required: the exact satiety metric is not specified in the queue title
-  - Citation-supported rationale: food-reward and establishment-operation papers link reward value to motivational state, so a cumulative token index is a defensible operationalization
+- Decision: use a 15-minute recovery phase
+  - Why inference was required: the literature often measures recovery and cortisol changes over longer windows, but the exact duration is study-specific
+  - Citation-supported rationale: TSST studies and recovery papers report a post-stressor recovery period; longer physiological follow-up windows are common
 
-- Decision: implement each required press as a separate press window inside the work phase
-  - Why inference was required: PsyFlow’s standard response capture is single-response oriented
-  - Citation-supported rationale: per-press windows preserve auditable RTs, QA/sim compatibility, and fixed-ratio completion timing
+- Decision: implement the social-evaluative panel with PsychoPy primitives instead of external actor images
+  - Why inference was required: the protocol requires two neutral judges and a recording setup, but the task repo is built to avoid placeholder assets when built-in primitives suffice
+  - Citation-supported rationale: TSST protocol papers explicitly describe the neutral committee and recording context
+
+- Decision: keep the build to one canonical stress condition instead of adding a friendly control branch
+  - Why inference was required: the queue item asks for TSST, not a comparative stress-versus-control study
+  - Citation-supported rationale: the standard TSST is itself a self-contained acute psychosocial stress induction paradigm
 
 ## Contract Note
 

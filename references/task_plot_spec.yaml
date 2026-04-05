@@ -1,7 +1,7 @@
 task_plot_spec:
   spec_version: '0.2'
   meta:
-    task_name: Fixed-ratio Satiation Schedule
+    task_name: Trier Social Stress Test
     mode: existing
     task_id: ''
   figure:
@@ -11,8 +11,8 @@ task_plot_spec:
       width_in: 16.0
       background: white
     layout:
-      max_conditions: 3
-      screens_per_timeline: 5
+      max_conditions: 4
+      screens_per_timeline: 7
       screen_overlap_ratio: 0.1
       screen_slope: 0.08
       screen_slope_deg: 25.0
@@ -32,175 +32,394 @@ task_plot_spec:
       timeline_arrow_min_y: 0.02
       timeline_arrow_max_y: 0.96
   timelines:
-  - condition: fr5
-    display_condition_label: Fr5
+  - condition: tsst
+    display_condition_label: Tsst
     phases:
-    - phase_name: work preview
-      display_phase_label: Work Preview
+    - phase_name: instruction
+      display_phase_label: Instruction
+      duration_ms: null
+      response_window_ms: null
+      display_timing_label: ''
+      stim_ids:
+      - instruction_text
+      stimulus_example:
+        summary: 你将进行一段经典的 Trier Social Stress Test。 你会先看到安静等待…
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: '你将进行一段经典的 Trier Social Stress Test。
+
+            你会先看到安静等待和准备阶段，然后面对两位保持沉默的评委与录制提示，
+
+            进行 5 分钟的即兴陈述，随后进行 5 分钟的心算。
+
+            请尽量连续、清晰地完成每个阶段。
+
+
+            按空格开始。'
+          color: white
+          pos:
+          - 0.0
+          - 0.0
+          height: 28.0
+      notes: ''
+    - phase_name: baseline acclimation
+      display_phase_label: Baseline Acclimation
+      duration_ms:
+        fixed: 300
+      response_window_ms: null
+      display_timing_label: 300 ms
+      stim_ids:
+      - baseline_text
+      - fixation
+      stimulus_example:
+        summary: 请安静坐好，注视中央十字。 + +
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: 请安静坐好，注视中央十字。
+          color: '#f2f2f2'
+          pos:
+          - 0.0
+          - 118.0
+          height: 28.0
+        - kind: text
+          text: +
+          color: white
+          pos:
+          - 0.0
+          - -128.0
+          height: 48.0
+      notes: ''
+    - phase_name: speech preparation
+      display_phase_label: Speech Preparation
       duration_ms:
         fixed: 600
       response_window_ms: null
       display_timing_label: 600 ms
       stim_ids:
-      - work_prompt
-      - work_counter
-      - satiety_text
-      - fixation
+      - panel_backdrop
+      - judge_left_body
+      - judge_left_head
+      - judge_right_body
+      - judge_right_head
+      - camera_light
+      - camera_label
+      - prep_text
       stimulus_example:
-        summary: 本轮固定比率要求：连续按空格 … 次 + 已按 …/… 次 + 饱腹指数：… + +
+        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
+          + Circle + Circle + REC + 请准备一段 10 分钟的陈述， 说明你为什么适合这份工作。 两位评委将保持沉默并记录。
         modality: visual
         draw_hint: text
         render_items:
-        - kind: text
-          text: 本轮固定比率要求：连续按空格 … 次
-          color: white
-          pos:
-          - 0.0
-          - 120.0
-          height: 30.0
-        - kind: text
-          text: 已按 …/… 次
-          color: white
-          pos:
-          - 0.0
-          - 20.0
-          height: 32.0
-        - kind: text
-          text: 饱腹指数：…
-          color: '#f2f2f2'
-          pos:
-          - 0.0
-          - -84.0
-          height: 26.0
-        - kind: text
-          text: +
-          color: white
-          pos:
-          - 0.0
-          - -120.0
-          height: 44.0
-      notes: ''
-    - phase_name: reward_text
-      display_phase_label: Reward Text
-      duration_ms:
-        fixed: 900
-      response_window_ms: null
-      display_timing_label: 900 ms
-      stim_ids:
-      - reward_text
-      - reward_token
-      - satiety_text
-      stimulus_example:
-        summary: 奖励已发放：+… 个代币 + Circle + 饱腹指数：…
-        modality: visual
-        draw_hint: text
-        render_items:
-        - kind: text
-          text: 奖励已发放：+… 个代币
-          color: white
-          pos:
-          - 0.0
-          - -118.0
-          height: 30.0
         - kind: shape
-          shape: circle
-          label: Circle
-          color: '#f8e296'
-          line_color: '#f8e296'
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#8e8e8e'
+          line_color: '#a5a5a5'
           line_width: 1.0
           pos:
           - 0.0
-          - 22.0
-          size: 1.2352941176470589
-        - kind: text
-          text: 饱腹指数：…
+          - 82.0
+          size: null
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
           color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#ff9999'
+          line_color: '#ff9999'
+          line_width: 1.0
           pos:
           - 0.0
-          - -84.0
-          height: 26.0
-      notes: inferred from show() without set_trial_context
-    - phase_name: satiety_text
-      display_phase_label: Satiety Text
-      duration_ms:
-        fixed: 1200
-      response_window_ms: null
-      display_timing_label: 1200 ms
-      stim_ids:
-      - satiety_text
-      - fixation
-      stimulus_example:
-        summary: 饱腹指数：… + +
-        modality: visual
-        draw_hint: text
-        render_items:
+          - 250.0
+          size: 0.29411764705882354
         - kind: text
-          text: 饱腹指数：…
-          color: '#f2f2f2'
+          text: REC
+          color: '#ffbfbf'
           pos:
           - 0.0
-          - -84.0
-          height: 26.0
+          - 224.0
+          height: 22.0
         - kind: text
-          text: +
+          text: '请准备一段 10 分钟的陈述，
+
+            说明你为什么适合这份工作。
+
+            两位评委将保持沉默并记录。'
           color: white
           pos:
           - 0.0
-          - -120.0
-          height: 44.0
-      notes: inferred from show() without set_trial_context
-    - phase_name: timeout_text
-      display_phase_label: Timeout Text
+          - -156.0
+          height: 28.0
+      notes: ''
+    - phase_name: speech delivery
+      display_phase_label: Speech Delivery
+      duration_ms:
+        fixed: 300
+      response_window_ms: null
+      display_timing_label: 300 ms
+      stim_ids:
+      - panel_backdrop
+      - judge_left_body
+      - judge_left_head
+      - judge_right_body
+      - judge_right_head
+      - camera_light
+      - camera_label
+      - speech_text
+      stimulus_example:
+        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
+          + Circle + Circle + REC + 请开始陈述。 你必须连续发言 5 分钟。 评委保持沉默并记录。
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#8e8e8e'
+          line_color: '#a5a5a5'
+          line_width: 1.0
+          pos:
+          - 0.0
+          - 82.0
+          size: null
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#ff9999'
+          line_color: '#ff9999'
+          line_width: 1.0
+          pos:
+          - 0.0
+          - 250.0
+          size: 0.29411764705882354
+        - kind: text
+          text: REC
+          color: '#ffbfbf'
+          pos:
+          - 0.0
+          - 224.0
+          height: 22.0
+        - kind: text
+          text: '请开始陈述。
+
+            你必须连续发言 5 分钟。
+
+            评委保持沉默并记录。'
+          color: white
+          pos:
+          - 0.0
+          - -156.0
+          height: 30.0
+      notes: ''
+    - phase_name: mental arithmetic
+      display_phase_label: Mental Arithmetic
+      duration_ms:
+        fixed: 300
+      response_window_ms: null
+      display_timing_label: 300 ms
+      stim_ids:
+      - panel_backdrop
+      - judge_left_body
+      - judge_left_head
+      - judge_right_body
+      - judge_right_head
+      - camera_light
+      - camera_label
+      - math_text
+      stimulus_example:
+        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
+          + Circle + Circle + REC + 请从 2043 开始每次减 17。 出错后请从 2043 重新开始。
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#8e8e8e'
+          line_color: '#a5a5a5'
+          line_width: 1.0
+          pos:
+          - 0.0
+          - 82.0
+          size: null
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - -220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#f2f2f2'
+          line_color: '#f2f2f2'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 30.0
+          size: null
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#dbdbdb'
+          line_color: '#dbdbdb'
+          line_width: 1.0
+          pos:
+          - 220.0
+          - 170.0
+          size: 1.1764705882352942
+        - kind: shape
+          shape: circle
+          label: Circle
+          color: '#ff9999'
+          line_color: '#ff9999'
+          line_width: 1.0
+          pos:
+          - 0.0
+          - 250.0
+          size: 0.29411764705882354
+        - kind: text
+          text: REC
+          color: '#ffbfbf'
+          pos:
+          - 0.0
+          - 224.0
+          height: 22.0
+        - kind: text
+          text: '请从 2043 开始每次减 17。
+
+            出错后请从 2043 重新开始。'
+          color: white
+          pos:
+          - 0.0
+          - -156.0
+          height: 30.0
+      notes: ''
+    - phase_name: recovery
+      display_phase_label: Recovery
       duration_ms:
         fixed: 900
       response_window_ms: null
       display_timing_label: 900 ms
       stim_ids:
-      - timeout_text
+      - recovery_text
       - fixation
       stimulus_example:
-        summary: 本轮超时，未获得代币 + +
+        summary: 请保持安静休息， 继续注视中央十字。 + +
         modality: visual
         draw_hint: text
         render_items:
         - kind: text
-          text: 本轮超时，未获得代币
-          color: '#ffd8a5'
+          text: '请保持安静休息，
+
+            继续注视中央十字。'
+          color: '#f2f2f2'
           pos:
           - 0.0
-          - -118.0
-          height: 30.0
+          - 118.0
+          height: 28.0
         - kind: text
           text: +
           color: white
           pos:
           - 0.0
-          - -120.0
-          height: 44.0
-      notes: inferred from show() without set_trial_context
-    - phase_name: fixation
-      display_phase_label: Fixation
-      duration_ms:
-        fixed: 800
-      response_window_ms: null
-      display_timing_label: 800 ms
-      stim_ids:
-      - fixation
-      stimulus_example:
-        summary: +
-        modality: visual
-        draw_hint: text
-        render_items:
-        - kind: text
-          text: +
-          color: white
-          pos:
-          - 0.0
-          - -120.0
-          height: 44.0
-      notes: inferred from show() without set_trial_context
-    condition_variants:
-    - fr10
-    - fr20
-    display_condition_note: 'Also: Fr10, Fr20'
+          - -128.0
+          height: 48.0
+      notes: ''
   legend: []

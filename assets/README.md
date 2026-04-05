@@ -1,10 +1,9 @@
-# Assets for Fixed-ratio Satiation Schedule
+# Assets for Trier Social Stress Test
 
 This task is intentionally asset-light.
 
 - All participant-facing text is defined in `config/*.yaml`.
-- The work, reward, and feedback screens use built-in PsychoPy text and circle primitives.
+- The judge panel, camera cue, fixation, and recovery screens use built-in PsychoPy primitives.
 - No external image, movie, or audio files are required for the default human, QA, or simulation flows.
 
 If a future protocol revision needs new media, add only reference-aligned assets and update `references/stimulus_mapping.md` accordingly.
-

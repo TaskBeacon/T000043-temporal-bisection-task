@@ -1,61 +1,25 @@
 [
   {
-    "id": "W2030729507",
-    "title": "DETERMINATION OF DISCOUNT FUNCTIONS IN RATS WITH AN ADJUSTING\u2010AMOUNT PROCEDURE",
+    "id": "W2151454086",
+    "title": "A mechanism converting psychosocial stress into mononuclear cell activation",
     "authors": [
-      "Jerry B. Richards",
-      "Suzanne H. Mitchell",
-      "Harriet de Wit",
-      "Lewis S. Seiden"
+      "Angelika Bierhaus",
+      "Jutta M. Wolf",
+      "Martin Andrassy",
+      "Nicolas Rohleder",
+      "Per M. Humpert",
+      "Dimitri Petrov",
+      "Roman Ferstl",
+      "Maximilian von Eynatten",
+      "Thoralf Wendt",
+      "Gottfried Rudofsky",
+      "Martina Joswig",
+      "Michael Morcos"
     ],
-    "year": 1997,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1997.67-353",
-    "citation_count": 493,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1605427252",
-    "title": "Fos Protein Expression and Cocaine-Seeking Behavior in Rats after Exposure to a Cocaine Self-Administration Environment",
-    "authors": [
-      "Janet L. Neisewander",
-      "David L. Baker",
-      "Rita A. Fuchs",
-      "Ly T.L. Tran-Nguyen",
-      "Andrew Palmer",
-      "John F. Marshall"
-    ],
-    "year": 2000,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.20-02-00798.2000",
-    "citation_count": 444,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1963557453",
-    "title": "Pharmacological Evidence for a Motivational Role of \u03ba-Opioid Systems in Ethanol Dependence",
-    "authors": [
-      "Brendan M. Walker",
-      "George F. Koob"
-    ],
-    "year": 2007,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301438",
-    "citation_count": 395,
+    "year": 2003,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://doi.org/10.1073/pnas.0438019100",
+    "citation_count": 913,
     "is_high_impact": true,
     "open_access": true,
     "used_for": [
@@ -66,20 +30,43 @@
     "notes": ""
   },
   {
-    "id": "W2077496630",
-    "title": "The Glucagon-Like Peptide 1 (GLP-1) Analogue, Exendin-4, Decreases the Rewarding Value of Food: A New Role for Mesolimbic GLP-1 Receptors",
+    "id": "W2101119621",
+    "title": "Effect of compassion meditation on neuroendocrine, innate immune and behavioral responses to psychosocial stress",
     "authors": [
-      "Suzanne L. Dickson",
-      "Rozita H. Shirazi",
-      "Caroline Hansson",
-      "Filip Bergquist",
-      "Hans Nissbrandt",
-      "Karolina P. Skibicka"
+      "Thaddeus W. W. Pace",
+      "Lobsang Tenzin Negi",
+      "Daniel D. Adame",
+      "Steven P. Cole",
+      "Teresa I. Sivilli",
+      "Timothy D. Brown",
+      "Michael J. Issa",
+      "Charles L. Raison"
     ],
-    "year": 2012,
+    "year": 2008,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2008.08.011",
+    "citation_count": 745,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2027599174",
+    "title": "Impaired Memory Retrieval after Psychosocial Stress in Healthy Young Men",
+    "authors": [
+      "Sabrina Kuhlmann",
+      "Marcel Piel",
+      "Oliver T. Wolf"
+    ],
+    "year": 2005,
     "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.6326-11.2012",
-    "citation_count": 391,
+    "doi_or_url": "https://doi.org/10.1523/jneurosci.5139-04.2005",
+    "citation_count": 676,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -90,18 +77,20 @@
     "notes": ""
   },
   {
-    "id": "W1967722381",
-    "title": "ALTERNATIVE REINFORCEMENT INCREASES RESISTANCE TO CHANGE: PAVLOVIAN OR OPERANT CONTINGENCIES?",
+    "id": "W1989518999",
+    "title": "The Effect of Music on the Human Stress Response",
     "authors": [
-      "John A. Nevin",
-      "Mary E. Tota",
-      "Richard D. Torquato",
-      "Richard L. Shull"
+      "Myriam V. Thoma",
+      "Roberto La Marca",
+      "Rebecca Br\u00f6nnimann",
+      "Linda Finkel",
+      "Ulrike Ehlert",
+      "Urs M. Nater"
     ],
-    "year": 1990,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1990.53-359",
-    "citation_count": 314,
+    "year": 2013,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0070156",
+    "citation_count": 467,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -112,78 +101,45 @@
     "notes": ""
   },
   {
-    "id": "W1999653003",
-    "title": "AN INTEGRATIVE MODEL FOR THE STUDY OF BEHAVIORAL MOMENTUM",
+    "id": "W2134073711",
+    "title": "Asymmetry between salivary cortisol and \u03b1-amylase reactivity to stress: Relation to aggressive behavior in adolescents",
     "authors": [
-      "John A. Nevin"
-    ],
-    "year": 1992,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1992.57-301",
-    "citation_count": 304,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1964952275",
-    "title": "Shift from Goal-Directed to Habitual Cocaine Seeking after Prolonged Experience in Rats",
-    "authors": [
-      "A. Zapata",
-      "Vicki L. Minney",
-      "Toni S. Shippenberg"
-    ],
-    "year": 2010,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.4072-10.2010",
-    "citation_count": 294,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2160531011",
-    "title": "Time-Dependent Changes in Cocaine-Seeking Behavior and Extracellular Dopamine Levels in the Amygdala during Cocaine Withdrawal",
-    "authors": [
-      "Ly T.L. Tran-Nguyen"
-    ],
-    "year": 1998,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1016/s0893-133x(97)00205-4",
-    "citation_count": 285,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2038120147",
-    "title": "Conditioned Withdrawal Drives Heroin Consumption and Decreases Reward Sensitivity",
-    "authors": [
-      "Paul J. Kenny",
-      "Scott A. Chen",
-      "Osamu Kitamura",
-      "Athina Markou",
-      "George F. Koob"
+      "Elana B. Gordis",
+      "D. Neil Granger",
+      "Elizabeth J. Susman",
+      "Penelope K. Trickett"
     ],
     "year": 2006,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0740-06.2006",
-    "citation_count": 269,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2006.05.010",
+    "citation_count": 394,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1974771212",
+    "title": "Self-talk as a regulatory mechanism: How you do it matters.",
+    "authors": [
+      "Ethan Kross",
+      "Emma Bruehlman-Senecal",
+      "Jiyoung Park",
+      "Aleah Burson",
+      "Adrienne Dougherty",
+      "Holly Shablack",
+      "Ryan H. Bremner",
+      "Jason S. Moser",
+      "\u00d6zlem Ayduk"
+    ],
+    "year": 2014,
+    "journal": "Journal of Personality and Social Psychology",
+    "doi_or_url": "https://doi.org/10.1037/a0035173",
+    "citation_count": 324,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -194,18 +150,207 @@
     "notes": ""
   },
   {
-    "id": "W1552965236",
-    "title": "Role of ghrelin in food reward: impact of ghrelin on sucrose self\u2010administration and mesolimbic dopamine and acetylcholine receptor gene expression",
+    "id": "W2048022624",
+    "title": "Stress effects on working memory, explicit memory, and implicit memory for neutral and emotional stimuli in healthy men",
     "authors": [
-      "Karolina P. Skibicka",
-      "Caroline Hansson",
-      "Emil Egecioglu",
-      "Suzanne L. Dickson"
+      "Mathias Luethi"
+    ],
+    "year": 2008,
+    "journal": "Frontiers in Behavioral Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/neuro.08.005.2008",
+    "citation_count": 323,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2133206720",
+    "title": "A comparison of mindfulness-based stress reduction and an active control in modulation of neurogenic inflammation",
+    "authors": [
+      "Melissa A. Rosenkranz",
+      "Richard J. Davidson",
+      "Donal G. MacCoon",
+      "John F. Sheridan",
+      "Ned H. Kalin",
+      "Antoine Lutz"
+    ],
+    "year": 2012,
+    "journal": "Brain Behavior and Immunity",
+    "doi_or_url": "https://doi.org/10.1016/j.bbi.2012.10.013",
+    "citation_count": 311,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2147606427",
+    "title": "Randomized controlled evaluation of the effects of cognitive\u2013behavioral stress management on cortisol responses to acute stress in healthy subjects",
+    "authors": [
+      "Jens Gaab",
+      "N. Bl\u00e4ttler",
+      "Timon Menzi",
+      "B. Pabst",
+      "S. Stoyer",
+      "Ulrike Ehlert"
+    ],
+    "year": 2003,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/s0306-4530(02)00069-0",
+    "citation_count": 305,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1989330193",
+    "title": "Stress modulates the use of spatial versus stimulus-response learning strategies in humans",
+    "authors": [
+      "Lars Schwabe",
+      "Melly S. Oitzl",
+      "Christine Philippsen",
+      "Steffen Richter",
+      "Andreas B\u00f6hringer",
+      "Werner Wippich",
+      "Hartmut Sch\u00e4chinger"
+    ],
+    "year": 2007,
+    "journal": "Learning & Memory",
+    "doi_or_url": "https://doi.org/10.1101/lm.435807",
+    "citation_count": 303,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2181244039",
+    "title": "Mitochondrial functions modulate neuroendocrine, metabolic, inflammatory, and transcriptional responses to acute psychological stress",
+    "authors": [
+      "Martin Picard",
+      "Meagan J. McManus",
+      "Jason D. Gray",
+      "Carla Nasca",
+      "Cynthia Moffat",
+      "Piotr Kopi\u0144ski",
+      "Erin L. Seifert",
+      "Bruce S. McEwen",
+      "Douglas C. Wallace"
+    ],
+    "year": 2015,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://doi.org/10.1073/pnas.1515733112",
+    "citation_count": 292,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2127036873",
+    "title": "The level of physical activity affects adrenal and cardiovascular reactivity to psychosocial stress",
+    "authors": [
+      "Ulrike Rimmele",
+      "Roland Seiler",
+      "Bernard Marti",
+      "Petra H. Wirtz",
+      "Ulrike Ehlert",
+      "Markus Heinrichs"
+    ],
+    "year": 2008,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2008.08.023",
+    "citation_count": 272,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2080858141",
+    "title": "Differential heart rate reactivity and recovery after psychosocial stress (TSST) in healthy children, younger adults, and elderly adults: The impact of age and gender",
+    "authors": [
+      "Brigitte M. Kudielka",
+      "Angelika Buske-Kirschbaum",
+      "Dirk H. Hellhammer",
+      "Clemens Kirschbaum"
+    ],
+    "year": 2004,
+    "journal": "International Journal of Behavioral Medicine",
+    "doi_or_url": "https://doi.org/10.1207/s15327558ijbm1102_8",
+    "citation_count": 267,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2041265714",
+    "title": "Common oxytocin receptor gene ( <i>OXTR</i> ) polymorphism and social support interact to reduce stress in humans",
+    "authors": [
+      "Frances S. Chen",
+      "Robert Kumsta",
+      "Bernadette von Dawans",
+      "Mikhail Monakhov",
+      "Richard P. Ebstein",
+      "Markus Heinrichs"
     ],
     "year": 2011,
-    "journal": "Addiction Biology",
-    "doi_or_url": "https://doi.org/10.1111/j.1369-1600.2010.00294.x",
-    "citation_count": 250,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://doi.org/10.1073/pnas.1113079108",
+    "citation_count": 262,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2901368915",
+    "title": "Cognitive Control and Flexibility in the Context of Stress and Depressive Symptoms: The Cognitive Control and Flexibility Questionnaire",
+    "authors": [
+      "Robert L. Gabrys",
+      "Nassim Tabri",
+      "Hymie Anisman",
+      "Kimberly Matheson"
+    ],
+    "year": 2018,
+    "journal": "Frontiers in Psychology",
+    "doi_or_url": "https://doi.org/10.3389/fpsyg.2018.02219",
+    "citation_count": 253,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -216,21 +361,262 @@
     "notes": ""
   },
   {
-    "id": "W2164961539",
-    "title": "Dopamine Modulates Reward-Related Vigor",
+    "id": "W2132152083",
+    "title": "Dynamic changes in DNA methylation of stress-associated genes (OXTR, BDNF\u2009) after acute psychosocial stress",
     "authors": [
-      "Ulrik Beierholm",
-      "Marc Guitart\u2010Masip",
-      "Marcos Economides",
-      "Rumana Chowdhury",
-      "Emrah D\u00fczel",
-      "Raymond J. Dolan",
-      "Peter Dayan"
+      "Eva Untern\u00e4ehrer",
+      "Petra Luers",
+      "Jonathan Mill",
+      "Emma Dempster",
+      "Andrea H. Meyer",
+      "Simon Staehli",
+      "Roselind Lieb",
+      "Dirk H. Hellhammer",
+      "Gunther Meinlschmidt"
+    ],
+    "year": 2012,
+    "journal": "Translational Psychiatry",
+    "doi_or_url": "https://doi.org/10.1038/tp.2012.77",
+    "citation_count": 249,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2059005389",
+    "title": "The Trier Social Stress Test Protocol for Inducing Psychological Stress",
+    "authors": [
+      "Melissa Birkett"
+    ],
+    "year": 2011,
+    "journal": "Journal of Visualized Experiments",
+    "doi_or_url": "https://doi.org/10.3791/3238",
+    "citation_count": 247,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2071004391",
+    "title": "Acute Stress Increases Circulating Anandamide and Other N-Acylethanolamines in Healthy Humans",
+    "authors": [
+      "Andrea Dlugos",
+      "Emma Childs",
+      "Kara L. Stuhr",
+      "Cecilia J. Hillard",
+      "Harriet de Wit"
+    ],
+    "year": 2012,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/npp.2012.100",
+    "citation_count": 244,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2888762099",
+    "title": "Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators",
+    "authors": [
+      "Julia C. Basso",
+      "Alexandra McHale-Matthews",
+      "Victoria Ende",
+      "Douglas J. Oberlin",
+      "Wendy Suzuki"
+    ],
+    "year": 2018,
+    "journal": "Behavioural Brain Research",
+    "doi_or_url": "https://doi.org/10.1016/j.bbr.2018.08.023",
+    "citation_count": 242,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2308685230",
+    "title": "Genome-wide DNA methylation levels and altered cortisol stress reactivity following childhood trauma in humans",
+    "authors": [
+      "Lotte C. Houtepen",
+      "Christiaan H. Vinkers",
+      "Tania Carrillo\u2010Roa",
+      "Marieke Hiemstra",
+      "Pol A. van Lier",
+      "Wim Meeus",
+      "Susan Branje",
+      "Christine Heim",
+      "Charles B. Nemeroff",
+      "Jonathan Mill",
+      "Leonard C. Schalkwyk",
+      "Menno P. Creyghton"
+    ],
+    "year": 2016,
+    "journal": "Nature Communications",
+    "doi_or_url": "https://doi.org/10.1038/ncomms10967",
+    "citation_count": 238,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2032463135",
+    "title": "Hypothalamus\u2013Pituitary\u2013Adrenal Axis Hyperresponsiveness Is Associated with Increased Social Avoidance Behavior in Social Phobia",
+    "authors": [
+      "Karin Roelofs",
+      "Jacobien van Peer",
+      "Ed Berretty",
+      "Paula de Jong",
+      "Philip Spinhoven",
+      "Bernet M. Elzinga"
+    ],
+    "year": 2008,
+    "journal": "Biological Psychiatry",
+    "doi_or_url": "https://doi.org/10.1016/j.biopsych.2008.08.022",
+    "citation_count": 231,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2153912634",
+    "title": "Regular exercise is associated with emotional resilience to acute stress in healthy adults",
+    "authors": [
+      "Emma Childs",
+      "Harriet de Wit"
+    ],
+    "year": 2014,
+    "journal": "Frontiers in Physiology",
+    "doi_or_url": "https://doi.org/10.3389/fphys.2014.00161",
+    "citation_count": 229,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2117188539",
+    "title": "Structural Stigma and Hypothalamic\u2013Pituitary\u2013Adrenocortical Axis Reactivity in Lesbian, Gay, and Bisexual Young Adults",
+    "authors": [
+      "Mark L. Hatzenbuehler",
+      "Katie A. McLaughlin"
+    ],
+    "year": 2013,
+    "journal": "Annals of Behavioral Medicine",
+    "doi_or_url": "https://doi.org/10.1007/s12160-013-9556-9",
+    "citation_count": 227,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2109477769",
+    "title": "A Common Polymorphism in the Mineralocorticoid Receptor Modulates Stress Responsiveness",
+    "authors": [
+      "Roel H. DeRijk",
+      "Stefan W\u00fcst",
+      "Onno C. Meijer",
+      "Maria\u2010Christina Zennaro",
+      "Ilona S. Federenko",
+      "Dirk H. Hellhammer",
+      "Gilberta Giacchetti",
+      "Erno Vreugdenhil",
+      "Frans G. Zitman",
+      "E. R. de Kloet"
+    ],
+    "year": 2006,
+    "journal": "The Journal of Clinical Endocrinology & Metabolism",
+    "doi_or_url": "https://doi.org/10.1210/jc.2006-0915",
+    "citation_count": 214,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2061884438",
+    "title": "The effect of stress on core and peripheral body temperature in humans",
+    "authors": [
+      "Christiaan H. Vinkers",
+      "Renske Penning",
+      "Dirk H. Hellhammer",
+      "Joris C. Verster",
+      "John Klaessens",
+      "Berend Olivier",
+      "Cor J. Kalkman"
+    ],
+    "year": 2013,
+    "journal": "Stress",
+    "doi_or_url": "https://doi.org/10.3109/10253890.2013.807243",
+    "citation_count": 212,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2004539531",
+    "title": "Stress-System Genes and Life Stress Predict Cortisol Levels and Amygdala and Hippocampal Volumes in Children",
+    "authors": [
+      "David Pagliaccio",
+      "Joan L. Luby",
+      "Ryan Bogdan",
+      "Arpana Agrawal",
+      "Michael S. Gaffrey",
+      "Andy C. Belden",
+      "Kelly N. Botteron",
+      "Michael P. Harms",
+      "M Deanna"
     ],
     "year": 2013,
     "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2013.48",
-    "citation_count": 237,
+    "doi_or_url": "https://doi.org/10.1038/npp.2013.327",
+    "citation_count": 209,
     "is_high_impact": true,
     "open_access": true,
     "used_for": [
@@ -241,66 +627,20 @@
     "notes": ""
   },
   {
-    "id": "W2785310965",
-    "title": "Shifting the balance between goals and habits: Five failures in experimental habit induction.",
+    "id": "W2044099053",
+    "title": "Trauma, stress, and preconscious threat processing in patients with psychogenic nonepileptic seizures",
     "authors": [
-      "Sanne de Wit",
-      "Merel Kindt",
-      "Sarah L. Knot",
-      "Aukje Verhoeven",
-      "Trevor W. Robbins",
-      "J\u00falia Gasull-Cam\u00f3s",
-      "M. Blair Evans",
-      "Hira Mirza",
-      "Claire M. Gillan"
-    ],
-    "year": 2018,
-    "journal": "Journal of Experimental Psychology General",
-    "doi_or_url": "https://doi.org/10.1037/xge0000402",
-    "citation_count": 232,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2145962539",
-    "title": "EVALUATION OF CLIENT PREFERENCE FOR FUNCTION\u2010BASED TREATMENT PACKAGES",
-    "authors": [
-      "Gregory P. Hanley",
-      "Cathleen C. Piazza",
-      "Wayne W. Fisher",
-      "Stephanie A. Contrucci",
-      "Kristen A. Maglieri"
-    ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-459",
-    "citation_count": 219,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2002961865",
-    "title": "Differential Involvement of the Basolateral Amygdala and Mediodorsal Thalamus in Instrumental Action Selection",
-    "authors": [
-      "Sean B. Ostlund",
-      "Bernard W. Balleine"
+      "Patricia Bakvis",
+      "Karin Roelofs",
+      "Jarl Kuyk",
+      "Peter M. Edelbroek",
+      "W Swinkels",
+      "Philip Spinhoven"
     ],
     "year": 2008,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.5472-07.2008",
-    "citation_count": 198,
+    "journal": "Epilepsia",
+    "doi_or_url": "https://doi.org/10.1111/j.1528-1167.2008.01862.x",
+    "citation_count": 199,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -311,15 +651,18 @@
     "notes": ""
   },
   {
-    "id": "W1578111329",
-    "title": "Neural integrative activities of nucleus accumbens subregions in relation to learning and motivation",
+    "id": "W2011027277",
+    "title": "Epigenetic regulation of the oxytocin receptor gene: implications for behavioral neuroscience",
     "authors": [
-      "Ann E. Kelley"
+      "Robert Kumsta",
+      "Elisabeth Hummel",
+      "Frances S. Chen",
+      "Markus Heinrichs"
     ],
-    "year": 1999,
-    "journal": "Psychobiology",
-    "doi_or_url": "https://doi.org/10.3758/bf03332114",
-    "citation_count": 198,
+    "year": 2013,
+    "journal": "Frontiers in Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnins.2013.00083",
+    "citation_count": 199,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -330,17 +673,44 @@
     "notes": ""
   },
   {
-    "id": "W2105199900",
-    "title": "THE SUBSTITUTABILITY OF REINFORCERS",
+    "id": "W2039698986",
+    "title": "The Effect of a Real Dog, Toy Dog and Friendly Person on Insecurely Attached Children During a Stressful Task: An Exploratory Study",
     "authors": [
-      "Leonard Green",
-      "Debra E. Freed"
+      "Andrea Beetz",
+      "Kurt Kotrschal",
+      "Dennis C. Turner",
+      "Karin Hediger",
+      "Kerstin Uvn\u00e4s\u2010Moberg",
+      "Henri Julius"
     ],
-    "year": 1993,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1993.60-141",
-    "citation_count": 192,
+    "year": 2011,
+    "journal": "Anthrozo\u00f6s",
+    "doi_or_url": "https://doi.org/10.2752/175303711x13159027359746",
+    "citation_count": 194,
     "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2988676540",
+    "title": "Pubertal stress recalibration reverses the effects of early life stress in postinstitutionalized children",
+    "authors": [
+      "Megan R. Gunnar",
+      "Carrie E. DePasquale",
+      "Brie M. Reid",
+      "Bonny Donzella",
+      "Bradley S. Miller"
+    ],
+    "year": 2019,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://doi.org/10.1073/pnas.1909699116",
+    "citation_count": 190,
+    "is_high_impact": true,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -350,36 +720,27 @@
     "notes": ""
   },
   {
-    "id": "W336363813",
-    "title": "Conditioned Reinforcement: Experimental and Theoretical Issues",
+    "id": "W2104323563",
+    "title": "Oxytocin Receptor Gene Methylation: Converging Multilevel Evidence for a Role in Social Anxiety",
     "authors": [
-      "Ben A. Williams"
+      "Christiane Ziegler",
+      "Udo Dannlowski",
+      "David Br\u00e4uer",
+      "S. S. Stevens",
+      "Inga Laeger",
+      "Hannah Wittmann",
+      "Harald Kugel",
+      "Christian Dobel",
+      "Ren\u00e9 Hurlemann",
+      "Andreas Reif",
+      "Klaus\u2010Peter Lesch",
+      "Walter Heindel"
     ],
-    "year": 1994,
-    "journal": "The Behavior Analyst",
-    "doi_or_url": "https://doi.org/10.1007/bf03392675",
-    "citation_count": 189,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1969351614",
-    "title": "The role of incentive learning in instrumental outcome revaluation by sensory-specific satiety",
-    "authors": [
-      "Bernard W. Balleine",
-      "Anthony Dickinson"
-    ],
-    "year": 1998,
-    "journal": "Animal Learning & Behavior",
-    "doi_or_url": "https://doi.org/10.3758/bf03199161",
+    "year": 2015,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/npp.2015.2",
     "citation_count": 188,
-    "is_high_impact": false,
+    "is_high_impact": true,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -389,41 +750,17 @@
     "notes": ""
   },
   {
-    "id": "W2005921391",
-    "title": "Cocaine Is Low on the Value Ladder of Rats: Possible Evidence for Resilience to Addiction",
+    "id": "W2129382828",
+    "title": "Effects of Social Support by a Dog on Stress Modulation in Male Children with Insecure Attachment",
     "authors": [
-      "Lauriane Cantin",
-      "Magalie Lenoir",
-      "Eric Augier",
-      "Nathalie Vanhille",
-      "Sarah Dubreucq",
-      "Fuschia Serre",
-      "Caroline Vouillac\u2010Mendoza",
-      "Serge H. Ahmed"
+      "Andrea Beetz",
+      "Henri Julius",
+      "Dennis C. Turner",
+      "Kurt Kotrschal"
     ],
-    "year": 2010,
-    "journal": "PLoS ONE",
-    "doi_or_url": "https://doi.org/10.1371/journal.pone.0011592",
-    "citation_count": 185,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2167077741",
-    "title": "ESTABLISHING OPERATIONS AND REINFORCEMENT EFFECTS",
-    "authors": [
-      "Timothy R. Vollmer",
-      "Brian A. Iwata"
-    ],
-    "year": 1991,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1991.24-279",
+    "year": 2012,
+    "journal": "Frontiers in Psychology",
+    "doi_or_url": "https://doi.org/10.3389/fpsyg.2012.00352",
     "citation_count": 184,
     "is_high_impact": false,
     "open_access": true,
@@ -435,15 +772,25 @@
     "notes": ""
   },
   {
-    "id": "W1972482412",
-    "title": "TECHNIQUES FOR ESTABLISHING SCHEDULES WITH WHEEL RUNNING AS REINFORCEMENT IN RATS",
+    "id": "W2899349047",
+    "title": "Cell-free DNA release under psychosocial and physical stress conditions",
     "authors": [
-      "Iver H. Iversen"
+      "Elisabeth Hummel",
+      "Eve-Mariek Hessas",
+      "Svenja M\u00fcller",
+      "Thomas Beiter",
+      "Max R. Fisch",
+      "Angi Eibl",
+      "Oliver T. Wolf",
+      "Bernd Giebel",
+      "Petra Platen",
+      "Robert Kumsta",
+      "Dirk Moser"
     ],
-    "year": 1993,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1993.60-219",
-    "citation_count": 182,
+    "year": 2018,
+    "journal": "Translational Psychiatry",
+    "doi_or_url": "https://doi.org/10.1038/s41398-018-0264-x",
+    "citation_count": 178,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -454,22 +801,20 @@
     "notes": ""
   },
   {
-    "id": "W2078995190",
-    "title": "Chronic Cocaine-Induced H3 Acetylation and Transcriptional Activation of CaMKII\u03b1 in the Nucleus Accumbens Is Critical for Motivation for Drug Reinforcement",
+    "id": "W1964105553",
+    "title": "Moderation of distress-induced eating by emotional eating scores",
     "authors": [
-      "Lei Wang",
-      "Zhigang Lv",
-      "Zhaoyang Hu",
-      "Jian Sheng",
-      "Bin Hui",
-      "Jie Sun",
-      "Lan Ma"
+      "Tatjana van Strien",
+      "C. Peter Herman",
+      "Doeschka J. Ansch\u00fctz",
+      "Rutger C. M. E. Engels",
+      "Carolina de Weerth"
     ],
-    "year": 2009,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2009.193",
-    "citation_count": 177,
-    "is_high_impact": true,
+    "year": 2011,
+    "journal": "Appetite",
+    "doi_or_url": "https://doi.org/10.1016/j.appet.2011.10.005",
+    "citation_count": 178,
+    "is_high_impact": false,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -479,20 +824,20 @@
     "notes": ""
   },
   {
-    "id": "W2029549266",
-    "title": "Hippocampal GLP-1 Receptors Influence Food Intake, Meal Size, and Effort-Based Responding for Food through Volume Transmission",
+    "id": "W1964853538",
+    "title": "Matter Over Mind: A Randomised-Controlled Trial of Single-Session Biofeedback Training on Performance Anxiety and Heart Rate Variability in Musicians",
     "authors": [
-      "Ted M. Hsu",
-      "Joel D. Hahn",
-      "Vaibhav Konanur",
-      "Ashley Lam",
-      "Scott E. Kanoski"
+      "Ruth Wells",
+      "Tim Outhred",
+      "James Heathers",
+      "Daniel Quintana",
+      "Andrew H. Kemp"
     ],
-    "year": 2014,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2014.175",
-    "citation_count": 172,
-    "is_high_impact": true,
+    "year": 2012,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0046597",
+    "citation_count": 178,
+    "is_high_impact": false,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -502,18 +847,46 @@
     "notes": ""
   },
   {
-    "id": "W2089482332",
-    "title": "Extended Access to Cocaine Self-Administration Produces Long-Lasting Prefrontal Cortex-Dependent Working Memory Impairments",
+    "id": "W2104967339",
+    "title": "Brain mechanisms underlying the impact of attachment-related stress on social cognition",
     "authors": [
-      "Olivier George",
-      "Chitra D. Mandyam",
-      "Sunmee Wee",
-      "George F. Koob"
+      "Tobias Nolte",
+      "Danielle Bolling",
+      "Caitlin M. Hudac",
+      "Peter Fonagy",
+      "Linda C. Mayes",
+      "Kevin A. Pelphrey"
+    ],
+    "year": 2013,
+    "journal": "Frontiers in Human Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnhum.2013.00816",
+    "citation_count": 176,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2050301199",
+    "title": "Association of Amphetamine-Induced Striatal Dopamine Release and Cortisol Responses to Psychological Stress",
+    "authors": [
+      "Gary S. Wand",
+      "Lynn M. Oswald",
+      "Mary E. McCaul",
+      "Dean F. Wong",
+      "Elizabeth L. Johnson",
+      "Yun Zhou",
+      "Hiroto Kuwabara",
+      "Anil Kumar"
     ],
     "year": 2007,
     "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301626",
-    "citation_count": 165,
+    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301373",
+    "citation_count": 176,
     "is_high_impact": true,
     "open_access": true,
     "used_for": [
@@ -524,16 +897,24 @@
     "notes": ""
   },
   {
-    "id": "W2018105956",
-    "title": "ANTECEDENT INFLUENCES ON BEHAVIOR DISORDERS",
+    "id": "W2164860485",
+    "title": "Reduced expression of glucocorticoid-inducible genes GILZ and SGK-1: high IL-6 levels are associated with reduced hippocampal volumes in major depressive disorder",
     "authors": [
-      "Richard G. Smith",
-      "Brian A. Iwata"
+      "Thomas Frodl",
+      "Angela Carballedo",
+      "Martina M. Hughes",
+      "Kochar Khasro Saleh",
+      "Andrew Fagan",
+      "Norbert Skokauskas",
+      "Declan M. McLoughlin",
+      "James F. Meaney",
+      "Veronica O\u2019Keane",
+      "Tim Connor"
     ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-343",
-    "citation_count": 164,
+    "year": 2012,
+    "journal": "Translational Psychiatry",
+    "doi_or_url": "https://doi.org/10.1038/tp.2012.14",
+    "citation_count": 174,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -544,20 +925,109 @@
     "notes": ""
   },
   {
-    "id": "W2150391204",
-    "title": "DIFFERENTIAL REINFORCEMENT OF ALTERNATIVE BEHAVIOR INCREASES RESISTANCE TO EXTINCTION: CLINICAL DEMONSTRATION, ANIMAL MODELING, AND CLINICAL TEST OF ONE SOLUTION",
+    "id": "W1984760658",
+    "title": "Childhood Poverty and Stress Reactivity Are Associated with Aberrant Functional Connectivity in Default Mode Network",
     "authors": [
-      "F. Charles Mace",
-      "Jennifer J. McComas",
-      "Benjamin C. Mauro",
-      "Patrick R. Progar",
-      "Bridget A. Taylor",
-      "Ruth A. Ervin",
-      "Amanda N. Zangrillo"
+      "Rebecca K. Sripada",
+      "James E. Swain",
+      "Gary W. Evans",
+      "Robert C. Welsh",
+      "Israel Liberzon"
     ],
-    "year": 2010,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2010.93-349",
+    "year": 2014,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/npp.2014.75",
+    "citation_count": 169,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2971986629",
+    "title": "The Influence of Forest Resting Environments on Stress Using Virtual Reality",
+    "authors": [
+      "Xiaobo Wang",
+      "Yaxing Shi",
+      "Bo Zhang",
+      "Yen-Cheng Chiang"
+    ],
+    "year": 2019,
+    "journal": "International Journal of Environmental Research and Public Health",
+    "doi_or_url": "https://doi.org/10.3390/ijerph16183263",
+    "citation_count": 169,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2131762062",
+    "title": "Psychological Stress and the Cutaneous Immune Response: Roles of the HPA Axis and the Sympathetic Nervous System in Atopic Dermatitis and Psoriasis",
+    "authors": [
+      "Jessica M.F. Hall",
+      "desAnges Cruser",
+      "Alan Podawiltz",
+      "Diana I. Mummert",
+      "Harlan P. Jones",
+      "Mark E. Mummert"
+    ],
+    "year": 2012,
+    "journal": "Dermatology Research and Practice",
+    "doi_or_url": "https://doi.org/10.1155/2012/403908",
+    "citation_count": 167,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2127714370",
+    "title": "EEG-based workload estimation across affective contexts",
+    "authors": [
+      "Christian M\u00c3 \u2044 hl",
+      "Camille Jeunet",
+      "Fabien Lotte"
+    ],
+    "year": 2014,
+    "journal": "Frontiers in Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnins.2014.00114",
+    "citation_count": 165,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1969890501",
+    "title": "Chewing gum alleviates negative mood and reduces cortisol during acute laboratory psychological stress",
+    "authors": [
+      "Andrew Scholey",
+      "C.F. Haskell",
+      "Bernadette Robertson",
+      "David O. Kennedy",
+      "Anthea Milne",
+      "Mark Wetherell"
+    ],
+    "year": 2009,
+    "journal": "Physiology & Behavior",
+    "doi_or_url": "https://doi.org/10.1016/j.physbeh.2009.02.028",
     "citation_count": 162,
     "is_high_impact": false,
     "open_access": true,
@@ -569,16 +1039,50 @@
     "notes": ""
   },
   {
-    "id": "W2103018978",
-    "title": "Enhanced Food-Related Motivation after Bilateral Lesions of the Subthalamic Nucleus",
+    "id": "W2114630815",
+    "title": "Poor Sleep and Altered Hypothalamic-Pituitary-Adrenocortical and Sympatho-Adrenal-Medullary System Activity in Children",
     "authors": [
-      "Christelle Baunez",
-      "Marianne Amalric",
-      "Trevor W. Robbins"
+      "Katri R\u00e4ikk\u00f6nen",
+      "Karen A. Matthews",
+      "Anu\u2010Katriina Pesonen",
+      "Riikka Pyh\u00e4l\u00e4",
+      "E. Juulia Paavonen",
+      "Kimmo Feldt",
+      "Alexander Jones",
+      "David I. W. Phillips",
+      "Jonathan R. Seckl",
+      "Kati Heinonen",
+      "Jari Lahti",
+      "Niina Komsi"
     ],
-    "year": 2002,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.22-02-00562.2002",
+    "year": 2010,
+    "journal": "The Journal of Clinical Endocrinology & Metabolism",
+    "doi_or_url": "https://doi.org/10.1210/jc.2009-0943",
+    "citation_count": 160,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1965662714",
+    "title": "Stress-Induced Allodynia \u2013 Evidence of Increased Pain Sensitivity in Healthy Humans and Patients with Chronic Pain after Experimentally Induced Psychosocial Stress",
+    "authors": [
+      "Benjamin Crettaz",
+      "Martin Marziniak",
+      "P. Willeke",
+      "Peter Young",
+      "Dirk H. Hellhammer",
+      "Astrid Stumpf",
+      "Markus Burgmer"
+    ],
+    "year": 2013,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0069460",
     "citation_count": 157,
     "is_high_impact": false,
     "open_access": true,
@@ -590,17 +1094,17 @@
     "notes": ""
   },
   {
-    "id": "W2091780073",
-    "title": "Gamification: The Intersection between Behavior Analysis and Game Design Technologies",
+    "id": "W2415552970",
+    "title": "Smartphone Applications Utilizing Biofeedback Can Aid Stress Reduction",
     "authors": [
-      "Zachary H. Morford",
-      "Benjamin N. Witts",
-      "Kenneth Killingsworth",
-      "Mark P. Alavosius"
+      "Alison C. Dillon",
+      "Mark Kelly",
+      "Ian H. Robertson",
+      "Deirdre A. Robertson"
     ],
-    "year": 2014,
-    "journal": "The Behavior Analyst",
-    "doi_or_url": "https://doi.org/10.1007/s40614-014-0006-1",
+    "year": 2016,
+    "journal": "Frontiers in Psychology",
+    "doi_or_url": "https://doi.org/10.3389/fpsyg.2016.00832",
     "citation_count": 155,
     "is_high_impact": false,
     "open_access": true,
@@ -612,115 +1116,19 @@
     "notes": ""
   },
   {
-    "id": "W1980196077",
-    "title": "Dopamine Antagonism Decreases Willingness to Expend Physical, But Not Cognitive, Effort: A Comparison of Two Rodent Cost/Benefit Decision-Making Tasks",
+    "id": "W3127282219",
+    "title": "UBFC-Phys: A Multimodal Database For Psychophysiological Studies of Social Stress",
     "authors": [
-      "Jay G. Hosking",
-      "Stan Floresco",
-      "Catharine A. Winstanley"
+      "Rita Meziati Sabour",
+      "Yannick Benezeth",
+      "Pierre De Oliveira",
+      "J. Chapp\u00e9",
+      "Fan Yang"
     ],
-    "year": 2014,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2014.285",
+    "year": 2021,
+    "journal": "IEEE Transactions on Affective Computing",
+    "doi_or_url": "https://doi.org/10.1109/taffc.2021.3056960",
     "citation_count": 155,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2168128112",
-    "title": "The Novel Cannabinoid CB1 Receptor Neutral Antagonist AM4113 Suppresses Food Intake and Food-Reinforced Behavior but Does not Induce Signs of Nausea in Rats",
-    "authors": [
-      "Kelly S. Sink",
-      "Peter McLaughlin",
-      "Jodi Wood",
-      "C. Brown",
-      "Pusheng Fan",
-      "Kiran Vemuri",
-      "Yan Pang",
-      "Teresa Olzewska",
-      "Ganesh A. Thakur",
-      "A. Makriyannis",
-      "Linda A. Parker",
-      "John D. Salamone"
-    ],
-    "year": 2007,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301476",
-    "citation_count": 155,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1979959821",
-    "title": "Hippocampal Leptin Signaling Reduces Food Intake and Modulates Food-Related Memory Processing",
-    "authors": [
-      "Scott E. Kanoski",
-      "Matthew R. Hayes",
-      "Holly Greenwald",
-      "Samantha M. Fortin",
-      "Carol A. Gianessi",
-      "Jennifer R Gilbert",
-      "Harvey J. Grill"
-    ],
-    "year": 2011,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2011.70",
-    "citation_count": 154,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1542165206",
-    "title": "Aggression Escalated by Social Instigation or by Discontinuation of Reinforcement (\u201cFrustration\u201d) in Mice Inhibition by Anpirtoline: A 5-HT1B Receptor Agonist",
-    "authors": [
-      "R de Almeida"
-    ],
-    "year": 2002,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1016/s0893-133x(02)00291-9",
-    "citation_count": 152,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2070532232",
-    "title": "Activation of the GLP-1 Receptors in the Nucleus of the Solitary Tract Reduces Food Reward Behavior and Targets the Mesolimbic System",
-    "authors": [
-      "Jennifer E. Richard",
-      "Rozita H. Anderberg",
-      "Andreas G\u00f6teson",
-      "Fiona M. Gribble",
-      "Frank Reimann",
-      "Karolina P. Skibicka"
-    ],
-    "year": 2015,
-    "journal": "PLoS ONE",
-    "doi_or_url": "https://doi.org/10.1371/journal.pone.0119034",
-    "citation_count": 152,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -731,21 +1139,15 @@
     "notes": ""
   },
   {
-    "id": "W1974228627",
-    "title": "The 5-HT2C Receptor Agonist Lorcaserin Reduces Nicotine Self-Administration, Discrimination, and Reinstatement: Relationship to Feeding Behavior and Impulse Control",
+    "id": "W2062755250",
+    "title": "Hormonal Evidence for Altered Responsiveness to Social Stress in Major Depression",
     "authors": [
-      "Guy A. Higgins",
-      "Leo B. Silenieks",
-      "Anne Rossmann",
-      "Zo\u00eb Rizos",
-      "Kevin Noble",
-      "Ashlie D. Soko",
-      "Paul Fletcher"
+      "Elizabeth A. Young"
     ],
-    "year": 2011,
+    "year": 2000,
     "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2011.303",
-    "citation_count": 150,
+    "doi_or_url": "https://doi.org/10.1016/s0893-133x(00)00129-9",
+    "citation_count": 153,
     "is_high_impact": true,
     "open_access": true,
     "used_for": [
@@ -756,18 +1158,23 @@
     "notes": ""
   },
   {
-    "id": "W2033519360",
-    "title": "Cocaine-Induced Reinstatement Requires Endogenous Stimulation of \u03bc-Opioid Receptors in the Ventral Pallidum",
+    "id": "W2085268284",
+    "title": "Stress appraisals and cellular aging: A key role for anticipatory threat in the relationship between psychological stress and telomere length",
     "authors": [
-      "Xingchun Tang",
-      "Krista McFarland",
-      "Stephanie Cagle",
-      "Peter W. Kalivas"
+      "Aoife O\u2019Donovan",
+      "A. Janet Tomiyama",
+      "Jue Lin",
+      "Eli Puterman",
+      "Nancy E. Adler",
+      "Margaret E. Kemeny",
+      "Owen M. Wolkowitz",
+      "Elizabeth H. Blackburn",
+      "Elissa S. Epel"
     ],
-    "year": 2005,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0685-05.2005",
-    "citation_count": 149,
+    "year": 2012,
+    "journal": "Brain Behavior and Immunity",
+    "doi_or_url": "https://doi.org/10.1016/j.bbi.2012.01.007",
+    "citation_count": 151,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -778,14 +1185,37 @@
     "notes": ""
   },
   {
-    "id": "W2006926071",
-    "title": "RUNNING AND RESPONDING REINFORCED BY THE OPPORTUNITY TO RUN: EFFECT OF REINFORCER DURATION",
+    "id": "W2762577230",
+    "title": "Specific reduction in cortisol stress reactivity after social but not attention-based mental training",
     "authors": [
-      "Terry W. Belke"
+      "Veronika Engert",
+      "Bethany E. Kok",
+      "Ioannis Papassotiriou",
+      "George P. Chrousos",
+      "Tania Singer"
     ],
-    "year": 1997,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1997.67-337",
+    "year": 2017,
+    "journal": "Science Advances",
+    "doi_or_url": "https://doi.org/10.1126/sciadv.1700495",
+    "citation_count": 147,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2056741292",
+    "title": "Dysregulation of the sympathetic nervous system, hypothalamic\u2013pituitary\u2013adrenal axis and executive function in individuals at risk for suicide",
+    "authors": [
+      "Alexander McGirr"
+    ],
+    "year": 2010,
+    "journal": "Journal of Psychiatry and Neuroscience",
+    "doi_or_url": "https://doi.org/10.1503/jpn.090121",
     "citation_count": 145,
     "is_high_impact": false,
     "open_access": true,
@@ -797,44 +1227,19 @@
     "notes": ""
   },
   {
-    "id": "W2145684123",
-    "title": "RELATIVE VERSUS ABSOLUTE REINFORCEMENT EFFECTS: IMPLICATIONS FOR PREFERENCE ASSESSMENTS",
+    "id": "W1994262406",
+    "title": "Exploring the Use of Thermal Infrared Imaging in Human Stress Research",
     "authors": [
-      "Eileen M. Roscoe",
-      "Brian A. Iwata",
-      "SungWoo Kahng"
-    ],
-    "year": 1999,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1999.32-479",
-    "citation_count": 144,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2073003441",
-    "title": "Hyperlipidemic Diet Causes Loss of Olfactory Sensory Neurons, Reduces Olfactory Discrimination, and Disrupts Odor-Reversal Learning",
-    "authors": [
-      "Nicolas Thiebaud",
-      "Melissa Cavallin Johnson",
-      "Jessica L. Butler",
-      "Genevieve A. Bell",
-      "Kassandra L. Ferguson",
-      "Andrew R Fadool",
-      "James C. Fadool",
-      "Alana M. Gale",
-      "David S. Gale",
-      "Debra Ann Fadool"
+      "Veronika Engert",
+      "Arcangelo Merla",
+      "Joshua A. Grant",
+      "Daniela Cardone",
+      "Anita Tusche",
+      "Tania Singer"
     ],
     "year": 2014,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.3366-13.2014",
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0090782",
     "citation_count": 144,
     "is_high_impact": false,
     "open_access": true,
@@ -846,16 +1251,19 @@
     "notes": ""
   },
   {
-    "id": "W2051022103",
-    "title": "The Basolateral Amygdala Is Critical to the Expression of Pavlovian and Instrumental Outcome-Specific Reinforcer Devaluation Effects",
+    "id": "W2011956182",
+    "title": "Perfectionism and the Cortisol Response to Psychosocial Stress in Men",
     "authors": [
-      "Alexander W. Johnson",
-      "Michela Gallagher",
-      "Peter C. Holland"
+      "Petra H. Wirtz",
+      "Sigrid Elsenbruch",
+      "Luljeta Emini",
+      "Katharina R\u00fcdis\u00fcli",
+      "Sara Groessbauer",
+      "Ulrike Ehlert"
     ],
-    "year": 2009,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.3758-08.2009",
+    "year": 2007,
+    "journal": "Psychosomatic Medicine",
+    "doi_or_url": "https://doi.org/10.1097/psy.0b013e318042589e",
     "citation_count": 143,
     "is_high_impact": false,
     "open_access": true,
@@ -867,17 +1275,20 @@
     "notes": ""
   },
   {
-    "id": "W2037578646",
-    "title": "RESPONSE RATE VIEWED AS ENGAGEMENT BOUTS: EFFECTS OF RELATIVE REINFORCEMENT AND SCHEDULE TYPE",
+    "id": "W2268958638",
+    "title": "Relations between plasma oxytocin and cortisol: The stress buffering role of social support",
     "authors": [
-      "Richard L. Shull",
-      "Scott T. Gaynor",
-      "Julie A. Grimes"
+      "Robyn J. McQuaid",
+      "Opal A. McInnis",
+      "Angela Paric",
+      "Faisal Al\u2010Yawer",
+      "Kimberly Matheson",
+      "Hymie Anisman"
     ],
-    "year": 2001,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2001.75-247",
-    "citation_count": 143,
+    "year": 2016,
+    "journal": "Neurobiology of Stress",
+    "doi_or_url": "https://doi.org/10.1016/j.ynstr.2016.01.001",
+    "citation_count": 142,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -888,17 +1299,19 @@
     "notes": ""
   },
   {
-    "id": "W2101946253",
-    "title": "Selective reward deficit in mice lacking beta-endorphin and enkephalin.",
+    "id": "W1980560842",
+    "title": "Using Biofeedback while Immersed in a Stressful Videogame Increases the Effectiveness of Stress Management Skills in Soldiers",
     "authors": [
-      "Michael D. Hayward",
-      "John E. Pintar",
-      "Malcolm J. Low"
+      "St\u00e9phane Bouchard",
+      "Fran\u00e7ois P. Bernier",
+      "\u00c9ric Boivin",
+      "Brian Morin",
+      "Genevi\u00e8ve Robillard"
     ],
-    "year": 2002,
-    "journal": "PubMed",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.22-18-08251.2002",
-    "citation_count": 134,
+    "year": 2012,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0036169",
+    "citation_count": 141,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -909,26 +1322,162 @@
     "notes": ""
   },
   {
-    "id": "W2209208567",
-    "title": "Glucagon-Like Peptide-1 Receptor Activation in the Ventral Tegmental Area Decreases the Reinforcing Efficacy of Cocaine",
+    "id": "W2553553254",
+    "title": "Association Between Neighborhood Violence and Biological Stress in Children",
     "authors": [
-      "Heath D. Schmidt",
-      "Elizabeth G. Mietlicki\u2010Baase",
-      "Kelsey Y. Ige",
-      "John Maurer",
-      "David J. Reiner",
-      "Derek J. Zimmer",
-      "Duncan S. Van Nest",
-      "Leonardo A. Guercio",
-      "Mathieu E. Wimmer",
-      "Diana R. Olivos",
-      "Bart C. De Jonghe",
-      "Matthew R. Hayes"
+      "Katherine P. Theall",
+      "Elizabeth A. Shirtcliff",
+      "Andrew R. Dismukes",
+      "Maeve Wallace",
+      "Stacy S. Drury"
+    ],
+    "year": 2016,
+    "journal": "JAMA Pediatrics",
+    "doi_or_url": "https://doi.org/10.1001/jamapediatrics.2016.2321",
+    "citation_count": 141,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2539234916",
+    "title": "Cortisol reactivity and suicidal behavior: Investigating the role of hypothalamic-pituitary-adrenal axis responses to stress in suicide attempters and ideators",
+    "authors": [
+      "Daryl B. O\u2019Connor",
+      "Jessica Green",
+      "Eamonn Ferguson",
+      "Ronan E. O\u2019Carroll",
+      "Rory C. O\u2019Connor"
+    ],
+    "year": 2016,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2016.10.019",
+    "citation_count": 140,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W3132034796",
+    "title": "Effects of exposure to immersive videos and photo slideshows of forest and urban environments",
+    "authors": [
+      "Fariba Mostajeran",
+      "Jessica Krzikawski",
+      "Frank Steinicke",
+      "Simone K\u00fchn"
+    ],
+    "year": 2021,
+    "journal": "Scientific Reports",
+    "doi_or_url": "https://doi.org/10.1038/s41598-021-83277-y",
+    "citation_count": 140,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2076942602",
+    "title": "The Mu-Opioid Receptor Polymorphism A118G Predicts Cortisol Responses to Naloxone and Stress",
+    "authors": [
+      "Rachel Y. Chong",
+      "Lynn M. Oswald",
+      "Xiaoju Yang",
+      "Magdalena Uhart",
+      "Ping\u2010I Lin",
+      "Gary S. Wand"
+    ],
+    "year": 2005,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300856",
+    "citation_count": 140,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2084407386",
+    "title": "High-Affinity CRF1 Receptor Antagonist NBI-34041: Preclinical and Clinical Data Suggest Safety and Efficacy in Attenuating Elevated Stress Response",
+    "authors": [
+      "Marcus Ising",
+      "U. Zimmermann",
+      "Heike K\u00fcnzel",
+      "Manfred Uhr",
+      "Alan C. Foster",
+      "Susan M. Learned",
+      "Florian Holsboer",
+      "Dimitri E. Grigoriadis"
+    ],
+    "year": 2007,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301328",
+    "citation_count": 138,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2981475429",
+    "title": "Cortisol response to stress: The role of expectancy and anticipatory stress regulation",
+    "authors": [
+      "Mat\u00edas M. Pulopulos",
+      "Chris Baeken",
+      "Rudi De Raedt"
+    ],
+    "year": 2019,
+    "journal": "Hormones and Behavior",
+    "doi_or_url": "https://doi.org/10.1016/j.yhbeh.2019.104587",
+    "citation_count": 135,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2320692076",
+    "title": "Blunted HPA Axis Activity in Suicide Attempters Compared to those at High Risk for Suicidal Behavior",
+    "authors": [
+      "Nadine Melhem",
+      "John G. Keilp",
+      "Giovanna Porta",
+      "Mar\u00eda A. Oquendo",
+      "Ainsley K. Burke",
+      "B\u00e1rbara Stanley",
+      "Thomas B. Cooper",
+      "J. John Mann",
+      "David A. Brent"
     ],
     "year": 2015,
     "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2015.362",
-    "citation_count": 133,
+    "doi_or_url": "https://doi.org/10.1038/npp.2015.309",
+    "citation_count": 135,
     "is_high_impact": true,
     "open_access": true,
     "used_for": [
@@ -939,17 +1488,16 @@
     "notes": ""
   },
   {
-    "id": "W2147878454",
-    "title": "Ventral Pallidal Representation of Pavlovian Cues and Reward: Population and Rate Codes",
+    "id": "W1573857414",
+    "title": "Influence of life stress, 5-HTTLPR genotype, and SLC6A4 methylation on gene expression and stress response in healthy Caucasian males",
     "authors": [
-      "Amy J. Tindell",
-      "Kent Berridge",
-      "J. Wayne Aldridge"
+      "Elif Aysimi Duman",
+      "Turhan Canli"
     ],
-    "year": 2004,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.1437-03.2004",
-    "citation_count": 132,
+    "year": 2015,
+    "journal": "Biology of Mood & Anxiety Disorders",
+    "doi_or_url": "https://doi.org/10.1186/s13587-015-0017-x",
+    "citation_count": 130,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -960,17 +1508,20 @@
     "notes": ""
   },
   {
-    "id": "W2328261225",
-    "title": "Sex Differences in the Behavioral Effects of 24-h/day Access to Cocaine under a Discrete Trial Procedure",
+    "id": "W2324775780",
+    "title": "The Enactive Approach to Architectural Experience: A Neurophysiological Perspective on Embodiment, Motivation, and Affordances",
     "authors": [
-      "Wendy J. Lynch",
-      "Jane R. Taylor"
+      "Andrea Jeli\u0107",
+      "Gaetano Tieri",
+      "Federico De Matteis",
+      "Fabio Babiloni",
+      "Giovanni Vecchiato"
     ],
-    "year": 2003,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300389",
-    "citation_count": 131,
-    "is_high_impact": true,
+    "year": 2016,
+    "journal": "Frontiers in Psychology",
+    "doi_or_url": "https://doi.org/10.3389/fpsyg.2016.00481",
+    "citation_count": 129,
+    "is_high_impact": false,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -980,18 +1531,16 @@
     "notes": ""
   },
   {
-    "id": "W2018263405",
-    "title": "UNIT PRICE AS A USEFUL METRIC IN ANALYZING EFFECTS OF REINFORCER MAGNITUDE",
+    "id": "W2802687719",
+    "title": "Association between changes in heart rate variability during the anticipation of a stressful situation and the stress-induced cortisol response",
     "authors": [
-      "R. J. DeGrandpre",
-      "Warren K. Bickel",
-      "John R. Hughes",
-      "Michael P. Layng",
-      "Gary J. Badger"
+      "Mat\u00edas M. Pulopulos",
+      "Marie\u2013Anne Vanderhasselt",
+      "Rudi De Raedt"
     ],
-    "year": 1993,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1993.60-641",
+    "year": 2018,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2018.05.004",
     "citation_count": 126,
     "is_high_impact": false,
     "open_access": true,
@@ -1003,18 +1552,17 @@
     "notes": ""
   },
   {
-    "id": "W1969727558",
-    "title": "Dissociable Contributions of Anterior Cingulate Cortex and Basolateral Amygdala on a Rodent Cost/Benefit Decision-Making Task of Cognitive Effort",
+    "id": "W2254789524",
+    "title": "Transcranial Stimulation of the Dorsolateral Prefrontal Cortex Prevents Stress-Induced Working Memory Deficits",
     "authors": [
-      "Jay G. Hosking",
-      "Paul J. Cocker",
-      "Catharine A. Winstanley"
+      "Mario Bogdanov",
+      "Lars Schwabe"
     ],
-    "year": 2014,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2014.27",
-    "citation_count": 122,
-    "is_high_impact": true,
+    "year": 2016,
+    "journal": "Journal of Neuroscience",
+    "doi_or_url": "https://doi.org/10.1523/jneurosci.3687-15.2016",
+    "citation_count": 124,
+    "is_high_impact": false,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -1024,21 +1572,58 @@
     "notes": ""
   },
   {
-    "id": "W2417239685",
-    "title": "Decreasing Striatopallidal Pathway Function Enhances Motivation by Energizing the Initiation of Goal-Directed Action",
+    "id": "W2140161720",
+    "title": "Beyond the HPA Axis: Progesterone-Derived Neuroactive Steroids in Human Stress and Emotion",
     "authors": [
-      "Fernanda Carvalho Poyraz",
-      "E. H\u00f6lzner",
-      "Matthew R. Bailey",
-      "J\u00f3zsef M\u00e9sz\u00e1ros",
-      "Lindsay Kenney",
-      "Mazen A. Kheirbek",
-      "Peter D. Balsam",
-      "Christoph Kellendonk"
+      "Michelle M. Wirth"
     ],
-    "year": 2016,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0444-16.2016",
+    "year": 2011,
+    "journal": "Frontiers in Endocrinology",
+    "doi_or_url": "https://doi.org/10.3389/fendo.2011.00019",
+    "citation_count": 124,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2154830694",
+    "title": "Neighborhood disadvantage and adolescent stress reactivity",
+    "authors": [
+      "Daniel A. Hackman",
+      "Laura M. Betancourt",
+      "Nancy L. Brodsky",
+      "Hallam Hurt",
+      "Martha J. Farah"
+    ],
+    "year": 2012,
+    "journal": "Frontiers in Human Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnhum.2012.00277",
+    "citation_count": 124,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2116885507",
+    "title": "The effects of stress-induced cortisol responses on approach\u2013avoidance behavior",
+    "authors": [
+      "Karin Roelofs",
+      "Bernet M. Elzinga",
+      "Mark Rotteveel"
+    ],
+    "year": 2005,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2005.02.008",
     "citation_count": 122,
     "is_high_impact": false,
     "open_access": true,
@@ -1050,15 +1635,86 @@
     "notes": ""
   },
   {
-    "id": "W1964652787",
-    "title": "FIXED\u2010RATIO PAUSING: JOINT EFFECTS OF PAST REINFORCER MAGNITUDE AND STIMULI CORRELATED WITH UPCOMING MAGNITUDE",
+    "id": "W2023477927",
+    "title": "A friendly version of the Trier Social Stress Test does not activate the HPA axis in healthy men and women",
     "authors": [
-      "Michael Perone",
-      "Karen Courtney"
+      "Uta S. Wiemers",
+      "Daniela Schoofs",
+      "Oliver T. Wolf"
     ],
-    "year": 1992,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1992.57-33",
+    "year": 2012,
+    "journal": "Stress",
+    "doi_or_url": "https://doi.org/10.3109/10253890.2012.714427",
+    "citation_count": 122,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2159275106",
+    "title": "Effects of Stress on the Social Support Provided by Men and Women in Intimate Relationships",
+    "authors": [
+      "Guy Bodenmann",
+      "Nathalie Meuwly",
+      "Janine Germann",
+      "Fridtjof W. Nu\u00dfbeck",
+      "Markus Heinrichs",
+      "Thomas N. Bradbury"
+    ],
+    "year": 2015,
+    "journal": "Psychological Science",
+    "doi_or_url": "https://doi.org/10.1177/0956797615594616",
+    "citation_count": 122,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1986540946",
+    "title": "Acute stress affects risk taking but not ambiguity aversion",
+    "authors": [
+      "Magdalena Buckert",
+      "Christiane Schwieren",
+      "Brigitte M. Kudielka",
+      "Christian J. Fiebach"
+    ],
+    "year": 2014,
+    "journal": "Frontiers in Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnins.2014.00082",
+    "citation_count": 122,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2115757202",
+    "title": "Stress shifts brain activation towards ventral \u2018affective\u2019 areas during emotional distraction",
+    "authors": [
+      "Nicole Y.L. Oei",
+      "Ilya M. Veer",
+      "Oliver T. Wolf",
+      "Philip Spinhoven",
+      "Serge A.R.B. Rombouts",
+      "Bernet M. Elzinga"
+    ],
+    "year": 2011,
+    "journal": "Social Cognitive and Affective Neuroscience",
+    "doi_or_url": "https://doi.org/10.1093/scan/nsr024",
     "citation_count": 121,
     "is_high_impact": false,
     "open_access": true,
@@ -1070,21 +1726,18 @@
     "notes": ""
   },
   {
-    "id": "W2021055249",
-    "title": "Sex Differences in Selecting Between Food and Cocaine Reinforcement are Mediated by Estrogen",
+    "id": "W2551649492",
+    "title": "Multivariate Brain Prediction of Heart Rate and Skin Conductance Responses to Social Threat",
     "authors": [
-      "Kerry A. Kerstetter",
-      "Maya A Ballis",
-      "Stevie Duffin-Lutgen",
-      "Amanda Carr",
-      "Alexandra M Behrens",
-      "Tod E. Kippin"
+      "Hedwig Eisenbarth",
+      "Luke J. Chang",
+      "Tor D. Wager"
     ],
-    "year": 2012,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2012.99",
-    "citation_count": 120,
-    "is_high_impact": true,
+    "year": 2016,
+    "journal": "Journal of Neuroscience",
+    "doi_or_url": "https://doi.org/10.1523/jneurosci.3672-15.2016",
+    "citation_count": 121,
+    "is_high_impact": false,
     "open_access": true,
     "used_for": [
       "task_workflow",
@@ -1094,17 +1747,40 @@
     "notes": ""
   },
   {
-    "id": "W2089217485",
-    "title": "Common Genetic Effects on Variation in Impulsivity and Activity in Mice",
+    "id": "W1969430973",
+    "title": "Stress Effects on Mood, HPA Axis, and Autonomic Response: Comparison of Three Psychosocial Stress Paradigms",
     "authors": [
-      "Anthony R Isles",
-      "Trevor Humby",
-      "Eurof Walters",
-      "Lawrence S. Wilkinson"
+      "Grace E. Giles",
+      "Caroline R. Mahoney",
+      "Tad T. Bruny\u00e9",
+      "Holly A. Taylor",
+      "Robin B. Kanarek"
     ],
-    "year": 2004,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.1650-04.2004",
+    "year": 2014,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0113618",
+    "citation_count": 121,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2554680427",
+    "title": "Sex and stress: Men and women show different cortisol responses to psychological stress induced by the Trier social stress test and the Iowa singing social stress test",
+    "authors": [
+      "A. E. Reschke-Hernandez",
+      "Katrina L. Okerstrom",
+      "Angela Bowles Edwards",
+      "Daniel Tranel"
+    ],
+    "year": 2016,
+    "journal": "Journal of Neuroscience Research",
+    "doi_or_url": "https://doi.org/10.1002/jnr.23851",
     "citation_count": 119,
     "is_high_impact": false,
     "open_access": true,
@@ -1116,39 +1792,26 @@
     "notes": ""
   },
   {
-    "id": "W2333240002",
-    "title": "Increases in Dopamine D3 Receptor Binding in Rats Receiving a Cocaine Challenge at Various Time Points after Cocaine Self-Administration: Implications for Cocaine-Seeking Behavior",
+    "id": "W2038947732",
+    "title": "Differences in Salivary Alpha-Amylase and Cortisol Responsiveness following Exposure to Electrical Stimulation versus the Trier Social Stress Tests",
     "authors": [
-      "Janet L. Neisewander",
-      "Rita A. Fuchs",
-      "Ly T.L. Tran-Nguyen",
-      "Suzanne M. Weber",
-      "Greg Coffey",
-      "Jeffrey N. Joyce"
+      "Yoshihiro Maruyama",
+      "Aimi Kawano",
+      "Shizuko Okamoto",
+      "Tomoko Ando",
+      "Yoshinobu Ishitobi",
+      "Yoshihiro Tanaka",
+      "Ayako Inoue",
+      "Junko Imanaga",
+      "Masayuki Kanehisa",
+      "Haruka Higuma",
+      "Taiga Ninomiya",
+      "Jusen Tsuru"
     ],
-    "year": 2004,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300456",
-    "citation_count": 118,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2012208498",
-    "title": "Comparative analysis of learning in honeybees",
-    "authors": [
-      "M. E. Bitterman"
-    ],
-    "year": 1996,
-    "journal": "Animal Learning & Behavior",
-    "doi_or_url": "https://doi.org/10.3758/bf03198961",
-    "citation_count": 118,
+    "year": 2012,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0039375",
+    "citation_count": 119,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1159,17 +1822,16 @@
     "notes": ""
   },
   {
-    "id": "W4322703264",
-    "title": "Selective Reward Deficit in Mice Lacking \u03b2-Endorphin and Enkephalin",
+    "id": "W2029385971",
+    "title": "Effects of acute psychosocial stress on cigarette craving and smoking",
     "authors": [
-      "Michael D. Hayward",
-      "John E. Pintar",
-      "Malcolm J. Low"
+      "Emma Childs",
+      "Harriet de Wit"
     ],
-    "year": 2002,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.22-18-08251.2002",
-    "citation_count": 116,
+    "year": 2010,
+    "journal": "Nicotine & Tobacco Research",
+    "doi_or_url": "https://doi.org/10.1093/ntr/ntp214",
+    "citation_count": 119,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1180,15 +1842,22 @@
     "notes": ""
   },
   {
-    "id": "W2000163102",
-    "title": "THE MOMENTUM OF COMPLIANCE",
+    "id": "W1823223071",
+    "title": "Sex hormones adjust \u201csex-specific\u201d reactive and diurnal cortisol profiles",
     "authors": [
-      "John A. Nevin"
+      "Robert\u2010Paul Juster",
+      "Catherine Raymond",
+      "Alexandra Bisson Desrochers",
+      "Olivier Bourdon",
+      "Nadia Durand",
+      "Nathalie Wan",
+      "Jens C. Pruessner",
+      "Sonia Lupien"
     ],
-    "year": 1996,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1996.29-535",
-    "citation_count": 109,
+    "year": 2015,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2015.10.012",
+    "citation_count": 118,
     "is_high_impact": false,
     "open_access": false,
     "used_for": [
@@ -1199,64 +1868,19 @@
     "notes": ""
   },
   {
-    "id": "W2053030710",
-    "title": "Differential Roles of 5-HT Receptor Subtypes in Cue and Cocaine Reinstatement of Cocaine-Seeking Behavior in Rats",
+    "id": "W2134126610",
+    "title": "The effects of social stress and cortisol responses on the preconscious selective attention to social threat",
     "authors": [
-      "J Burmeister",
-      "Erin M Lungren",
-      "Kenneth F. Kirschner",
-      "Janet L. Neisewander"
+      "Karin Roelofs",
+      "Patricia Bakvis",
+      "Erno J. Hermans",
+      "Johannes van Pelt",
+      "Jack van Honk"
     ],
-    "year": 2003,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300346",
-    "citation_count": 106,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2097963977",
-    "title": "Sensitivity to Cognitive Effort Mediates Psychostimulant Effects on a Novel Rodent Cost/Benefit Decision-Making Task",
-    "authors": [
-      "Paul J. Cocker",
-      "Jay G. Hosking",
-      "James Benoit",
-      "Catharine A. Winstanley"
-    ],
-    "year": 2012,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2012.30",
-    "citation_count": 105,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2024791500",
-    "title": "FUNCTIONAL ANALYSIS AND TREATMENT OF ELOPEMENT",
-    "authors": [
-      "Cathleen C. Piazza",
-      "Gregory P. Hanley",
-      "Lynn G. Bowman",
-      "John M. Ruyter",
-      "Steven E. Lindauer",
-      "Deborah M. Saiontz"
-    ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-653",
-    "citation_count": 105,
+    "year": 2006,
+    "journal": "Biological Psychology",
+    "doi_or_url": "https://doi.org/10.1016/j.biopsycho.2006.09.002",
+    "citation_count": 118,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1267,119 +1891,464 @@
     "notes": ""
   },
   {
-    "id": "W2951099875",
-    "title": "Chemogenetic Manipulations of Ventral Tegmental Area Dopamine Neurons Reveal Multifaceted Roles in Cocaine Abuse",
+    "id": "W1975097653",
+    "title": "Context-dependent enhancement of declarative memory performance following acute psychosocial stress",
     "authors": [
-      "Stephen V. Mahler",
-      "Zachary D. Brodnik",
-      "Brittney M. Cox",
-      "William C. Buchta",
-      "Brandon S. Bentzley",
-      "Julian Quintanilla",
-      "Zackary A. Cope",
-      "Edwin C Lin",
-      "Matthew D. Riedy",
-      "Michael D. Scofield",
-      "Justin Messinger",
-      "Christina M. Ruiz"
+      "Tom Smeets",
+      "Timo Giesbrecht",
+      "Marko Jel\u00edcic",
+      "H. Merckelbach"
+    ],
+    "year": 2007,
+    "journal": "Biological Psychology",
+    "doi_or_url": "https://doi.org/10.1016/j.biopsycho.2007.07.001",
+    "citation_count": 117,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W3013348605",
+    "title": "EEG Based Classification of Long-Term Stress Using Psychological Labeling",
+    "authors": [
+      "Sanay Muhammad Umar Saeed",
+      "Syed Muhammad Anwar",
+      "Humaira Khalid",
+      "Muhammad Majid",
+      "Ula\u015f Ba\u011fc\u0131"
+    ],
+    "year": 2020,
+    "journal": "Sensors",
+    "doi_or_url": "https://doi.org/10.3390/s20071886",
+    "citation_count": 117,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2171025917",
+    "title": "A sustained hypothalamic\u2013pituitary\u2013adrenal axis response to acute psychosocial stress in irritable bowel syndrome",
+    "authors": [
+      "Paul J. Kennedy",
+      "John F. Cryan",
+      "Eamonn M.M. Quigley",
+      "Timothy G. Dinan",
+      "Gerard Clarke"
+    ],
+    "year": 2014,
+    "journal": "Psychological Medicine",
+    "doi_or_url": "https://doi.org/10.1017/s003329171400052x",
+    "citation_count": 115,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2038887638",
+    "title": "The Effects of Mindfulness-Based Cognitive Therapy on Affective Memory Recall Dynamics in Depression: A Mechanistic Model of Rumination",
+    "authors": [
+      "Marieke K. van Vugt",
+      "Peter Hitchcock",
+      "Ben Shahar",
+      "Willoughby B. Britton"
+    ],
+    "year": 2012,
+    "journal": "Frontiers in Human Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnhum.2012.00257",
+    "citation_count": 115,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2081953805",
+    "title": "A new paradigm to induce mental stress: the Sing-a-Song Stress Test (SSST)",
+    "authors": [
+      "Anne-Marie Brouwer",
+      "Maarten A. Hogervorst"
+    ],
+    "year": 2014,
+    "journal": "Frontiers in Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnins.2014.00224",
+    "citation_count": 115,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2920250253",
+    "title": "Two Distinct Immune Pathways Linking Social Relationships With Health: Inflammatory and Antiviral Processes",
+    "authors": [
+      "Carrianne J. Leschak",
+      "Naomi I. Eisenberger"
+    ],
+    "year": 2019,
+    "journal": "Psychosomatic Medicine",
+    "doi_or_url": "https://doi.org/10.1097/psy.0000000000000685",
+    "citation_count": 115,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2509494832",
+    "title": "Effect of Pet Dogs on Children's Perceived Stress and Cortisol Stress Response",
+    "authors": [
+      "Darlene A. Kertes",
+      "Jingwen Liu",
+      "Nathaniel J. Hall",
+      "Natalie A. Hadad",
+      "Clive D. L. Wynne",
+      "Samarth Bhatt"
+    ],
+    "year": 2016,
+    "journal": "Social Development",
+    "doi_or_url": "https://doi.org/10.1111/sode.12203",
+    "citation_count": 114,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W3128258191",
+    "title": "Correlation of sympathetic and parasympathetic nervous system activity during rest and acute stress tasks",
+    "authors": [
+      "David G. Weissman",
+      "Wendy Berry Mendes"
+    ],
+    "year": 2021,
+    "journal": "International Journal of Psychophysiology",
+    "doi_or_url": "https://doi.org/10.1016/j.ijpsycho.2021.01.015",
+    "citation_count": 113,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2121549534",
+    "title": "Effects of acute psychosocial stress on working memory related brain activity in men",
+    "authors": [
+      "Riklef Weerda",
+      "Markus Muehlhan",
+      "Oliver T. Wolf",
+      "Christiane M. Thiel"
+    ],
+    "year": 2010,
+    "journal": "Human Brain Mapping",
+    "doi_or_url": "https://doi.org/10.1002/hbm.20945",
+    "citation_count": 112,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2839867530",
+    "title": "Effects of virtual reality high heights exposure during beam-walking on physiological stress and cognitive loading",
+    "authors": [
+      "Steven Peterson",
+      "Emily Furuichi",
+      "Daniel P. Ferris"
+    ],
+    "year": 2018,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0200306",
+    "citation_count": 110,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2285097695",
+    "title": "Reduced stress and inflammatory responsiveness in experienced meditators compared to a matched healthy control group",
+    "authors": [
+      "Melissa A. Rosenkranz",
+      "Antoine Lutz",
+      "D. Perlman",
+      "David R. W. Bachhuber",
+      "Brianna S. Schuyler",
+      "Donal G. MacCoon",
+      "Richard J. Davidson"
+    ],
+    "year": 2016,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2016.02.013",
+    "citation_count": 110,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2108460086",
+    "title": "A Randomized Trial on Mineralocorticoid Receptor Blockade in Men: Effects on Stress Responses, Selective Attention, and Memory",
+    "authors": [
+      "Sandra Cornelisse",
+      "Marian Jo\u00ebls",
+      "Tom Smeets"
+    ],
+    "year": 2011,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/npp.2011.162",
+    "citation_count": 109,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2340235891",
+    "title": "Altered Stress-Induced Regulation of Genes in Monocytes in Adults with a History of Childhood Adversity",
+    "authors": [
+      "Marion Schwaiger",
+      "Marianna Grinberg",
+      "Dirk Moser",
+      "Johannes C. S. Zang",
+      "Markus Heinrichs",
+      "Jan G. Hengstler",
+      "J\u00f6rg Rahnenf\u00fchrer",
+      "Steve W. Cole",
+      "Robert Kumsta"
+    ],
+    "year": 2016,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/npp.2016.57",
+    "citation_count": 109,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2523494305",
+    "title": "Stress Assessment by Prefrontal Relative Gamma",
+    "authors": [
+      "Jes\u00fas Minguill\u00f3n",
+      "M. A. L\u00f3pez-Gordo",
+      "Francisco Pelayo"
+    ],
+    "year": 2016,
+    "journal": "Frontiers in Computational Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fncom.2016.00101",
+    "citation_count": 108,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W3135510221",
+    "title": "The immunology of stress and the impact of inflammation on the brain and behaviour",
+    "authors": [
+      "Meghna Ravi",
+      "Andrew H. Miller",
+      "Vasiliki Michopoulos"
+    ],
+    "year": 2021,
+    "journal": "BJPsych Advances",
+    "doi_or_url": "https://doi.org/10.1192/bja.2020.82",
+    "citation_count": 107,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2070640104",
+    "title": "GABRA6 gene polymorphism and an attenuated stress response",
+    "authors": [
+      "Magdalena Uhart",
+      "Mary E. McCaul",
+      "Lynn M. Oswald",
+      "Leena Choi",
+      "Gary S. Wand"
+    ],
+    "year": 2004,
+    "journal": "Molecular Psychiatry",
+    "doi_or_url": "https://doi.org/10.1038/sj.mp.4001535",
+    "citation_count": 106,
+    "is_high_impact": true,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1998571494",
+    "title": "Chronicity of depressive problems and the cortisol response to psychosocial stress in adolescents: The TRAILS study",
+    "authors": [
+      "Sanne H. Booij",
+      "Esther Bouma",
+      "Peter de Jonge",
+      "Johan Ormel",
+      "Albertine J. Oldehinkel"
+    ],
+    "year": 2012,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2012.08.004",
+    "citation_count": 102,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2795084748",
+    "title": "The relationship between the menstrual cycle and cortisol secretion: Daily and stress-invoked cortisol patterns",
+    "authors": [
+      "Eva Montero\u2010L\u00f3pez",
+      "Ana Santos\u2010Ruiz",
+      "Mar\u00eda del Carmen Garc\u00eda R\u00edos",
+      "Manuel Rodr\u00edguez-Bl\u00e1zquez",
+      "Heather Rogers",
+      "Mar\u00eda Isabel Peralta\u2010Ram\u00edrez"
+    ],
+    "year": 2018,
+    "journal": "International Journal of Psychophysiology",
+    "doi_or_url": "https://doi.org/10.1016/j.ijpsycho.2018.03.021",
+    "citation_count": 102,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2101451224",
+    "title": "Determinants of Physiological and Perceived Physiological Stress Reactivity in Children and Adolescents",
+    "authors": [
+      "Brittany E. Evans",
+      "Kirstin Greaves\u2010Lord",
+      "Anja S. Euser",
+      "J.H.M. Tulen",
+      "Ingmar H. A. Franken",
+      "Anja C. Huizink"
+    ],
+    "year": 2013,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0061724",
+    "citation_count": 102,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1987231071",
+    "title": "How the selfish brain organizes its supply and demand",
+    "authors": [
+      "Britta Hitze"
+    ],
+    "year": 2010,
+    "journal": "Frontiers in Neuroenergetics",
+    "doi_or_url": "https://doi.org/10.3389/fnene.2010.00007",
+    "citation_count": 102,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2885599406",
+    "title": "Updating Beliefs under Perceived Threat",
+    "authors": [
+      "Neil Garrett",
+      "Ana Mar\u00eda Gonz\u00e1lez-Garz\u00f3n",
+      "Lucy Foulkes",
+      "Liat Levita",
+      "Tali Sharot"
     ],
     "year": 2018,
     "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0537-18.2018",
-    "citation_count": 105,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1998415440",
-    "title": "ACQUISITION OF LEVER\u2010PRESS RESPONDING IN RATS WITH DELAYED REINFORCEMENT: A COMPARISON OF THREE PROCEDURES",
-    "authors": [
-      "Jayson Wilkenfield",
-      "Mark K. Nickel",
-      "Elbert Blakely",
-      "Alan Poling"
-    ],
-    "year": 1992,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1992.58-431",
-    "citation_count": 104,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2102609250",
-    "title": "ANALYSIS OF RESPONSE ALLOCATION IN INDIVIDUALS WITH MULTIPLE FORMS OF STEREOTYPED BEHAVIOR",
-    "authors": [
-      "John T. Rapp",
-      "Timothy R. Vollmer",
-      "Claire C. St. Peter",
-      "Claudia L. Dozier",
-      "Nicole M. Cotnoir"
-    ],
-    "year": 2004,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.2004.37-481",
-    "citation_count": 104,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1806830406",
-    "title": "The Stomach-Derived Hormone Ghrelin Increases Impulsive Behavior",
-    "authors": [
-      "Rozita H. Anderberg",
-      "Caroline Hansson",
-      "Maya Fenander",
-      "Jennifer E. Richard",
-      "Suzanne L. Dickson",
-      "Hans Nissbrandt",
-      "Filip Bergquist",
-      "Karolina P. Skibicka"
-    ],
-    "year": 2015,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2015.297",
+    "doi_or_url": "https://doi.org/10.1523/jneurosci.0716-18.2018",
     "citation_count": 102,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2769019845",
-    "title": "Are Cocaine-Seeking \u201cHabits\u201d Necessary for the Development of Addiction-Like Behavior in Rats?",
-    "authors": [
-      "Bryan F. Singer",
-      "Monica Fadanelli",
-      "Alex B. Kawa",
-      "Terry E. Robinson"
-    ],
-    "year": 2017,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.2458-17.2017",
-    "citation_count": 100,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1390,16 +2359,26 @@
     "notes": ""
   },
   {
-    "id": "W1901626591",
-    "title": "Blockade of D1 Dopamine Receptors in the Ventral Tegmental Area Decreases Cocaine Reward: Possible Role for Dendritically Released Dopamine",
+    "id": "W2094653017",
+    "title": "Neonatal Pain-Related Stress and NFKBIA Genotype Are Associated with Altered Cortisol Levels in Preterm Boys at School Age",
     "authors": [
-      "Robert Ranaldi",
-      "Roy A. Wise"
+      "Ruth E. Grunau",
+      "Ivan L. Cepeda",
+      "Cecil M. Y. Chau",
+      "Susanne Brummelte",
+      "Joanne Weinberg",
+      "Pascal M. Lavoie",
+      "Mihoko Ladd",
+      "Aaron F. Hirschfeld",
+      "Evan Russell",
+      "Gideon Koren",
+      "Stan Van Uum",
+      "Rollin Brant"
     ],
-    "year": 2001,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.21-15-05841.2001",
-    "citation_count": 100,
+    "year": 2013,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0073926",
+    "citation_count": 102,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1410,18 +2389,45 @@
     "notes": ""
   },
   {
-    "id": "W1530025852",
-    "title": "A COMPARISON OF TWO PAIRING PROCEDURES TO ESTABLISH PRAISE AS A REINFORCER",
+    "id": "W2117650446",
+    "title": "The influence of stress on social cognition in patients with borderline personality disorder",
     "authors": [
-      "Claudia L. Dozier",
-      "Brian A. Iwata",
-      "Jessica L. Thomason\u2010Sassi",
-      "April S. Worsdell",
-      "Darrell M. Wilson"
+      "Janneke W.M. Deckers",
+      "Jill Lobbestael",
+      "Guido van Wingen",
+      "Roy P. C. Kessels",
+      "Arnoud Arntz",
+      "J.I.M. Egger"
     ],
-    "year": 2012,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.2012.45-721",
+    "year": 2014,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2014.11.003",
+    "citation_count": 101,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2157025275",
+    "title": "DNA methylation profiles within the serotonin transporter gene moderate the association of 5-HTTLPR and cortisol stress reactivity",
+    "authors": [
+      "Nina Alexander",
+      "Matthis Wankerl",
+      "Juergen Hennig",
+      "Robert Miller",
+      "Sandra Z\u00e4nkert",
+      "Susann Steudte\u2010Schmiedgen",
+      "Tobias Stalder",
+      "Clemens Kirschbaum"
+    ],
+    "year": 2014,
+    "journal": "Translational Psychiatry",
+    "doi_or_url": "https://doi.org/10.1038/tp.2014.88",
     "citation_count": 99,
     "is_high_impact": false,
     "open_access": true,
@@ -1433,19 +2439,65 @@
     "notes": ""
   },
   {
-    "id": "W2109660306",
-    "title": "EXAMINATION OF RELATIVE REINFORCEMENT EFFECTS OF STIMULI IDENTIFIED THROUGH PRETREATMENT AND DAILY BRIEF PREFERENCE ASSESSMENTS",
+    "id": "W2565497125",
+    "title": "Hierarchy stability moderates the effect of status on stress and performance in humans",
     "authors": [
-      "Iser G. DeLeon",
-      "Wayne W. Fisher",
-      "Vanessa Rodriguez\u2010Catter",
-      "Kristen A. Maglieri",
-      "Kelly Herman",
-      "Jean\u2010Marie Marhefka"
+      "Erik L. Knight",
+      "Pranjal H. Mehta"
     ],
-    "year": 2001,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.2001.34-463",
+    "year": 2016,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "doi_or_url": "https://doi.org/10.1073/pnas.1609811114",
+    "citation_count": 99,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2127116774",
+    "title": "Cortisol response and desire to binge following psychological stress: Comparison between obese subjects with and without binge eating disorder",
+    "authors": [
+      "Noa Rosenberg",
+      "Miki Bloch",
+      "Irit Ben Avi",
+      "Vanessa Rouach",
+      "Shaul Schreiber",
+      "Naftali Stern",
+      "Yona Greenman"
+    ],
+    "year": 2012,
+    "journal": "Psychiatry Research",
+    "doi_or_url": "https://doi.org/10.1016/j.psychres.2012.09.050",
+    "citation_count": 99,
+    "is_high_impact": false,
+    "open_access": false,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W3048336743",
+    "title": "The effects of a music and singing intervention during pregnancy on maternal well-being and mother\u2013infant bonding: a randomised, controlled study",
+    "authors": [
+      "Verena Wulff",
+      "Philip Hepp",
+      "Oliver T. Wolf",
+      "Percy Balan",
+      "Carsten Hagenbeck",
+      "Tanja Fehm",
+      "Nora K. Schaal"
+    ],
+    "year": 2020,
+    "journal": "Archives of Gynecology and Obstetrics",
+    "doi_or_url": "https://doi.org/10.1007/s00404-020-05727-8",
     "citation_count": 97,
     "is_high_impact": false,
     "open_access": true,
@@ -1457,132 +2509,21 @@
     "notes": ""
   },
   {
-    "id": "W3091989781",
-    "title": "Dissecting the Role of GABA Neurons in the VTA<i>versus</i>SNr in Opioid Reward",
+    "id": "W1900731657",
+    "title": "Psychosocial Stress Increases Salivary Alpha-Amylase Activity Independently from Plasma Noradrenaline Levels",
     "authors": [
-      "Ewa Galaj",
-      "Xiao Han",
-      "Hui Shen",
-      "Chloe J. Jordan",
-      "Yi He",
-      "Bree A. Humburg",
-      "Guo\u2010Hua Bi",
-      "Zheng\u2010Xiong Xi"
+      "Liubov Petrakova",
+      "Bettina K. Doering",
+      "Sabine Vits",
+      "Harald Engler",
+      "Winfried Rief",
+      "Manfred Schedlowski",
+      "Jan\u2010Sebastian Grigoleit"
     ],
-    "year": 2020,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0988-20.2020",
-    "citation_count": 96,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W187640026",
-    "title": "Separating Discriminative and Function-Altering Effects of Verbal Stimuli",
-    "authors": [
-      "Henry D. Schlinger"
-    ],
-    "year": 1993,
-    "journal": "The Behavior Analyst",
-    "doi_or_url": "https://doi.org/10.1007/bf03392605",
-    "citation_count": 95,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1988634644",
-    "title": "Learning to vary and varying to learn",
-    "authors": [
-      "Alicia Grunow",
-      "Allen Neuringer"
-    ],
-    "year": 2002,
-    "journal": "Psychonomic Bulletin & Review",
-    "doi_or_url": "https://doi.org/10.3758/bf03196279",
-    "citation_count": 95,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2540425834",
-    "title": "Endogenous Glucagon-like Peptide-1 Receptor Signaling in the Nucleus Tractus Solitarius is Required for Food Intake Control",
-    "authors": [
-      "Amber L. Alhadeff",
-      "Blake Mergler",
-      "Derek J. Zimmer",
-      "Christopher A. Turner",
-      "David J. Reiner",
-      "Heath D. Schmidt",
-      "Harvey J. Grill",
-      "Matthew R. Hayes"
-    ],
-    "year": 2016,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2016.246",
-    "citation_count": 94,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2130657668",
-    "title": "EFFECTS OF REINFORCER QUALITY ON BEHAVIORAL MOMENTUM: COORDINATED APPLIED AND BASIC RESEARCH",
-    "authors": [
-      "F. Charles Mace",
-      "Benjamin C. Mauro",
-      "Amy E. Boyajian",
-      "Tanya L. Eckert"
-    ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-1",
-    "citation_count": 93,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2005498643",
-    "title": "Sugar Overconsumption during Adolescence Selectively Alters Motivation and Reward Function in Adult Rats",
-    "authors": [
-      "Leandro F. Vendruscolo",
-      "Aliou B. Gueye",
-      "Muriel Darnaud\u00e9ry",
-      "Serge H. Ahmed",
-      "Martine Cador"
-    ],
-    "year": 2010,
+    "year": 2015,
     "journal": "PLoS ONE",
-    "doi_or_url": "https://doi.org/10.1371/journal.pone.0009296",
-    "citation_count": 93,
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0134561",
+    "citation_count": 97,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -1593,413 +2534,21 @@
     "notes": ""
   },
   {
-    "id": "W2130384863",
-    "title": "Highly Specific Role of Hypocretin (Orexin) Neurons: Differential Activation as a Function of Diurnal Phase, Operant Reinforcement versus Operant Avoidance and Light Level",
+    "id": "W2134602945",
+    "title": "Low Social Support and Poor Emotional Regulation Are Associated with Increased Stress Hormone Reactivity to Mental Stress in Systemic Hypertension",
     "authors": [
-      "R. L. McGregor",
-      "Ming\u2010Fung Wu",
-      "Grace Barber",
-      "Lalini Ramanathan",
-      "Jerome M. Siegel"
-    ],
-    "year": 2011,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.4017-11.2011",
-    "citation_count": 92,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2095109706",
-    "title": "Premotor cortex is critical for goal-directed actions",
-    "authors": [
-      "Christina M. Gremel",
-      "Rui M. Costa"
-    ],
-    "year": 2013,
-    "journal": "Frontiers in Computational Neuroscience",
-    "doi_or_url": "https://doi.org/10.3389/fncom.2013.00110",
-    "citation_count": 85,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2102527017",
-    "title": "EMERGENCE OF REINFORCER PREFERENCE AS A FUNCTION OF SCHEDULE REQUIREMENTS AND STIMULUS SIMILARITY",
-    "authors": [
-      "Iser G. DeLeon",
-      "Brian A. Iwata",
-      "Han\u2010Leong Goh",
-      "April S. Worsdell"
-    ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-439",
-    "citation_count": 83,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2054976602",
-    "title": "Resistance to extinction: contingency termination and generalization decrement",
-    "authors": [
-      "John A. Nevin",
-      "Anthony P. McLean",
-      "Randolph C. Grace"
-    ],
-    "year": 2001,
-    "journal": "Animal Learning & Behavior",
-    "doi_or_url": "https://doi.org/10.3758/bf03192826",
-    "citation_count": 81,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2006030101",
-    "title": "Methadone Maintenance Reduces Heroin- and Cocaine-Induced Relapse without Affecting Stress-Induced Relapse in a Rodent Model of Poly-Drug Use",
-    "authors": [
-      "Francesco Leri",
-      "Annie Tremblay",
-      "Robert E. Sorge",
-      "Jane Stewart"
-    ],
-    "year": 2004,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300435",
-    "citation_count": 81,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1941428045",
-    "title": "Persistent palatable food preference in rats with a history of limited and extended access to methamphetamine self\u2010administration",
-    "authors": [
-      "Daniele Caprioli",
-      "Tamara Zeric",
-      "Eric B. Thorndike",
-      "Marco V\u00e8nniro"
-    ],
-    "year": 2015,
-    "journal": "Addiction Biology",
-    "doi_or_url": "https://doi.org/10.1111/adb.12220",
-    "citation_count": 80,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2323688315",
-    "title": "GABAA and Opioid Receptors of the Central Nucleus of the Amygdala Selectively Regulate Ethanol-Maintained Behaviors",
-    "authors": [
-      "Katrina L. Foster",
-      "Peter F. McKay",
-      "Regat Seyoum",
-      "Dana Milbourne",
-      "Wenyuan Yin",
-      "Prerana Sarma",
-      "James M. Cook",
-      "Harry L. June"
-    ],
-    "year": 2003,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300306",
-    "citation_count": 78,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W3009735770",
-    "title": "Circulating Triglycerides Gate Dopamine-Associated Behaviors through DRD2-Expressing Neurons",
-    "authors": [
-      "Chlo\u00e9 Berland",
-      "Enrica Montalban",
-      "Elodie Perrin",
-      "Mathieu Di Miceli",
-      "Yuko Nakamura",
-      "Maud Martinat",
-      "Mary C. Sullivan",
-      "Xue S. Davis",
-      "Mohammad Ali Shenasa",
-      "Claire Martin",
-      "St\u00e9fania Tolu",
-      "Fabio Marti"
-    ],
-    "year": 2020,
-    "journal": "Cell Metabolism",
-    "doi_or_url": "https://doi.org/10.1016/j.cmet.2020.02.010",
-    "citation_count": 74,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2116269931",
-    "title": "The beneficial sexually transmitted microbe hypothesis of avian copulation",
-    "authors": [
-      "Michael P. Lombardo"
-    ],
-    "year": 1999,
-    "journal": "Behavioral Ecology",
-    "doi_or_url": "https://doi.org/10.1093/beheco/10.3.333",
-    "citation_count": 73,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1993718470",
-    "title": "ON THE EFFECTS OF NONCONTINGENT DELIVERY OF DIFFERING MAGNITUDES OF REINFORCEMENT",
-    "authors": [
-      "James E. Carr",
-      "Jon S. Bailey",
-      "Cheryl L. Ecott",
-      "Kim D. Lucker",
-      "Timothy M. Weil"
-    ],
-    "year": 1998,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1998.31-313",
-    "citation_count": 72,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2098516797",
-    "title": "ASSESSMENT OF PREFERENCE FOR VARIED VERSUS CONSTANT REINFORCERS",
-    "authors": [
-      "Lynn G. Bowman",
-      "Cathleen C. Piazza",
-      "Wayne W. Fisher",
-      "Louis P. Hagopian",
-      "Jeffrey S. Kogan"
-    ],
-    "year": 1997,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.1997.30-451",
-    "citation_count": 72,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2911284908",
-    "title": "Incentive and dopamine sensitization produced by intermittent but not long access cocaine self\u2010administration",
-    "authors": [
-      "Alex B. Kawa",
-      "Alec C. Valenta",
-      "Robert T. Kennedy",
-      "Terry E. Robinson"
-    ],
-    "year": 2019,
-    "journal": "European Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1111/ejn.14418",
-    "citation_count": 70,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2036241458",
-    "title": "CRITICISMS OF THE SATIETY HYPOTHESIS AS AN EXPLANATION FOR WITHIN\u2010SESSION DECREASES IN RESPONDING",
-    "authors": [
-      "Frances K. McSweeney",
-      "Eric S. Murphy"
-    ],
-    "year": 2000,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2000.74-347",
-    "citation_count": 70,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2039959923",
-    "title": "Acetylcholine Release in the Mesocorticolimbic Dopamine System during Cocaine Seeking: Conditioned and Unconditioned Contributions to Reward and Motivation",
-    "authors": [
-      "Zhi\u2010Bing You",
-      "Bin Wang",
-      "Dawnya L. Zitzman",
-      "Roy A. Wise"
-    ],
-    "year": 2008,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.0694-08.2008",
-    "citation_count": 70,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2000094462",
-    "title": "Effects of Contingent and Non-Contingent Cocaine on Drug-Seeking Behavior Measured Using a Second-Order Schedule of Cocaine Reinforcement in Rats",
-    "authors": [
-      "Athina Markou"
-    ],
-    "year": 1999,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1016/s0893-133x(98)00080-3",
-    "citation_count": 69,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2034018866",
-    "title": "Operant Procedures for Assessing Behavioral Flexibility in Rats",
-    "authors": [
-      "Anne\u2010Marie Brady",
-      "Stan Floresco"
-    ],
-    "year": 2015,
-    "journal": "Journal of Visualized Experiments",
-    "doi_or_url": "https://doi.org/10.3791/52387",
-    "citation_count": 69,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2033029177",
-    "title": "ON THE RELATION BETWEEN PREFERENCE AND RESISTANCE TO CHANGE",
-    "authors": [
-      "Randolph C. Grace",
-      "John A. Nevin"
-    ],
-    "year": 1997,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1997.67-43",
-    "citation_count": 69,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2042240432",
-    "title": "Estrogen Receptor \u03b2, but not \u03b1, Mediates Estrogen's Effect on Cocaine-Induced Reinstatement of Extinguished Cocaine-Seeking Behavior in Ovariectomized Female Rats",
-    "authors": [
-      "Erin B. Larson",
-      "Marilyn E. Carroll"
+      "Petra H. Wirtz",
+      "Roland von K\u00e4nel",
+      "Changiz Mohiyeddini",
+      "Luljeta Emini",
+      "Katharina Ruedisueli",
+      "Sara Groessbauer",
+      "Ulrike Ehlert"
     ],
     "year": 2006,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301249",
-    "citation_count": 69,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2109003251",
-    "title": "REINFORCEMENT MAGNITUDE: AN EVALUATION OF PREFERENCE AND REINFORCER EFFICACY",
-    "authors": [
-      "Nicole M. Trosclair\u2010Lasserre",
-      "Dorothea C. Lerman",
-      "Nathan A. Call",
-      "Laura Addison",
-      "Tiffany Kodak"
-    ],
-    "year": 2008,
-    "journal": "Journal of Applied Behavior Analysis",
-    "doi_or_url": "https://doi.org/10.1901/jaba.2008.41-203",
-    "citation_count": 67,
+    "journal": "The Journal of Clinical Endocrinology & Metabolism",
+    "doi_or_url": "https://doi.org/10.1210/jc.2005-2586",
+    "citation_count": 94,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -2010,39 +2559,17 @@
     "notes": ""
   },
   {
-    "id": "W1991677889",
-    "title": "Galantamine, an Acetylcholinesterase Inhibitor and Positive Allosteric Modulator of Nicotinic Acetylcholine Receptors, Attenuates Nicotine Taking and Seeking in Rats",
+    "id": "W2143201441",
+    "title": "Cortisol reactivity and distress-induced emotional eating",
     "authors": [
-      "Thomas J. Hopkins",
-      "Laura E. Rupprecht",
-      "Matthew R. Hayes",
-      "Julie A. Blendy",
-      "Heath D. Schmidt"
+      "Tatjana van Strien",
+      "Karin Roelofs",
+      "Carolina de Weerth"
     ],
     "year": 2012,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2012.83",
-    "citation_count": 66,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2171958167",
-    "title": "RESURGENCE OF RESPONSE SEQUENCES DURING EXTINCTION IN RATS SHOWS A PRIMACY EFFECT",
-    "authors": [
-      "Phil Reed",
-      "Theresa A. Morgan"
-    ],
-    "year": 2006,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2006.20-05",
-    "citation_count": 66,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2012.08.008",
+    "citation_count": 94,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -2053,576 +2580,22 @@
     "notes": ""
   },
   {
-    "id": "W2091072948",
-    "title": "RESISTANCE TO CHANGE OF OPERANT VARIATION AND REPETITION",
+    "id": "W3126793684",
+    "title": "Acute Stress State Classification Based on Electrodermal Activity Modeling",
     "authors": [
-      "Adam H. Doughty",
-      "Kennon A. Lattal"
-    ],
-    "year": 2001,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2001.76-195",
-    "citation_count": 64,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2765443645",
-    "title": "A neuronal mechanism underlying decision-making deficits during hyperdopaminergic states",
-    "authors": [
-      "Jeroen P. H. Verharen",
-      "Johannes W. de Jong",
-      "Theresia J. M. Roelofs",
-      "Christiaan F. M. Huffels",
-      "Ruud van Zessen",
-      "Mieneke C. M. Luijendijk",
-      "Ralph Hamelink",
-      "Ingo Willuhn",
-      "Hanneke E.M. den Ouden",
-      "G Plasse",
-      "Roger A.H. Adan",
-      "Louk J. M. J. Vanderschuren"
-    ],
-    "year": 2018,
-    "journal": "Nature Communications",
-    "doi_or_url": "https://doi.org/10.1038/s41467-018-03087-1",
-    "citation_count": 64,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2031299021",
-    "title": "Leptin Signaling in the Medial Nucleus Tractus Solitarius Reduces Food Seeking and Willingness to Work for Food",
-    "authors": [
-      "Scott E. Kanoski",
-      "Amber L. Alhadeff",
-      "Samantha M. Fortin",
-      "Jennifer R Gilbert",
-      "Harvey J. Grill"
-    ],
-    "year": 2013,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2013.235",
-    "citation_count": 63,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2286609955",
-    "title": "Melanocortin 3 Receptor Signaling in Midbrain Dopamine Neurons Increases the Motivation for Food Reward",
-    "authors": [
-      "Rahul Pandit",
-      "Azar Omrani",
-      "Mieneke C. M. Luijendijk",
-      "V\u00e9ronne A. J. de Vrind",
-      "A. J. van Rozen",
-      "Ralph J. A. Oude Ophuis",
-      "Keith M. Garner",
-      "Imre Kall\u00f3",
-      "Alexander Ghanem",
-      "Zsolt Liposits",
-      "Karl\u2010Klaus Conzelmann",
-      "Louk J. M. J. Vanderschuren"
-    ],
-    "year": 2016,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2016.19",
-    "citation_count": 62,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2936438292",
-    "title": "Glucagon-Like Peptide-1 Receptor Agonist Treatment Does Not Reduce Abuse-Related Effects of Opioid Drugs",
-    "authors": [
-      "Annika Billefeld Bornebusch",
-      "Anders Fink\u2010Jensen",
-      "Gitta W\u00f6rtwein",
-      "Randy J. Seeley",
-      "Morgane Thomsen"
-    ],
-    "year": 2019,
-    "journal": "eNeuro",
-    "doi_or_url": "https://doi.org/10.1523/eneuro.0443-18.2019",
-    "citation_count": 62,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2086644402",
-    "title": "PATTERNS OF RESPONDING WITHIN SESSIONS",
-    "authors": [
-      "Frances K. McSweeney",
-      "John M. Hinson"
-    ],
-    "year": 1992,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1992.58-19",
-    "citation_count": 62,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2592486468",
-    "title": "Thalamic Control of Dorsomedial Striatum Regulates Internal State to Guide Goal-Directed Action Selection",
-    "authors": [
-      "Laura A Bradfield",
-      "Bernard W. Balleine"
-    ],
-    "year": 2017,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.3860-16.2017",
-    "citation_count": 62,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2046804265",
-    "title": "Neonatal Isolation Stress Potentiates Cocaine Seeking Behavior in Adult Male and Female Rats",
-    "authors": [
-      "Wendy J. Lynch",
-      "Lauren D Mangini",
-      "Jane R. Taylor"
-    ],
-    "year": 2004,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300594",
-    "citation_count": 61,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2004832366",
-    "title": "Pr\u00e9cis ofFrustration Theory: An Analysis of Dispositional Learning and Memory",
-    "authors": [
-      "Abram Amsel"
-    ],
-    "year": 1994,
-    "journal": "Psychonomic Bulletin & Review",
-    "doi_or_url": "https://doi.org/10.3758/bf03213968",
-    "citation_count": 61,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2427788586",
-    "title": "Adolescent \u03949-Tetrahydrocannabinol Exposure Alters WIN55,212-2 Self-Administration in Adult Rats",
-    "authors": [
-      "Mar\u00eda Scherma",
-      "Christian Dess\u00ec",
-      "Anna Lisa Muntoni",
-      "Salvatore Lecca",
-      "Valentina Satta",
-      "Antonio Luchicchi",
-      "Marco Pistis",
-      "Leigh V. Panlilio",
-      "Liana Fattore",
-      "Steven R. Goldberg",
-      "Walter Fratta",
-      "Paola Fadda"
-    ],
-    "year": 2015,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2015.295",
-    "citation_count": 61,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2050783670",
-    "title": "The Uncompetitive N-methyl-D-Aspartate Antagonist Memantine Reduces Binge-Like Eating, Food-Seeking Behavior, and Compulsive Eating: Role of the Nucleus Accumbens Shell",
-    "authors": [
-      "Karen L. Smith",
-      "Rahul Ramesh Rao",
-      "Clara Vel\u00e1zquez-S\u00e1nchez",
-      "Marta Valenza",
-      "Chiara Giuliano",
-      "Barry J. Everitt",
-      "Valentina Sabino",
-      "Pietro Cottone"
-    ],
-    "year": 2014,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/npp.2014.299",
-    "citation_count": 61,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2010219391",
-    "title": "Do animals satiate or habituate to repeatedly presented reinforcers?",
-    "authors": [
-      "Frances K. McSweeney",
-      "John M. Roll"
-    ],
-    "year": 1998,
-    "journal": "Psychonomic Bulletin & Review",
-    "doi_or_url": "https://doi.org/10.3758/bf03208818",
-    "citation_count": 61,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2041027326",
-    "title": "The Ventral Striato-Pallidal Pathway Mediates the Effect of Predictive Learning on Choice between Goal-Directed Actions",
-    "authors": [
-      "Beatrice K. Leung",
-      "Bernard W. Balleine"
-    ],
-    "year": 2013,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.1697-13.2013",
-    "citation_count": 60,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1978448408",
-    "title": "BOUTS OF RESPONDING FROM VARIABLE\u2010INTERVAL REINFORCEMENT OF LEVER PRESSING BY RATS",
-    "authors": [
-      "Richard L. Shull",
-      "Julie A. Grimes"
-    ],
-    "year": 2003,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2003.80-159",
-    "citation_count": 60,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2759370097",
-    "title": "Lever Insertion as a Salient Stimulus Promoting Insensitivity to Outcome Devaluation",
-    "authors": [
-      "Youna Vandaele",
-      "Heather J. Pribut",
-      "Patricia H. Janak"
-    ],
-    "year": 2017,
-    "journal": "Frontiers in Integrative Neuroscience",
-    "doi_or_url": "https://doi.org/10.3389/fnint.2017.00023",
-    "citation_count": 60,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1963552706",
-    "title": "MOLECULAR ANALYSES OF THE PRINCIPAL COMPONENTS OF RESPONSE STRENGTH",
-    "authors": [
-      "Peter R. Killeen",
-      "Scott S. Hall",
-      "Mark P Reilly",
-      "Lauren C. Kettle"
-    ],
-    "year": 2002,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.2002.78-127",
-    "citation_count": 60,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1985557013",
-    "title": "Effects of SCH-23390 Infused into the Amygdala or Adjacent Cortex and Basal Ganglia on Cocaine Seeking and Self-Administration in Rats",
-    "authors": [
-      "Andrea T. Alleweireldt",
-      "Rebecca J. Hobbs",
-      "Adam Taylor",
-      "Janet L. Neisewander"
-    ],
-    "year": 2005,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1300794",
-    "citation_count": 59,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1973566728",
-    "title": "Preclinical Efficacy of N-Substituted Benztropine Analogs as Antagonists of Methamphetamine Self-Administration in Rats",
-    "authors": [
-      "Takato Hiranita",
-      "Stephen J. Kohut",
-      "Paul L. Soto",
-      "Gianluigi Tanda",
-      "Theresa Kopajtic",
-      "Jonathan L. Katz"
-    ],
-    "year": 2013,
-    "journal": "Journal of Pharmacology and Experimental Therapeutics",
-    "doi_or_url": "https://doi.org/10.1124/jpet.113.208264",
-    "citation_count": 59,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2995600775",
-    "title": "Deletion of astrocytic BMAL1 results in metabolic imbalance and shorter lifespan in mice",
-    "authors": [
-      "Olga Barca\u2010Mayo",
-      "Arjen J. Boender",
-      "Andrea Armirotti",
-      "Davide De Pietri Tonelli"
-    ],
-    "year": 2019,
-    "journal": "Glia",
-    "doi_or_url": "https://doi.org/10.1002/glia.23764",
-    "citation_count": 59,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1964798322",
-    "title": "Dopaminergic Lesions of the Dorsolateral Striatum in Rats Increase Delay Discounting in an Impulsive Choice Task",
-    "authors": [
-      "Stephanie E. Tedford",
-      "Amanda L. Persons",
-      "T. Celeste Napier"
-    ],
-    "year": 2015,
-    "journal": "PLoS ONE",
-    "doi_or_url": "https://doi.org/10.1371/journal.pone.0122063",
-    "citation_count": 58,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1508550656",
-    "title": "What 50 years of research tell us about pausing under ratio schedules of reinforcement",
-    "authors": [
-      "Henry D. Schlinger",
-      "Adam Derenne",
-      "Alan Baron"
-    ],
-    "year": 2008,
-    "journal": "The Behavior Analyst",
-    "doi_or_url": "https://doi.org/10.1007/bf03392160",
-    "citation_count": 58,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2152016077",
-    "title": "A matching law analysis of the reinforcing efficacy of wheel running in rats",
-    "authors": [
-      "Terry W. Belke",
-      "Gene M. Heyman"
-    ],
-    "year": 1994,
-    "journal": "Animal Learning & Behavior",
-    "doi_or_url": "https://doi.org/10.3758/bf03209834",
-    "citation_count": 58,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2037119218",
-    "title": "PAVLOVIAN CONTINGENCIES AND RESISTANCE TO CHANGE IN A MULTIPLE SCHEDULE",
-    "authors": [
-      "Matthew C. Bell"
-    ],
-    "year": 1999,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1999.72-81",
-    "citation_count": 57,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W1993226559",
-    "title": "DIMINISHING MARGINAL VALUE AS DELAY DISCOUNTING",
-    "authors": [
-      "Howard Rachlin"
-    ],
-    "year": 1992,
-    "journal": "Journal of the Experimental Analysis of Behavior",
-    "doi_or_url": "https://doi.org/10.1901/jeab.1992.57-407",
-    "citation_count": 57,
-    "is_high_impact": false,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W2000904738",
-    "title": "Metabotropic Glutamate 5 Receptor (mGluR5) Antagonists Decrease Nicotine Seeking, But Do Not Affect the Reinforcement Enhancing Effects of Nicotine",
-    "authors": [
-      "Matthew I. Palmatier",
-      "Xiu Liu",
-      "Eric C. Donny",
-      "Anthony R. Caggiula",
-      "Alan F. Sved"
-    ],
-    "year": 2007,
-    "journal": "Neuropsychopharmacology",
-    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301623",
-    "citation_count": 56,
-    "is_high_impact": true,
-    "open_access": true,
-    "used_for": [
-      "task_workflow",
-      "timing_parameters"
-    ],
-    "parameter_bindings": {},
-    "notes": ""
-  },
-  {
-    "id": "W3139729906",
-    "title": "Ventral Pallidum GABA Neurons Mediate Motivation Underlying Risky Choice",
-    "authors": [
-      "Mitchell R. Farrell",
-      "Jeanine Sandra D. Esteban",
-      "Lauren Faget",
-      "Stan Floresco",
-      "Thomas S. Hnasko",
-      "Stephen V. Mahler"
+      "Alberto Greco",
+      "Gaetano Valenza",
+      "Jes\u00fas L\u00e1zaro",
+      "Jorge Mario Garz\u00f3n Rey",
+      "Jordi Aguil\u00f3",
+      "Concepci\u00f3n de la C\u00e1mara",
+      "Raquel Bail\u00f3n",
+      "Enzo Pasquale Scilingo"
     ],
     "year": 2021,
-    "journal": "Journal of Neuroscience",
-    "doi_or_url": "https://doi.org/10.1523/jneurosci.2039-20.2021",
-    "citation_count": 56,
+    "journal": "IEEE Transactions on Affective Computing",
+    "doi_or_url": "https://doi.org/10.1109/taffc.2021.3055294",
+    "citation_count": 93,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -2633,18 +2606,40 @@
     "notes": ""
   },
   {
-    "id": "W2107753485",
-    "title": "Naltrexone reduces ethanol- and sucrose-reinforced responding in rhesus monkeys",
+    "id": "W2058920776",
+    "title": "Hormonal Responses to Psychological Stress and Family History of Alcoholism",
     "authors": [
-      "Keith Williams",
-      "Gail Winger",
-      "Eric D. Pakarinen",
-      "James H. Woods"
+      "Magdalena Uhart",
+      "Lynn M. Oswald",
+      "Mary E. McCaul",
+      "Rachel Y. Chong",
+      "Gary S. Wand"
     ],
-    "year": 1998,
-    "journal": "Psychopharmacology",
-    "doi_or_url": "https://doi.org/10.1007/s002130050689",
-    "citation_count": 56,
+    "year": 2006,
+    "journal": "Neuropsychopharmacology",
+    "doi_or_url": "https://doi.org/10.1038/sj.npp.1301063",
+    "citation_count": 93,
+    "is_high_impact": true,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2063391264",
+    "title": "Cooperative effects of corticosteroids and catecholamines upon immune deviation of the type-1/type-2 cytokine balance in favor of type-2 expression in human peripheral blood mononuclear cells",
+    "authors": [
+      "Adriano N. Salicru",
+      "Craig Sams",
+      "Gailen D. Marshall"
+    ],
+    "year": 2007,
+    "journal": "Brain Behavior and Immunity",
+    "doi_or_url": "https://doi.org/10.1016/j.bbi.2007.02.006",
+    "citation_count": 93,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [
@@ -2655,17 +2650,166 @@
     "notes": ""
   },
   {
-    "id": "W2967156799",
-    "title": "Aberrant habit formation in the Sapap3-knockout mouse model of obsessive-compulsive disorder",
+    "id": "W2738392326",
+    "title": "Physiological dynamics of stress contagion",
     "authors": [
-      "Lotfi C. Hadjas",
-      "Christian L\u00fcscher",
-      "Linda D. Simmler"
+      "Stephanie J. Dimitroff",
+      "Omid Kardan",
+      "Elizabeth A. Necka",
+      "Jean Decety",
+      "Marc G. Berman",
+      "Greg J. Norman"
     ],
-    "year": 2019,
+    "year": 2017,
     "journal": "Scientific Reports",
-    "doi_or_url": "https://doi.org/10.1038/s41598-019-48637-9",
-    "citation_count": 55,
+    "doi_or_url": "https://doi.org/10.1038/s41598-017-05811-1",
+    "citation_count": 91,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2999326643",
+    "title": "Effects of short-term cannabidiol treatment on response to social stress in subjects at clinical high risk of developing psychosis",
+    "authors": [
+      "Elizabeth Appiah\u2010Kusi",
+      "Natalia Petros",
+      "Rebecca Wilson",
+      "Marco Colizzi",
+      "Matthijs G. Bossong",
+      "Lucia Valmaggia",
+      "Valeria Mondelli",
+      "Philip McGuire",
+      "Sagnik Bhattacharyya"
+    ],
+    "year": 2020,
+    "journal": "Psychopharmacology",
+    "doi_or_url": "https://doi.org/10.1007/s00213-019-05442-6",
+    "citation_count": 91,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2001420869",
+    "title": "Mental Stress in Atopic Dermatitis \u2013 Neuronal Plasticity and the Cholinergic System Are Affected in Atopic Dermatitis and in Response to Acute Experimental Mental Stress in a Randomized Controlled Pilot Study",
+    "authors": [
+      "Eva M.J. Peters",
+      "\u0410. \u0412. \u041c\u0438\u0447\u0435\u043d\u043a\u043e",
+      "J\u00f6rg Kupfer",
+      "Wolfgang Kummer",
+      "Silke Wiegand",
+      "V. Niemeier",
+      "\u041d. \u041d. \u041f\u043e\u0442\u0435\u043a\u0430\u0435\u0432",
+      "\u0410. N. Lvov",
+      "Uwe Gieler"
+    ],
+    "year": 2014,
+    "journal": "PLoS ONE",
+    "doi_or_url": "https://doi.org/10.1371/journal.pone.0113552",
+    "citation_count": 91,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2148865228",
+    "title": "Better not to deal with two tasks at the same time when stressed? Acute psychosocial stress reduces task shielding in dual-task performance",
+    "authors": [
+      "Franziska Plessow",
+      "Susann Schade",
+      "Clemens Kirschbaum",
+      "Rico Fischer"
+    ],
+    "year": 2012,
+    "journal": "Cognitive Affective & Behavioral Neuroscience",
+    "doi_or_url": "https://doi.org/10.3758/s13415-012-0098-6",
+    "citation_count": 91,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2768053761",
+    "title": "Effects of childhood trauma on cortisol levels in suicide attempters and ideators",
+    "authors": [
+      "Daryl B. O\u2019Connor",
+      "Jessica Green",
+      "Eamonn Ferguson",
+      "Ronan E. O\u2019Carroll",
+      "Rory C. O\u2019Connor"
+    ],
+    "year": 2017,
+    "journal": "Psychoneuroendocrinology",
+    "doi_or_url": "https://doi.org/10.1016/j.psyneuen.2017.11.004",
+    "citation_count": 90,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W1968525818",
+    "title": "Stress-buffering effects of psychosocial resources on physiological and psychological stress response in pregnant women",
+    "authors": [
+      "Ada Nierop",
+      "Petra H. Wirtz",
+      "Aliki Bratsikas",
+      "Roland Zimmermann",
+      "Ulrike Ehlert"
+    ],
+    "year": 2008,
+    "journal": "Biological Psychology",
+    "doi_or_url": "https://doi.org/10.1016/j.biopsycho.2008.03.012",
+    "citation_count": 90,
+    "is_high_impact": false,
+    "open_access": true,
+    "used_for": [
+      "task_workflow",
+      "timing_parameters"
+    ],
+    "parameter_bindings": {},
+    "notes": ""
+  },
+  {
+    "id": "W2756426941",
+    "title": "Choir versus Solo Singing: Effects on Mood, and Salivary Oxytocin and Cortisol Concentrations",
+    "authors": [
+      "Moritz Schladt",
+      "Gr\u00e9gory C. Nordmann",
+      "Roman Emilius",
+      "Brigitte M. Kudielka",
+      "Trynke R. de Jong",
+      "Inga D. Neumann"
+    ],
+    "year": 2017,
+    "journal": "Frontiers in Human Neuroscience",
+    "doi_or_url": "https://doi.org/10.3389/fnhum.2017.00430",
+    "citation_count": 89,
     "is_high_impact": false,
     "open_access": true,
     "used_for": [

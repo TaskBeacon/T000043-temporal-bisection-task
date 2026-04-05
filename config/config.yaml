@@ -7,7 +7,7 @@ subinfo_fields:
       digits: 3
 
 subinfo_mapping:
-  subject_id: 被试编号（3位）
+  subject_id: 受试编号（3位）
   Participant Information: 参与者信息
   registration_failed: 注册失败
   registration_successful: 注册成功
@@ -23,168 +23,185 @@ window:
   monitor_distance_cm: 60
 
 task:
-  task_name: fixed_ratio_satiation_schedule
+  task_name: trier_social_stress_test
   save_path: ./outputs/human
   language: Chinese
   voice_name: zh-CN-YunyangNeural
   voice_enabled: false
   seed_mode: same_across_sub
-  overall_seed: 41041
+  overall_seed: 42042
   block_seed:
-    - 41041
-    - 41042
-    - 41043
+    - 42042
   phase_order:
     - instruction
-    - work
-    - reward
-    - satiation
-    - iti
-  total_blocks: 3
-  total_trials: 54
-  trial_per_block: 18
+    - baseline_acclimation
+    - speech_preparation
+    - speech_delivery
+    - mental_arithmetic
+    - recovery
+    - good_bye
+  total_blocks: 1
+  total_trials: 1
+  trial_per_block: 1
   conditions:
-    - fr5
-    - fr10
-    - fr20
+    - tsst
   condition_weights:
-    fr5: 1
-    fr10: 1
-    fr20: 1
+    tsst: 1
   key_list:
     - space
   response_key: space
-  delta: 1
-  ratio_requirements:
-    fr5: 5
-    fr10: 10
-    fr20: 20
-  satiation_limit: 12
-  reward_tokens_per_completion: 1
+  speech_preparation_minutes: 10
+  speech_minutes: 5
+  arithmetic_start_number: 2043
+  arithmetic_step: 17
+  recovery_minutes: 15
   instruction_font: SimHei
   body_font: SimHei
   prompt_font: SimHei
   font_size_large: 34
   font_size_medium: 28
   font_size_small: 24
-  prompt_y: 120
-  counter_y: 18
-  satiety_y: -84
-  reward_token_y: 26
-  reward_text_y: -118
+  panel_top_y: 82
+  prompt_y: -150
+  fixation_y: -128
+  camera_y: 250
+  judge_left_x: -220
+  judge_right_x: 220
 
 timing:
-  instruction_pause_duration: 0.0
-  ready_duration: 3.0
-  press_timeout: 1.2
-  reward_duration: 0.9
-  satiation_duration: 1.2
-  iti_duration: 0.8
-  block_break_duration: 3.0
+  instruction_pause_duration: 0.1
+  baseline_duration_s: 300.0
+  speech_preparation_duration_s: 600.0
+  speech_duration_s: 300.0
+  mental_arithmetic_duration_s: 300.0
+  recovery_duration_s: 900.0
+  goodbye_hold_duration_s: 0.1
 
 stimuli:
   instruction_text:
     type: text
     font: SimHei
     text: |-
-      你将进行一个固定比率按键任务。
-      每一轮都需要连续按空格若干次，达到要求后才能获得 1 个代币。
-      代币越多，屏幕上的饱腹指数越高。
-      请尽量稳定、快速地完成每一轮。
+      你将进行一段经典的 Trier Social Stress Test。
+      你会先看到安静等待和准备阶段，然后面对两位保持沉默的评委与录制提示，
+      进行 5 分钟的即兴陈述，随后进行 5 分钟的心算。
+      请尽量连续、清晰地完成每个阶段。
+
       按空格开始。
     color: white
     height: 28
     wrapWidth: 1000
-  block_ready:
-    type: text
-    font: SimHei
-    text: |-
-      第 {block_num}/{total_blocks} 组即将开始
-      按空格继续
-    color: white
-    height: 30
-    wrapWidth: 960
     pos: [0, 0]
-  work_prompt:
+  baseline_text:
+    type: text
+    font: SimHei
+    text: 请安静坐好，注视中央十字。
+    color: [0.9, 0.9, 0.9]
+    height: 28
+    wrapWidth: 900
+    pos: [0, 118]
+  prep_text:
     type: text
     font: SimHei
     text: |-
-      本轮固定比率要求：连续按空格 {required_presses} 次
+      请准备一段 10 分钟的陈述，
+      说明你为什么适合这份工作。
+      两位评委将保持沉默并记录。
+    color: white
+    height: 28
+    wrapWidth: 980
+    pos: [0, -156]
+  speech_text:
+    type: text
+    font: SimHei
+    text: |-
+      请开始陈述。
+      你必须连续发言 5 分钟。
+      评委保持沉默并记录。
     color: white
     height: 30
-    wrapWidth: 1000
-    pos: [0, 120]
-  work_counter:
+    wrapWidth: 980
+    pos: [0, -156]
+  math_text:
     type: text
     font: SimHei
     text: |-
-      已按 {current_press}/{required_presses} 次
+      请从 2043 开始每次减 17。
+      出错后请从 2043 重新开始。
     color: white
-    height: 32
+    height: 30
+    wrapWidth: 980
+    pos: [0, -156]
+  recovery_text:
+    type: text
+    font: SimHei
+    text: |-
+      请保持安静休息，
+      继续注视中央十字。
+    color: [0.9, 0.9, 0.9]
+    height: 28
     wrapWidth: 900
-    pos: [0, 20]
+    pos: [0, 118]
   fixation:
     type: text
     font: SimHei
     text: +
     color: white
-    height: 44
-    pos: [0, -120]
-  satiety_text:
-    type: text
-    font: SimHei
-    text: |-
-      饱腹指数：{satiety_pct:.0%}
-    color: [0.9, 0.9, 0.9]
-    height: 26
-    wrapWidth: 800
-    pos: [0, -84]
-  reward_token:
+    height: 48
+    pos: [0, -128]
+  panel_backdrop:
+    type: rect
+    width: 980
+    height: 330
+    fillColor: [0.12, 0.12, 0.12]
+    lineColor: [0.3, 0.3, 0.3]
+    pos: [0, 82]
+  judge_left_head:
     type: circle
-    radius: 42
-    lineColor: [0.95, 0.78, 0.18]
-    fillColor: [0.95, 0.78, 0.18]
-    pos: [0, 22]
-  reward_text:
+    radius: 40
+    fillColor: [0.72, 0.72, 0.72]
+    lineColor: [0.72, 0.72, 0.72]
+    pos: [-220, 170]
+  judge_left_body:
+    type: rect
+    width: 150
+    height: 210
+    fillColor: [0.9, 0.9, 0.9]
+    lineColor: [0.9, 0.9, 0.9]
+    pos: [-220, 30]
+  judge_right_head:
+    type: circle
+    radius: 40
+    fillColor: [0.72, 0.72, 0.72]
+    lineColor: [0.72, 0.72, 0.72]
+    pos: [220, 170]
+  judge_right_body:
+    type: rect
+    width: 150
+    height: 210
+    fillColor: [0.9, 0.9, 0.9]
+    lineColor: [0.9, 0.9, 0.9]
+    pos: [220, 30]
+  camera_light:
+    type: circle
+    radius: 10
+    fillColor: [1.0, 0.2, 0.2]
+    lineColor: [1.0, 0.2, 0.2]
+    pos: [0, 250]
+  camera_label:
     type: text
     font: SimHei
-    text: |-
-      奖励已发放：+{reward_tokens} 个代币
-    color: white
-    height: 30
-    wrapWidth: 900
-    pos: [0, -118]
-  timeout_text:
-    type: text
-    font: SimHei
-    text: |-
-      本轮超时，未获得代币
-    color: [1.0, 0.7, 0.3]
-    height: 30
-    wrapWidth: 900
-    pos: [0, -118]
-  block_break:
-    type: text
-    font: SimHei
-    text: |-
-      第 {block_num}/{total_blocks} 组完成
-      完成率：{block_completion_rate:.1%}
-      平均完成用时：{mean_completion_ms:.0f} ms
-      累计代币：{total_tokens}
-
-      准备好后按空格继续
-    color: white
-    height: 26
-    wrapWidth: 980
-    pos: [0, 0]
+    text: REC
+    color: [1.0, 0.5, 0.5]
+    height: 22
+    pos: [0, 224]
   good_bye:
     type: text
     font: SimHei
     text: |-
       任务结束
-      总完成率：{total_completion_rate:.1%}
-      累计代币：{total_tokens}
-      平均完成用时：{mean_completion_ms:.0f} ms
+      总用时：{total_elapsed_min:.1f} 分钟
+      已完成阶段：{phase_count}
 
       按空格退出
     color: white
@@ -199,12 +216,13 @@ triggers:
     block_onset: 10
     block_end: 11
     trial_onset: 20
-    press_onset: 21
-    press_response: 22
-    press_timeout: 23
-    reward_onset: 30
-    satiation_onset: 31
-    iti_onset: 40
+    instruction_onset: 21
+    baseline_onset: 22
+    prep_onset: 23
+    speech_onset: 24
+    math_onset: 25
+    recovery_onset: 26
+    good_bye_onset: 30
   driver:
     type: serial_url
     url: loop://
