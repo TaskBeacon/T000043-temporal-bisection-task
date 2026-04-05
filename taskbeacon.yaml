@@ -1,13 +1,13 @@
-id: T000042
-slug: trier-social-stress-test
-title: Trier Social Stress Test
+id: T000043
+slug: temporal-bisection-task
+title: Temporal Bisection Task
 acquisition: behavior
 variant: baseline
 cognitive_domain:
-  - stress-reactivity
-  - social-evaluation
-  - public-speaking
-  - mental-arithmetic
+  - time-perception
+  - interval-timing
+  - psychophysics
+  - perceptual-decision-making
 maturity: draft
 version:
   release_tag: v0.1.0-dev

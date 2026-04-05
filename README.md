@@ -1,13 +1,13 @@
-# Trier Social Stress Test
+# Temporal Bisection Task
 
 ![Maturity: draft](https://img.shields.io/badge/Maturity-draft-64748b?style=flat-square&labelColor=111827)
 
 | Field | Value |
 |---|---|
-| Name | Trier Social Stress Test |
+| Name | Temporal Bisection Task |
 | Version | v0.1.0-dev |
-| URL / Repository | E:/Taskbeacon/T000042-trier-social-stress-test |
-| Short Description | Chinese TSST implementation with neutral judges, a public speech challenge, serial subtraction, and recovery. |
+| URL / Repository | E:/Taskbeacon/T000043-temporal-bisection-task |
+| Short Description | Chinese temporal bisection task with a learning block, a test block, and forced-choice short-vs-long judgments. |
 | Created By | TaskBeacon |
 | Date Updated | 2026-04-05 |
 | PsyFlow Version | 0.1.12 |
@@ -18,9 +18,9 @@
 
 ## 1. Task Overview
 
-This task implements the classic Trier Social Stress Test as a Chinese-localized PsyFlow protocol. The participant first reads the instructions, then completes a quiet baseline, a speech-preparation period, a 5-minute public speech challenge, a 5-minute serial subtraction challenge, and a recovery period. The core stressor is social evaluation: two neutral judges remain visible while the participant speaks and counts backward.
+This task implements the canonical temporal bisection paradigm as a Chinese-localized PsyFlow protocol. The participant first reads the instructions, then completes a learning block that exposes the short and long anchor durations, and finally completes a test block that classifies probe durations as closer to the short or long standard.
 
-The task uses built-in PsychoPy primitives to render the judges, camera indicator, and fixation screens. No external media or response scoring is required, because the target construct is acute psychosocial stress induction rather than accuracy or learning.
+Each trial presents a centered white square flash on a black background. In the learning block, the flash is followed by an explicit anchor label. In the test block, the participant responds with left and right arrows on a two-choice screen. The task records long-choice rate, response time, and miss rate rather than an objective accuracy score.
 
 ## 2. Task Flow
 
@@ -32,45 +32,51 @@ The task uses built-in PsychoPy primitives to render the judges, camera indicato
 |---|---|
 | 1. Load mode and config | `main.py` loads `human`, `qa`, or `sim` mode and resolves the matching YAML config. |
 | 2. Initialize runtime | Subject info, window, triggers, and the stimulus bank are initialized. |
-| 3. Show instructions | The participant reads the Chinese TSST instructions and presses space to begin. |
-| 4. Run the canonical TSST trial | One block contains one TSST trial with the fixed phase order. |
-| 5. Finish | The recovery screen ends, the goodbye screen appears, and the data are saved. |
+| 3. Show instructions | The participant reads the Chinese temporal-bisection instructions and presses space to begin. |
+| 4. Run learning block | The first block presents short and long anchor flashes so the participant can learn the referents. |
+| 5. Run test block | The second block presents probe durations and collects forced-choice short-vs-long judgments. |
+| 6. Finish | The goodbye screen appears with summary metrics, and the data are saved. |
 
 ### Trial-Level Flow
 
 | Step | Description |
 |---|---|
-| Instruction | Explain the stress-test sequence and start with the space key. |
-| Baseline acclimation | A brief quiet fixation period prepares the participant. |
-| Speech preparation | The participant prepares a 10-minute speech about why they are fit for the job. |
-| Speech delivery | The participant delivers the speech for 5 minutes while two neutral judges and a recording light remain visible. |
-| Mental arithmetic | The participant counts backward from 2043 in steps of 17, again under observation. |
-| Recovery | The participant rests quietly with a fixation cross. |
-| Goodbye | The final screen reports the total elapsed time and exits on space. |
+| Instruction | Explain the short and long anchor durations and start with the space key. |
+| Learning fixation | A centered fixation cross marks the start of a learning trial. |
+| Learning stimulus | A white square flashes for either 400 ms or 1600 ms. |
+| Learning label | The screen states whether the flash was the short or long standard. |
+| Learning ITI | A brief fixation separates learning exposures. |
+| Test fixation | A centered fixation cross marks the start of a test trial. |
+| Test stimulus | A white square flashes for one probe duration from the timing ladder. |
+| Test response | A two-choice screen asks whether the duration was closer to short or long; left arrow = short, right arrow = long. |
+| Test ITI | A brief fixation separates test judgments. |
+| Goodbye | The final screen reports summary metrics and exits on space. |
 
 ### Controller Logic
 
 | Component | Description |
 |---|---|
-| Condition generation | `BlockUnit.generate_conditions()` produces a single `tsst` condition. |
-| Phase order | `instruction -> baseline_acclimation -> speech_preparation -> speech_delivery -> mental_arithmetic -> recovery -> good_bye`. |
-| Response handling | `space` starts the instruction screen and dismisses the goodbye screen; no response is required during the timed stress phases. |
-| Timing control | Human mode uses the canonical long TSST durations; QA and sim configs shorten the same sequence for smoke testing. |
-| Summary metrics | The trial reports phase count, per-phase elapsed time, and total elapsed time. |
-| Triggering | Each phase emits a dedicated onset trigger so the stress sequence is auditable. |
+| Condition generation | `BlockUnit.generate_conditions()` produces block labels, and `build_temporal_bisection_schedule()` reconstructs the per-trial anchor/probe order from the block seed. |
+| Phase order | `instruction -> learning_fixation -> learning_stimulus -> learning_label -> learning_iti -> test_fixation -> test_stimulus -> test_response -> test_iti -> good_bye`. |
+| Response handling | `space` starts the instruction screen and dismisses the goodbye screen; learning trials have no choice response, while test trials use left/right arrows. |
+| Timing control | Human mode uses the canonical anchor and probe timings; QA and sim configs keep the same logic while enabling short smoke-test runs. |
+| Summary metrics | The task reports long-choice rate, mean RT, miss rate, and elapsed time. |
+| Triggering | Each participant-visible phase emits a dedicated onset trigger so the trial stream is auditable. |
 
 ### Other Logic
 
 | Component | Description |
 |---|---|
-| Social-evaluative panel | The judges and camera indicator are rendered with PsychoPy shapes and text primitives. |
-| No reward logic | There are no points, tokens, or rewards; this is a stress induction task. |
-| No adaptive staircase | The TSST is a fixed-script protocol, so there is no adaptive controller. |
+| White-square flash | The judged stimulus is a centered white rectangle rendered with PsychoPy primitives. |
+| No reward logic | There are no points, tokens, rewards, or correctness feedback in the task. |
+| No adaptive staircase | The task uses a fixed anchor/probe schedule rather than an adaptive timing controller. |
 | QA/sim coverage | QA and both simulation profiles cover the same full phase sequence with short durations. |
 
 ## 3. Configuration Summary
 
 All human settings are defined in `config/config.yaml`. QA and smoke-test overrides live in `config/config_qa.yaml`, `config/config_scripted_sim.yaml`, and `config/config_sampler_sim.yaml`.
+
+The QA and simulation configs keep the same block structure but shorten the run to 16 total trials for smoke testing.
 
 ### a. Subject Info
 
@@ -94,31 +100,30 @@ All human settings are defined in `config/config.yaml`. QA and smoke-test overri
 
 | Name | Type | Description |
 |---|---|---|
-| `instruction_text` | text | Chinese instructions describing the TSST sequence and the space key to start. |
-| `baseline_text` | text | Quiet fixation prompt for the acclimation period. |
-| `prep_text` | text | Speech preparation prompt. |
-| `speech_text` | text | Public speech challenge prompt. |
-| `math_text` | text | Serial subtraction prompt starting at 2043 and stepping by 17. |
-| `recovery_text` | text | Recovery prompt with a quiet rest instruction. |
-| `fixation` | text | Centered plus sign used during baseline and recovery. |
-| `panel_backdrop` | rect | Dark panel backdrop behind the judges. |
-| `judge_left_head` / `judge_left_body` | circle / rect | Left judge silhouette built from primitives. |
-| `judge_right_head` / `judge_right_body` | circle / rect | Right judge silhouette built from primitives. |
-| `camera_light` | circle | Red recording light shown during evaluative phases. |
-| `camera_label` | text | Small `REC` label above the recording light. |
-| `good_bye` | text | End-of-task summary and exit screen. |
+| `instruction_text` | text | Chinese instructions describing the short and long standards and the space key to start. |
+| `learning_label_text` | text | Short Chinese label that explicitly names the short or long standard after each anchor flash. |
+| `response_prompt_text` | text | Two-choice prompt asking whether the flash was closer to short or long. |
+| `choice_short_box` / `choice_long_box` | rect | Left and right response boxes centered on the screen. |
+| `choice_short_label` / `choice_long_label` | text | Large Chinese labels for short and long inside the boxes. |
+| `choice_short_hint` / `choice_long_hint` | text | Arrow-key hints placed below each response box. |
+| `fixation` | text | Centered plus sign used during fixation and ITI screens. |
+| `stimulus_flash` | rect | Centered white square used for the timed flash. |
+| `good_bye_text` | text | End-of-task summary and exit screen. |
 
 ### d. Timing
 
-| Phase | Human | QA / Sim |
-|---|---|---|
-| Instruction pause | `0.1 s` | `0.1 s` |
-| Baseline acclimation | `300 s` | `2 s` |
-| Speech preparation | `600 s` | `3 s` |
-| Speech delivery | `300 s` | `2 s` |
-| Mental arithmetic | `300 s` | `2 s` |
-| Recovery | `900 s` | `3 s` |
-| Goodbye hold | `0.1 s` | `0.1 s` |
+| Parameter | Value |
+|---|---|
+| `anchor_short_ms` | `400` |
+| `anchor_long_ms` | `1600` |
+| `probe_durations_ms` | `400, 500, 650, 800, 950, 1100, 1300, 1600` |
+| `fixation_duration_s` | `0.5` |
+| `learning_label_duration_s` | `0.6` |
+| `iti_duration_s` | `0.4` |
+| `response_timeout_s` | `3.0` |
+| `qa.timing_scale` | `0.2` |
+
+The shared timing values are also mirrored in the top-level `timing` section so PsyFlow validation can flatten them into runtime settings.
 
 ### e. Triggers
 
@@ -130,35 +135,38 @@ All human settings are defined in `config/config.yaml`. QA and smoke-test overri
 | Block end | `11` |
 | Trial onset | `20` |
 | Instruction onset | `21` |
-| Baseline onset | `22` |
-| Preparation onset | `23` |
-| Speech onset | `24` |
-| Mental arithmetic onset | `25` |
-| Recovery onset | `26` |
-| Goodbye onset | `30` |
+| Learning fixation onset | `22` |
+| Learning stimulus onset | `23` |
+| Learning label onset | `24` |
+| Learning ITI onset | `25` |
+| Test fixation onset | `26` |
+| Test stimulus onset | `27` |
+| Test response onset | `28` |
+| Test short response | `29` |
+| Test long response | `30` |
+| Test timeout | `31` |
+| Test ITI onset | `32` |
+| Goodbye onset | `40` |
 
 ### f. Adaptive Controller
 
 | Parameter | Value |
 |---|---|
-| `phase_order` | `instruction -> baseline_acclimation -> speech_preparation -> speech_delivery -> mental_arithmetic -> recovery -> good_bye` |
-| `conditions` | `tsst` |
-| `condition_weights` | `tsst: 1` |
-| `total_blocks` | `1` |
-| `trial_per_block` | `1` |
-| `total_trials` | `1` |
-| `speech_preparation_minutes` | `10` |
-| `speech_minutes` | `5` |
-| `arithmetic_start_number` | `2043` |
-| `arithmetic_step` | `17` |
-| `recovery_minutes` | `15` |
-| `response_key` | `space` |
+| `phase_order` | `instruction -> learning_fixation -> learning_stimulus -> learning_label -> learning_iti -> test_fixation -> test_stimulus -> test_response -> test_iti -> good_bye` |
+| `conditions` | `learning`, `test` |
+| `condition_weights` | `learning: 1`, `test: 1` |
+| `total_blocks` | `2` |
+| `practice_trials` | `8` |
+| `test_trials` | `48` |
+| `response_key_short` | `left` |
+| `response_key_long` | `right` |
+| `start_key` | `space` |
 | `seed_mode` | `same_across_sub` |
-| `overall_seed` | `42042` |
-| `block_seed` | `42042` |
+| `overall_seed` | `42043` |
+| `block_seed` | `[42043, 42044]` |
 
 ## 4. Methods (for academic publication)
 
-The Trier Social Stress Test is a widely used acute psychosocial stress induction paradigm that combines social-evaluative threat, uncontrollability, public speaking, and mental arithmetic. In the canonical protocol, the participant prepares and delivers a speech in front of a neutral panel, then performs serial subtraction under observation, followed by a recovery period.
+The temporal bisection task is a classic interval-timing paradigm in which participants learn a short standard and a long standard, then classify probe durations according to which standard they seem closer to. The resulting response curve estimates subjective duration and the location of the psychometric midpoint.
 
-This implementation preserves that structure in Chinese with PsychoPy primitives. The judges and recording cue remain on-screen during the evaluative phases, the speech prompt requires continuous public speaking, and the arithmetic prompt begins at 2043 and decrements by 17. The task is therefore suited for behavioral or psychophysiological studies that need a reproducible TSST sequence without relying on external media assets.
+This implementation preserves that structure in Chinese with PsychoPy primitives. A white square flash is shown centrally on a black background, the learning block reinforces the short and long referents, and the test block collects forced-choice short-versus-long judgments with left/right arrow keys. The task is therefore suited for behavioral or psychophysiological studies that need a reproducible interval-timing sequence without relying on external media assets.

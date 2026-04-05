@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 import math
 import random
 from typing import Any
@@ -8,14 +8,31 @@ from typing import Any
 from psyflow.sim.contracts import Action, Feedback, Observation, SessionInfo
 
 
-ROLE_SCORES = {
-    "A": 0.80,
-    "B": 0.20,
-    "C": 0.70,
-    "D": 0.30,
-    "E": 0.60,
-    "F": 0.40,
-}
+def _obs_get(obs: Observation | dict[str, Any], key: str, default: Any = None) -> Any:
+    if isinstance(obs, dict):
+        return obs.get(key, default)
+    if hasattr(obs, key):
+        value = getattr(obs, key)
+        if value is not None:
+            return value
+    return default
+
+
+def _obs_phase(obs: Observation | dict[str, Any]) -> str:
+    phase = _obs_get(obs, "phase", "") or _obs_get(obs, "stage", "")
+    return str(phase).strip().lower()
+
+
+def _obs_keys(obs: Observation | dict[str, Any]) -> list[str]:
+    raw = _obs_get(obs, "valid_keys", []) or []
+    return [str(key).strip().lower() for key in list(raw)]
+
+
+def _obs_factors(obs: Observation | dict[str, Any]) -> dict[str, Any]:
+    factors = _obs_get(obs, "task_factors", {}) or {}
+    if not isinstance(factors, dict):
+        return {}
+    return dict(factors)
 
 
 def _sigmoid(value: float) -> float:
@@ -23,40 +40,20 @@ def _sigmoid(value: float) -> float:
     return 1.0 / (1.0 + math.exp(-value))
 
 
-def _extract_phase(obs: Observation | dict[str, Any]) -> str:
-    if isinstance(obs, dict):
-        phase = obs.get("phase") or obs.get("stage") or ""
-    else:
-        phase = obs.phase or obs.task_factors.get("stage") or ""
-    return str(phase).strip().lower()
-
-
-def _extract_valid_keys(obs: Observation | dict[str, Any]) -> list[str]:
-    if isinstance(obs, dict):
-        return [str(key) for key in list(obs.get("valid_keys") or [])]
-    return [str(key) for key in list(obs.valid_keys or [])]
-
-
-def _extract_factors(obs: Observation | dict[str, Any]) -> dict[str, Any]:
-    if isinstance(obs, dict):
-        return dict(obs.get("task_factors") or {})
-    return dict(obs.task_factors or {})
-
-
 @dataclass
 class TaskSamplerResponder:
-    """Simple choice responder for the probabilistic stimulus selection task."""
+    """Temporal-bisection sampler for QA/simulation."""
 
     mode: str = "sampled"
-    left_key: str = "a"
-    right_key: str = "l"
+    short_key: str = "left"
+    long_key: str = "right"
     space_key: str = "space"
-    evidence_strength: float = 2.0
+    midpoint_ms: float = 800.0
+    slope: float = 6.0
     rt_mean_s: float = 0.42
     rt_sd_s: float = 0.08
-    rt_min_s: float = 0.15
-    no_response_rate: float = 0.0
-    role_scores: dict[str, float] = field(default_factory=lambda: dict(ROLE_SCORES))
+    rt_min_s: float = 0.16
+    no_response_rate: float = 0.01
 
     def __post_init__(self) -> None:
         self.mode = str(self.mode or "sampled").strip().lower()
@@ -64,15 +61,15 @@ class TaskSamplerResponder:
             self.mode = "sampled"
         if self.mode == "sampler":
             self.mode = "sampled"
-        self.left_key = str(self.left_key or "a").strip().lower()
-        self.right_key = str(self.right_key or "l").strip().lower()
+        self.short_key = str(self.short_key or "left").strip().lower()
+        self.long_key = str(self.long_key or "right").strip().lower()
         self.space_key = str(self.space_key or "space").strip().lower()
-        self.evidence_strength = float(self.evidence_strength)
+        self.midpoint_ms = float(self.midpoint_ms)
+        self.slope = float(self.slope)
         self.rt_mean_s = float(self.rt_mean_s)
         self.rt_sd_s = max(1e-6, float(self.rt_sd_s))
         self.rt_min_s = max(0.0, float(self.rt_min_s))
         self.no_response_rate = min(1.0, max(0.0, float(self.no_response_rate)))
-        self.role_scores = {str(role).upper(): float(score) for role, score in dict(self.role_scores).items()}
         self._rng: Any = None
         self._session: SessionInfo | None = None
 
@@ -85,8 +82,6 @@ class TaskSamplerResponder:
         self._rng = None
 
     def on_feedback(self, fb: Feedback) -> None:
-        # The task is fully driven by the current choice context, so the
-        # feedback hook remains intentionally light-weight.
         return None
 
     def _random(self) -> float:
@@ -103,76 +98,76 @@ class TaskSamplerResponder:
             return float(rng.gauss(mean, sd))
         return float(random.gauss(mean, sd))
 
-    def _sample_rt(self) -> float:
+    def _sample_rt(self, *, valid_keys: list[str]) -> float:
         rt = self._normal(self.rt_mean_s, self.rt_sd_s)
+        if self.space_key in valid_keys:
+            rt = max(rt, self.rt_min_s)
         return max(self.rt_min_s, rt)
 
     def _choose_space(self, valid_keys: list[str], phase: str) -> Action:
         key = self.space_key if self.space_key in valid_keys else (valid_keys[0] if valid_keys else None)
-        return Action(key=key, rt_s=self._sample_rt(), meta={"source": "task_sampler", "phase": phase, "kind": "continue"})
+        return Action(
+            key=key,
+            rt_s=self._sample_rt(valid_keys=valid_keys),
+            meta={"source": "task_sampler", "phase": phase, "kind": "continue"},
+        )
 
-    def _choose_choice(self, valid_keys: list[str], factors: dict[str, Any], phase: str) -> Action:
-        left_role = str(factors.get("left_role") or factors.get("left_symbol_role") or "").upper()
-        right_role = str(factors.get("right_role") or factors.get("right_symbol_role") or "").upper()
-        left_score = float(self.role_scores.get(left_role, 0.5))
-        right_score = float(self.role_scores.get(right_role, 0.5))
+    def _choose_response(self, valid_keys: list[str], factors: dict[str, Any], phase: str) -> Action:
+        duration = factors.get("stimulus_ms", self.midpoint_ms)
+        try:
+            duration_f = float(duration)
+        except Exception:
+            duration_f = float(self.midpoint_ms)
 
         if self.mode == "scripted":
-            choose_left = left_score >= right_score
+            choose_long = duration_f >= self.midpoint_ms
         else:
-            p_left = _sigmoid(self.evidence_strength * (left_score - right_score))
-            choose_left = self._random() < p_left
+            centered = (duration_f - self.midpoint_ms) / max(self.midpoint_ms, 1.0)
+            p_long = _sigmoid(self.slope * centered)
+            choose_long = self._random() < p_long
 
         if self._random() < self.no_response_rate:
             return Action(key=None, rt_s=None, meta={"source": "task_sampler", "phase": phase, "kind": "timeout_bias"})
 
-        key = self.left_key if choose_left else self.right_key
+        key = self.long_key if choose_long else self.short_key
         if key not in valid_keys:
             key = valid_keys[0] if valid_keys else None
-        chosen_role = left_role if choose_left else right_role
-        chosen_side = "left" if choose_left else "right"
-        p_left = _sigmoid(self.evidence_strength * (left_score - right_score))
         return Action(
             key=key,
-            rt_s=self._sample_rt(),
+            rt_s=self._sample_rt(valid_keys=valid_keys),
             meta={
                 "source": "task_sampler",
                 "phase": phase,
                 "kind": "choice",
-                "left_role": left_role,
-                "right_role": right_role,
-                "chosen_role": chosen_role,
-                "chosen_side": chosen_side,
-                "left_score": left_score,
-                "right_score": right_score,
-                "p_left": p_left,
+                "stimulus_ms": duration_f,
+                "p_long": _sigmoid(self.slope * ((duration_f - self.midpoint_ms) / max(self.midpoint_ms, 1.0))),
+                "chosen_side": "long" if choose_long else "short",
             },
         )
 
     def act(self, obs: Observation | dict[str, Any]) -> Action:
-        valid_keys = _extract_valid_keys(obs)
-        phase = _extract_phase(obs)
-        factors = _extract_factors(obs)
+        valid_keys = _obs_keys(obs)
+        phase = _obs_phase(obs)
+        factors = _obs_factors(obs)
 
         if not valid_keys:
             return Action(key=None, rt_s=None, meta={"source": "task_sampler", "phase": phase, "kind": "no_valid_keys"})
 
-        continue_phases = {
-            "instructions",
-            "instruction_text",
-            "learning_ready",
-            "transfer_ready",
-            "block_ready",
-            "good_bye",
-            "goodbye",
-        }
-        if phase in continue_phases or phase.endswith("ready") or phase.endswith("instructions"):
+        if phase in {"instruction", "good_bye", "goodbye"} or phase.endswith("intro") or phase.endswith("label"):
+            if self.space_key in valid_keys:
+                return self._choose_space(valid_keys, phase)
+
+        if self.space_key in valid_keys and not any(k in valid_keys for k in (self.short_key, self.long_key)):
             return self._choose_space(valid_keys, phase)
 
-        if "choice" in phase:
-            return self._choose_choice(valid_keys, factors, phase)
+        if any(k in valid_keys for k in (self.short_key, self.long_key)):
+            return self._choose_response(valid_keys, factors, phase)
 
-        if self.space_key in valid_keys:
-            return self._choose_space(valid_keys, phase)
+        return Action(
+            key=valid_keys[0],
+            rt_s=self._sample_rt(valid_keys=valid_keys),
+            meta={"source": "task_sampler", "phase": phase, "kind": "fallback"},
+        )
 
-        return Action(key=valid_keys[0], rt_s=self._sample_rt(), meta={"source": "task_sampler", "phase": phase, "kind": "fallback"})
+
+__all__ = ["TaskSamplerResponder"]

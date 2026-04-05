@@ -24,7 +24,8 @@ from psyflow import (
     set_trial_context,
 )
 
-from src import run_trial, summarizeOverall
+from src import build_block_conditions, resolve_block_role, resolve_block_trial_count, run_trial, summarizeOverall
+from src.utils import format_duration_ms
 
 
 MODES = ("human", "qa", "sim")
@@ -38,42 +39,64 @@ DEFAULT_CONFIG_BY_MODE = {
 def _parse_args(task_root: Path) -> TaskRunOptions:
     return parse_task_run_options(
         task_root=task_root,
-        description="Run Trier Social Stress Test in human/qa/sim mode.",
+        description="Run Temporal Bisection Task in human/qa/sim mode.",
         default_config_by_mode=DEFAULT_CONFIG_BY_MODE,
         modes=MODES,
     )
 
 
-def _resolve_block_seed(settings: TaskSettings, block_index: int) -> int:
+def _resolve_block_seed(settings: TaskSettings, block_idx: int) -> int:
     block_seed = getattr(settings, "block_seed", None)
-    if isinstance(block_seed, list) and block_index < len(block_seed):
-        candidate = block_seed[block_index]
+    if isinstance(block_seed, list) and block_idx < len(block_seed):
+        candidate = block_seed[block_idx]
         if candidate is not None:
             try:
                 return int(candidate)
             except Exception:
                 pass
     try:
-        return int(getattr(settings, "overall_seed", 42042))
+        return int(getattr(settings, "overall_seed", 42043))
     except Exception:
-        return block_index + 1
+        return block_idx + 1
 
 
-def _make_goodbye_unit(
-    win,
-    kb,
-    stim_bank,
-    trigger_runtime,
-    *,
-    summary: dict[str, Any],
-):
-    unit = StimUnit("good_bye", win, kb, runtime=trigger_runtime).add_stim(
+def _block_spec(settings: TaskSettings, block_idx: int) -> tuple[str, int]:
+    block_role = resolve_block_role(block_idx)
+    block_trials = resolve_block_trial_count(settings, block_role)
+    return block_role, block_trials
+
+
+def _show_instruction_screen(win, kb, stim_bank, trigger_runtime, *, settings: TaskSettings):
+    unit = StimUnit("instruction", win, kb, runtime=trigger_runtime)
+    set_trial_context(
+        unit,
+        trial_id="instruction",
+        phase="instruction",
+        deadline_s=None,
+        valid_keys=["space"],
+        block_id="instruction",
+        condition_id="instruction",
+        task_factors={
+            "phase": "instruction",
+            "short_ms": getattr(settings, "anchor_short_ms", 400),
+            "long_ms": getattr(settings, "anchor_long_ms", 1600),
+        },
+        stim_id="instruction_text",
+    )
+    unit.add_stim(
         stim_bank.get_and_format(
-            "good_bye",
-            total_elapsed_min=summary["total_elapsed_min"],
-            phase_count=summary["phase_count"],
+            "instruction_text",
+            short_ms=format_duration_ms(getattr(settings, "anchor_short_ms", 400)),
+            long_ms=format_duration_ms(getattr(settings, "anchor_long_ms", 1600)),
+            short_key="左箭头",
+            long_key="右箭头",
         )
     )
+    unit.wait_and_continue(keys=["space"], min_wait=0.0, terminate=False)
+
+
+def _show_goodbye_screen(win, kb, stim_bank, trigger_runtime, *, summary: dict[str, Any]):
+    unit = StimUnit("good_bye", win, kb, runtime=trigger_runtime)
     set_trial_context(
         unit,
         trial_id="good_bye",
@@ -83,14 +106,30 @@ def _make_goodbye_unit(
         block_id="good_bye",
         condition_id="good_bye",
         task_factors={
-            "stage": "good_bye",
-            "total_elapsed_min": summary["total_elapsed_min"],
-            "phase_count": summary["phase_count"],
+            "phase": "good_bye",
             "trial_count": summary["trial_count"],
+            "learning_trials": summary["learning_trials"],
+            "test_trials": summary["test_trials"],
+            "mean_rt_s": summary["mean_rt_s"],
+            "long_choice_rate": summary["long_choice_rate"],
+            "miss_rate": summary["miss_rate"],
+            "total_elapsed_min": summary["total_elapsed_min"],
         },
-        stim_id="good_bye",
+        stim_id="good_bye_text",
     )
-    return unit
+    unit.add_stim(
+        stim_bank.get_and_format(
+            "good_bye_text",
+            trial_count=summary["trial_count"],
+            learning_trials=summary["learning_trials"],
+            test_trials=summary["test_trials"],
+            mean_rt_s=summary["mean_rt_s"],
+            long_choice_rate=summary["long_choice_rate"],
+            miss_rate=summary["miss_rate"],
+            total_elapsed_min=summary["total_elapsed_min"],
+        )
+    )
+    unit.wait_and_continue(keys=["space"], min_wait=0.0, terminate=True)
 
 
 def run(options: TaskRunOptions):
@@ -158,41 +197,52 @@ def _run_impl(*, mode: str, output_dir: Path | None, cfg: dict, participant_id: 
     stim_bank = StimBank(win, cfg["stim_config"]).preload_all()
 
     trigger_runtime.send(settings.triggers.get("exp_onset"))
+    _show_instruction_screen(win, kb, stim_bank, trigger_runtime, settings=settings)
 
     all_rows: list[dict[str, Any]] = []
-    total_blocks = int(getattr(settings, "total_blocks", 1) or 1)
+    block_specs: list[tuple[str, int]] = []
+    for block_idx in range(int(getattr(settings, "total_blocks", 2) or 2)):
+        block_specs.append(_block_spec(settings, block_idx))
 
-    for block_idx in range(total_blocks):
+    block_trial_offset = 0
+    for block_idx, (block_role, block_trials) in enumerate(block_specs):
         block_seed = _resolve_block_seed(settings, block_idx)
         block = (
             BlockUnit(
-                block_id=f"block_{block_idx:02d}",
+                block_id=f"block_{block_idx:02d}_{block_role}",
                 block_idx=block_idx,
                 settings=settings,
                 window=win,
                 keyboard=kb,
+                n_trials=block_trials,
             )
-            .generate_conditions()
-            .on_start(lambda b: trigger_runtime.send(settings.triggers.get("block_onset")))
-            .on_end(lambda b: trigger_runtime.send(settings.triggers.get("block_end")))
+            .generate_conditions(
+                func=build_block_conditions,
+                block_role=block_role,
+                seed=block_seed,
+            )
+            .on_start(lambda b, _settings=settings: trigger_runtime.send(_settings.triggers.get("block_onset")))
+            .on_end(lambda b, _settings=settings: trigger_runtime.send(_settings.triggers.get("block_end")))
             .run_trial(
                 partial(
                     run_trial,
                     stim_bank=stim_bank,
                     trigger_runtime=trigger_runtime,
-                    block_id=f"block_{block_idx:02d}",
+                    block_id=f"block_{block_idx:02d}_{block_role}",
                     block_idx=block_idx,
                     block_seed=block_seed,
+                    block_role=block_role,
+                    block_trial_offset=block_trial_offset,
+                    block_trial_count=block_trials,
                 )
             )
             .to_dict(all_rows)
         )
         _ = block.get_all_data()
+        block_trial_offset += block_trials
 
     overall_metrics = summarizeOverall(all_rows)
-    _make_goodbye_unit(win, kb, stim_bank, trigger_runtime, summary=overall_metrics).wait_and_continue(
-        terminate=True
-    )
+    _show_goodbye_screen(win, kb, stim_bank, trigger_runtime, summary=overall_metrics)
 
     trigger_runtime.send(settings.triggers.get("exp_end"))
 

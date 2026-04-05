@@ -1,7 +1,7 @@
 task_plot_spec:
   spec_version: '0.2'
   meta:
-    task_name: Trier Social Stress Test
+    task_name: Temporal Bisection Task
     mode: existing
     task_id: ''
   figure:
@@ -11,8 +11,8 @@ task_plot_spec:
       width_in: 16.0
       background: white
     layout:
-      max_conditions: 4
-      screens_per_timeline: 7
+      max_conditions: 2
+      screens_per_timeline: 6
       screen_overlap_ratio: 0.1
       screen_slope: 0.08
       screen_slope_deg: 25.0
@@ -32,394 +32,199 @@ task_plot_spec:
       timeline_arrow_min_y: 0.02
       timeline_arrow_max_y: 0.96
   timelines:
-  - condition: tsst
-    display_condition_label: Tsst
+  - condition: learning
+    display_condition_label: Learning
     phases:
-    - phase_name: instruction
-      display_phase_label: Instruction
-      duration_ms: null
-      response_window_ms: null
-      display_timing_label: ''
-      stim_ids:
-      - instruction_text
-      stimulus_example:
-        summary: 你将进行一段经典的 Trier Social Stress Test。 你会先看到安静等待…
-        modality: visual
-        draw_hint: text
-        render_items:
-        - kind: text
-          text: '你将进行一段经典的 Trier Social Stress Test。
-
-            你会先看到安静等待和准备阶段，然后面对两位保持沉默的评委与录制提示，
-
-            进行 5 分钟的即兴陈述，随后进行 5 分钟的心算。
-
-            请尽量连续、清晰地完成每个阶段。
-
-
-            按空格开始。'
-          color: white
-          pos:
-          - 0.0
-          - 0.0
-          height: 28.0
-      notes: ''
-    - phase_name: baseline acclimation
-      display_phase_label: Baseline Acclimation
+    - phase_name: fixation phase
+      display_phase_label: Fixation
       duration_ms:
-        fixed: 300
+        fixed: 500
       response_window_ms: null
-      display_timing_label: 300 ms
+      display_timing_label: 500 ms
       stim_ids:
-      - baseline_text
       - fixation
       stimulus_example:
-        summary: 请安静坐好，注视中央十字。 + +
+        summary: +
         modality: visual
         draw_hint: text
         render_items:
-        - kind: text
-          text: 请安静坐好，注视中央十字。
-          color: '#f2f2f2'
-          pos:
-          - 0.0
-          - 118.0
-          height: 28.0
         - kind: text
           text: +
           color: white
           pos:
           - 0.0
-          - -128.0
+          - 0.0
           height: 48.0
       notes: ''
-    - phase_name: speech preparation
-      display_phase_label: Speech Preparation
+    - phase_name: stimulus phase
+      display_phase_label: Stimulus
+      duration_ms:
+        range:
+        - 1
+        - 1000
+      response_window_ms: null
+      display_timing_label: 1-1000 ms
+      stim_ids:
+      - stimulus_flash
+      stimulus_example:
+        summary: Rectangle Rectangle
+        modality: visual
+        draw_hint: shape
+        render_items:
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: white
+          line_color: white
+          line_width: 1.0
+          pos:
+          - 0.0
+          - 0.0
+          size: null
+      notes: ''
+    - phase_name: learning label phase
+      display_phase_label: Learning Label
       duration_ms:
         fixed: 600
       response_window_ms: null
       display_timing_label: 600 ms
       stim_ids:
-      - panel_backdrop
-      - judge_left_body
-      - judge_left_head
-      - judge_right_body
-      - judge_right_head
-      - camera_light
-      - camera_label
-      - prep_text
+      - learning_label_text
       stimulus_example:
-        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
-          + Circle + Circle + REC + 请准备一段 10 分钟的陈述， 说明你为什么适合这份工作。 两位评委将保持沉默并记录。
+        summary: 这是… …
         modality: visual
         draw_hint: text
         render_items:
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#8e8e8e'
-          line_color: '#a5a5a5'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 82.0
-          size: null
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#ff9999'
-          line_color: '#ff9999'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 250.0
-          size: 0.29411764705882354
         - kind: text
-          text: REC
-          color: '#ffbfbf'
-          pos:
-          - 0.0
-          - 224.0
-          height: 22.0
-        - kind: text
-          text: '请准备一段 10 分钟的陈述，
+          text: '这是…
 
-            说明你为什么适合这份工作。
-
-            两位评委将保持沉默并记录。'
+            …'
           color: white
           pos:
           - 0.0
-          - -156.0
-          height: 28.0
-      notes: ''
-    - phase_name: speech delivery
-      display_phase_label: Speech Delivery
-      duration_ms:
-        fixed: 300
-      response_window_ms: null
-      display_timing_label: 300 ms
-      stim_ids:
-      - panel_backdrop
-      - judge_left_body
-      - judge_left_head
-      - judge_right_body
-      - judge_right_head
-      - camera_light
-      - camera_label
-      - speech_text
-      stimulus_example:
-        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
-          + Circle + Circle + REC + 请开始陈述。 你必须连续发言 5 分钟。 评委保持沉默并记录。
-        modality: visual
-        draw_hint: text
-        render_items:
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#8e8e8e'
-          line_color: '#a5a5a5'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 82.0
-          size: null
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#ff9999'
-          line_color: '#ff9999'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 250.0
-          size: 0.29411764705882354
-        - kind: text
-          text: REC
-          color: '#ffbfbf'
-          pos:
-          - 0.0
-          - 224.0
-          height: 22.0
-        - kind: text
-          text: '请开始陈述。
-
-            你必须连续发言 5 分钟。
-
-            评委保持沉默并记录。'
-          color: white
-          pos:
-          - 0.0
-          - -156.0
+          - -180.0
           height: 30.0
       notes: ''
-    - phase_name: mental arithmetic
-      display_phase_label: Mental Arithmetic
+    - phase_name: iti phase
+      display_phase_label: ITI
       duration_ms:
-        fixed: 300
+        fixed: 400
       response_window_ms: null
-      display_timing_label: 300 ms
+      display_timing_label: 400 ms
       stim_ids:
-      - panel_backdrop
-      - judge_left_body
-      - judge_left_head
-      - judge_right_body
-      - judge_right_head
-      - camera_light
-      - camera_label
-      - math_text
-      stimulus_example:
-        summary: Rectangle Rectangle + Rectangle Rectangle + Circle + Rectangle Rectangle
-          + Circle + Circle + REC + 请从 2043 开始每次减 17。 出错后请从 2043 重新开始。
-        modality: visual
-        draw_hint: text
-        render_items:
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#8e8e8e'
-          line_color: '#a5a5a5'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 82.0
-          size: null
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - -220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: rect
-          label: Rectangle Rectangle
-          color: '#f2f2f2'
-          line_color: '#f2f2f2'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 30.0
-          size: null
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#dbdbdb'
-          line_color: '#dbdbdb'
-          line_width: 1.0
-          pos:
-          - 220.0
-          - 170.0
-          size: 1.1764705882352942
-        - kind: shape
-          shape: circle
-          label: Circle
-          color: '#ff9999'
-          line_color: '#ff9999'
-          line_width: 1.0
-          pos:
-          - 0.0
-          - 250.0
-          size: 0.29411764705882354
-        - kind: text
-          text: REC
-          color: '#ffbfbf'
-          pos:
-          - 0.0
-          - 224.0
-          height: 22.0
-        - kind: text
-          text: '请从 2043 开始每次减 17。
-
-            出错后请从 2043 重新开始。'
-          color: white
-          pos:
-          - 0.0
-          - -156.0
-          height: 30.0
-      notes: ''
-    - phase_name: recovery
-      display_phase_label: Recovery
-      duration_ms:
-        fixed: 900
-      response_window_ms: null
-      display_timing_label: 900 ms
-      stim_ids:
-      - recovery_text
       - fixation
       stimulus_example:
-        summary: 请保持安静休息， 继续注视中央十字。 + +
+        summary: +
         modality: visual
         draw_hint: text
         render_items:
-        - kind: text
-          text: '请保持安静休息，
-
-            继续注视中央十字。'
-          color: '#f2f2f2'
-          pos:
-          - 0.0
-          - 118.0
-          height: 28.0
         - kind: text
           text: +
           color: white
           pos:
           - 0.0
-          - -128.0
+          - 0.0
           height: 48.0
       notes: ''
+    - phase_name: response phase
+      display_phase_label: Response Phase
+      duration_ms:
+        fixed: 3000
+      response_window_ms:
+        fixed: 3000
+      display_timing_label: 3000 ms
+      stim_ids:
+      - response_prompt_text
+      - choice_short_box
+      - choice_long_box
+      - choice_short_label
+      - choice_long_label
+      - choice_short_hint
+      - choice_long_hint
+      stimulus_example:
+        summary: 请选择这段时间更接近哪个标准 + Rectangle Rectangle + Rectangle Rectangle + 短 +
+          长 + 左箭头 + 右箭头
+        modality: visual
+        draw_hint: shape
+        render_items:
+        - kind: text
+          text: 请选择这段时间更接近哪个标准
+          color: white
+          pos:
+          - 0.0
+          - 190.0
+          height: 28.0
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#929292'
+          line_color: '#dfdfdf'
+          line_width: 1.0
+          pos:
+          - -260.0
+          - -20.0
+          size: null
+        - kind: shape
+          shape: rect
+          label: Rectangle Rectangle
+          color: '#929292'
+          line_color: '#dfdfdf'
+          line_width: 1.0
+          pos:
+          - 260.0
+          - -20.0
+          size: null
+        - kind: text
+          text: 短
+          color: white
+          pos:
+          - -260.0
+          - -20.0
+          height: 34.0
+        - kind: text
+          text: 长
+          color: white
+          pos:
+          - 260.0
+          - -20.0
+          height: 34.0
+        - kind: text
+          text: 左箭头
+          color: '#e5e5e5'
+          pos:
+          - -260.0
+          - -150.0
+          height: 24.0
+        - kind: text
+          text: 右箭头
+          color: '#e5e5e5'
+          pos:
+          - 260.0
+          - -150.0
+          height: 24.0
+      notes: ''
+    - phase_name: iti phase
+      display_phase_label: ITI
+      duration_ms:
+        fixed: 400
+      response_window_ms: null
+      display_timing_label: 400 ms
+      stim_ids:
+      - fixation
+      stimulus_example:
+        summary: +
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: +
+          color: white
+          pos:
+          - 0.0
+          - 0.0
+          height: 48.0
+      notes: ''
+    condition_variants:
+    - test
+    display_condition_note: 'Also: Test'
   legend: []

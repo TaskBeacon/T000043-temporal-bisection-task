@@ -1,17 +1,21 @@
 # References
 
-- Task ID: `T000042`
-- Generated at: `2026-04-05T07:00:00Z`
-- Selection policy: `openalex_citation_filtered`
+- Task ID: `T000043`
+- Generated at: `2026-04-05T00:00:00Z`
+- Selection policy: `tiered_mix_high_impact_plus_high_citation_open_access`
 - Citation threshold: `100`
 
 ## Selected Papers
 
 | ID | Year | Citations | Journal | High Impact | Open Access | Title |
 |---|---:|---:|---|---|---|---|
-| W2059005389 | 2011 | 247 | Journal of Visualized Experiments | no | yes | The Trier Social Stress Test Protocol for Inducing Psychological Stress |
-| W2023477927 | 2012 | 122 | Stress | no | yes | A friendly version of the Trier Social Stress Test does not activate the HPA axis in healthy men and women |
-| W2080858141 | 2004 | 267 | International Journal of Behavioral Medicine | no | yes | Differential heart rate reactivity and recovery after psychosocial stress (TSST) in healthy children, younger adults, and elderly adults: The impact of age and gender |
-| W1969430973 | 2014 | 121 | PLoS ONE | no | yes | Stress Effects on Mood, HPA Axis, and Autonomic Response: Comparison of Three Psychosocial Stress Paradigms |
-| W2151454086 | 2003 | 913 | Proceedings of the National Academy of Sciences | yes | yes | A mechanism converting psychosocial stress into mononuclear cell activation |
-| W2181244039 | 2015 | 292 | Proceedings of the National Academy of Sciences | yes | yes | Mitochondrial functions modulate neuroendocrine, metabolic, inflammatory, and transcriptional responses to acute psychological stress |
+| W2057409808 | 2010 | 834 | Nature Neuroscience | yes | yes | Temporal context calibrates interval timing |
+| W2070140174 | 2004 | 544 | Brain | yes | yes | Impulsivity, time perception, emotion and reinforcement sensitivity in patients with orbitofrontal cortex lesions |
+| W1968042267 | 2010 | 150 | Brain and Cognition | no | yes | Human performance on the temporal bisection task |
+| W2164353133 | 2008 | 237 | PLoS ONE | no | yes | Distortions of Subjective Time Perception Within and Across Senses |
+
+## Notes
+
+- Paywalled papers were skipped by policy.
+- The direct temporal-bisection protocol anchor is paired with high-impact context papers on timing and subjective duration.
+- Any unresolved protocol values are documented as `inferred` in `task_logic_audit.md`.

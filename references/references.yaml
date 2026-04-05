@@ -1,77 +1,67 @@
-task_id: T000042
-generated_at: '2026-04-05T07:00:00Z'
-selection_policy: openalex_citation_filtered
+task_id: T000043
+generated_at: '2026-04-05T00:00:00Z'
+selection_policy: tiered_mix_high_impact_plus_high_citation_open_access
 citation_threshold: 100
 papers:
-  - id: W2059005389
-    title: "The Trier Social Stress Test Protocol for Inducing Psychological Stress"
-    year: 2011
-    journal: Journal of Visualized Experiments
-    doi_or_url: https://doi.org/10.3791/3238
-    citation_count: 247
-    open_access: true
-    is_high_impact: false
-    used_for:
-      - protocol
-      - timing
-      - task_flow
-
-  - id: W2023477927
-    title: "A friendly version of the Trier Social Stress Test does not activate the HPA axis in healthy men and women"
-    year: 2012
-    journal: Stress
-    doi_or_url: https://doi.org/10.3109/10253890.2012.714427
-    citation_count: 122
-    open_access: true
-    is_high_impact: false
-    used_for:
-      - protocol_variant
-      - social_evaluation
-
-  - id: W2080858141
-    title: "Differential heart rate reactivity and recovery after psychosocial stress (TSST) in healthy children, younger adults, and elderly adults: The impact of age and gender"
-    year: 2004
-    journal: International Journal of Behavioral Medicine
-    doi_or_url: https://doi.org/10.1207/s15327558ijbm1102_8
-    citation_count: 267
-    open_access: true
-    is_high_impact: false
-    used_for:
-      - recovery
-      - reactivity
-
-  - id: W1969430973
-    title: "Stress Effects on Mood, HPA Axis, and Autonomic Response: Comparison of Three Psychosocial Stress Paradigms"
-    year: 2014
-    journal: PLoS ONE
-    doi_or_url: https://doi.org/10.1371/journal.pone.0113618
-    citation_count: 121
-    open_access: true
-    is_high_impact: false
-    used_for:
-      - paradigm_comparison
-      - workflow_validation
-
-  - id: W2151454086
-    title: "A mechanism converting psychosocial stress into mononuclear cell activation"
-    year: 2003
-    journal: Proceedings of the National Academy of Sciences
-    doi_or_url: https://doi.org/10.1073/pnas.0438019100
-    citation_count: 913
-    open_access: true
-    is_high_impact: true
-    used_for:
-      - high_impact_validation
-      - construct_support
-
-  - id: W2181244039
-    title: "Mitochondrial functions modulate neuroendocrine, metabolic, inflammatory, and transcriptional responses to acute psychological stress"
-    year: 2015
-    journal: Proceedings of the National Academy of Sciences
-    doi_or_url: https://doi.org/10.1073/pnas.1515733112
-    citation_count: 292
-    open_access: true
-    is_high_impact: true
-    used_for:
-      - high_impact_validation
-      - construct_support
+- id: W2057409808
+  title: Temporal context calibrates interval timing
+  authors:
+  - Mehrdad Jazayeri
+  - Michael N. Shadlen
+  year: 2010
+  journal: Nature Neuroscience
+  doi_or_url: https://doi.org/10.1038/nn.2590
+  citation_count: 834
+  open_access: true
+  is_high_impact: true
+  used_for:
+  - task_workflow
+  - timing_parameters
+  notes: Exact-title verified via OpenAlex; high-impact OA timing paper.
+- id: W2070140174
+  title: Impulsivity, time perception, emotion and reinforcement sensitivity in patients with orbitofrontal cortex lesions
+  authors:
+  - Heather A. Berlin
+  year: 2004
+  journal: Brain
+  doi_or_url: https://doi.org/10.1093/brain/awh135
+  citation_count: 544
+  open_access: true
+  is_high_impact: true
+  used_for:
+  - task_workflow
+  - timing_parameters
+  notes: Exact-title verified via OpenAlex; high-impact OA timing paper.
+- id: W1968042267
+  title: Human performance on the temporal bisection task
+  authors:
+  - Charles D. Kopec
+  - Carlos D. Brody
+  year: 2010
+  journal: Brain and Cognition
+  doi_or_url: https://doi.org/10.1016/j.bandc.2010.08.006
+  citation_count: 150
+  open_access: true
+  is_high_impact: false
+  used_for:
+  - task_workflow
+  - stimulus_spec
+  - timing_parameters
+  notes: Exact-title verified via OpenAlex; task-specific bisection protocol anchor.
+- id: W2164353133
+  title: Distortions of Subjective Time Perception Within and Across Senses
+  authors:
+  - Virginie van Wassenhove
+  - Dean V. Buonomano
+  - Shinsuke Shimojo
+  - Ladan Shams
+  year: 2008
+  journal: PLoS ONE
+  doi_or_url: https://doi.org/10.1371/journal.pone.0001437
+  citation_count: 237
+  open_access: true
+  is_high_impact: false
+  used_for:
+  - task_workflow
+  - timing_parameters
+  notes: Exact-title verified via OpenAlex; OA timing/perception context paper.

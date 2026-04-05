@@ -23,185 +23,195 @@ window:
   monitor_distance_cm: 60
 
 task:
-  task_name: trier_social_stress_test
+  task_name: temporal_bisection_task
   save_path: ./outputs/qa
   language: Chinese
   voice_name: zh-CN-YunyangNeural
   voice_enabled: false
   seed_mode: same_across_sub
-  overall_seed: 42042
+  overall_seed: 42043
   block_seed:
-    - 42042
+    - 42043
+    - 42044
   phase_order:
     - instruction
-    - baseline_acclimation
-    - speech_preparation
-    - speech_delivery
-    - mental_arithmetic
-    - recovery
+    - learning_fixation
+    - learning_stimulus
+    - learning_label
+    - learning_iti
+    - test_fixation
+    - test_stimulus
+    - test_response
+    - test_iti
     - good_bye
-  total_blocks: 1
-  total_trials: 1
-  trial_per_block: 1
+  total_blocks: 2
+  total_trials: 16
+  trial_per_block: 8
   conditions:
-    - tsst
+    - learning
+    - test
   condition_weights:
-    tsst: 1
+    learning: 1
+    test: 1
   key_list:
     - space
-  response_key: space
-  speech_preparation_minutes: 10
-  speech_minutes: 5
-  arithmetic_start_number: 2043
-  arithmetic_step: 17
-  recovery_minutes: 15
+    - left
+    - right
+  response_key: left
+  response_key_short: left
+  response_key_long: right
+  start_key: space
+  practice_trials: 4
+  test_trials: 12
+  anchor_short_ms: 400
+  anchor_long_ms: 1600
+  probe_durations_ms:
+    - 400
+    - 500
+    - 650
+    - 800
+    - 950
+    - 1100
+    - 1300
+    - 1600
+  delta: 0.0
   instruction_font: SimHei
   body_font: SimHei
   prompt_font: SimHei
   font_size_large: 34
   font_size_medium: 28
   font_size_small: 24
-  panel_top_y: 82
-  prompt_y: -150
-  fixation_y: -128
-  camera_y: 250
-  judge_left_x: -220
-  judge_right_x: 220
+  flash_size_px: [120, 120]
+  response_box_width_px: 220
+  response_box_height_px: 120
+  short_box_x: -260
+  long_box_x: 260
+  prompt_y: 190
+  response_box_y: -20
+  short_hint_y: -150
+  long_hint_y: -150
+  fixation_y: 0
+  flash_y: 0
+  response_timeout_s: 3.0
+  fixation_duration_s: 0.5
+  learning_label_duration_s: 0.6
+  iti_duration_s: 0.4
 
 timing:
-  instruction_pause_duration: 0.1
-  baseline_duration_s: 2.0
-  speech_preparation_duration_s: 3.0
-  speech_duration_s: 2.0
-  mental_arithmetic_duration_s: 2.0
-  recovery_duration_s: 3.0
-  goodbye_hold_duration_s: 0.1
+  fixation_duration_s: 0.5
+  learning_label_duration_s: 0.6
+  iti_duration_s: 0.4
+  response_timeout_s: 3.0
 
 stimuli:
   instruction_text:
     type: text
     font: SimHei
     text: |-
-      你将进行一段经典的 Trier Social Stress Test。
-      你会先看到安静等待和准备阶段，然后面对两位保持沉默的评委与录制提示，
-      进行 5 分钟的即兴陈述，随后进行 5 分钟的心算。
-      请尽量连续、清晰地完成每个阶段。
+      你将完成一个时间二分任务。
+      请先记住两个标准：
+      短标准 {short_ms}
+      长标准 {long_ms}
+
+      每次中央出现白色方块后，
+      请判断它更接近“短”还是“长”。
+      先看标准试次，再做正式判断。
+      正式判断时，左箭头 = 短，右箭头 = 长。
 
       按空格开始。
     color: white
     height: 28
-    wrapWidth: 1000
+    wrapWidth: 1040
     pos: [0, 0]
-  baseline_text:
-    type: text
-    font: SimHei
-    text: 请安静坐好，注视中央十字。
-    color: [0.9, 0.9, 0.9]
-    height: 28
-    wrapWidth: 900
-    pos: [0, 118]
-  prep_text:
+  learning_label_text:
     type: text
     font: SimHei
     text: |-
-      请准备一段 10 分钟的陈述，
-      说明你为什么适合这份工作。
-      两位评委将保持沉默并记录。
-    color: white
-    height: 28
-    wrapWidth: 980
-    pos: [0, -156]
-  speech_text:
-    type: text
-    font: SimHei
-    text: |-
-      请开始陈述。
-      你必须连续发言 5 分钟。
-      评委保持沉默并记录。
+      这是{anchor_label}
+      {anchor_ms_text}
     color: white
     height: 30
-    wrapWidth: 980
-    pos: [0, -156]
-  math_text:
+    wrapWidth: 960
+    pos: [0, -180]
+  response_prompt_text:
     type: text
     font: SimHei
     text: |-
-      请从 2043 开始每次减 17。
-      出错后请从 2043 重新开始。
+      请选择这段时间更接近哪个标准
     color: white
-    height: 30
+    height: 28
     wrapWidth: 980
-    pos: [0, -156]
-  recovery_text:
+    pos: [0, 190]
+  choice_short_box:
+    type: rect
+    width: 220
+    height: 120
+    fillColor: [0.15, 0.15, 0.15]
+    lineColor: [0.75, 0.75, 0.75]
+    pos: [-260, -20]
+  choice_long_box:
+    type: rect
+    width: 220
+    height: 120
+    fillColor: [0.15, 0.15, 0.15]
+    lineColor: [0.75, 0.75, 0.75]
+    pos: [260, -20]
+  choice_short_label:
     type: text
     font: SimHei
-    text: |-
-      请保持安静休息，
-      继续注视中央十字。
-    color: [0.9, 0.9, 0.9]
-    height: 28
-    wrapWidth: 900
-    pos: [0, 118]
+    text: 短
+    color: white
+    height: 34
+    pos: [-260, -20]
+  choice_long_label:
+    type: text
+    font: SimHei
+    text: 长
+    color: white
+    height: 34
+    pos: [260, -20]
+  choice_short_hint:
+    type: text
+    font: SimHei
+    text: 左箭头
+    color: [0.8, 0.8, 0.8]
+    height: 24
+    pos: [-260, -150]
+  choice_long_hint:
+    type: text
+    font: SimHei
+    text: 右箭头
+    color: [0.8, 0.8, 0.8]
+    height: 24
+    pos: [260, -150]
   fixation:
     type: text
     font: SimHei
     text: +
     color: white
     height: 48
-    pos: [0, -128]
-  panel_backdrop:
+    pos: [0, 0]
+  stimulus_flash:
     type: rect
-    width: 980
-    height: 330
-    fillColor: [0.12, 0.12, 0.12]
-    lineColor: [0.3, 0.3, 0.3]
-    pos: [0, 82]
-  judge_left_head:
-    type: circle
-    radius: 40
-    fillColor: [0.72, 0.72, 0.72]
-    lineColor: [0.72, 0.72, 0.72]
-    pos: [-220, 170]
-  judge_left_body:
-    type: rect
-    width: 150
-    height: 210
-    fillColor: [0.9, 0.9, 0.9]
-    lineColor: [0.9, 0.9, 0.9]
-    pos: [-220, 30]
-  judge_right_head:
-    type: circle
-    radius: 40
-    fillColor: [0.72, 0.72, 0.72]
-    lineColor: [0.72, 0.72, 0.72]
-    pos: [220, 170]
-  judge_right_body:
-    type: rect
-    width: 150
-    height: 210
-    fillColor: [0.9, 0.9, 0.9]
-    lineColor: [0.9, 0.9, 0.9]
-    pos: [220, 30]
-  camera_light:
-    type: circle
-    radius: 10
-    fillColor: [1.0, 0.2, 0.2]
-    lineColor: [1.0, 0.2, 0.2]
-    pos: [0, 250]
-  camera_label:
-    type: text
-    font: SimHei
-    text: REC
-    color: [1.0, 0.5, 0.5]
-    height: 22
-    pos: [0, 224]
-  good_bye:
+    width: 120
+    height: 120
+    fillColor: white
+    lineColor: white
+    pos: [0, 0]
+  good_bye_text:
     type: text
     font: SimHei
     text: |-
       任务结束
+
+      总试次：{trial_count}
+      学习试次：{learning_trials}
+      测试试次：{test_trials}
+      平均反应时：{mean_rt_s:.2f} 秒
+      长反应比例：{long_choice_rate:.1%}
+      漏答率：{miss_rate:.1%}
+
       总用时：{total_elapsed_min:.1f} 分钟
-      已完成阶段：{phase_count}
 
       按空格退出
     color: white
@@ -217,12 +227,18 @@ triggers:
     block_end: 11
     trial_onset: 20
     instruction_onset: 21
-    baseline_onset: 22
-    prep_onset: 23
-    speech_onset: 24
-    math_onset: 25
-    recovery_onset: 26
-    good_bye_onset: 30
+    learning_fixation_onset: 22
+    learning_stimulus_onset: 23
+    learning_label_onset: 24
+    learning_iti_onset: 25
+    test_fixation_onset: 26
+    test_stimulus_onset: 27
+    test_response_onset: 28
+    test_response_short: 29
+    test_response_long: 30
+    test_response_timeout: 31
+    test_iti_onset: 32
+    good_bye_onset: 40
   driver:
     type: serial_url
     url: loop://
@@ -238,16 +254,21 @@ qa:
   output_dir: outputs/qa
   enable_scaling: true
   timing_scale: 0.2
-  min_frames: 1
+  min_frames: 2
   strict: false
-  max_wait_s: 12.0
+  max_wait_s: 10.0
   acceptance_criteria:
     required_columns:
       - condition
-      - phase_sequence_json
-      - phase_elapsed_json
-      - total_elapsed_s
-    expected_trial_count: 1
+      - block_role
+      - trial_kind
+      - stimulus_ms
+      - response_received
+      - response_label
+      - response_rt_s
+    expected_trial_count: 16
     allowed_keys:
       - space
+      - left
+      - right
     triggers_required: true
